@@ -18,7 +18,34 @@
   <script src="js/dalnav.js"></script>
 </head>
 <body>
-  <div data-role="page" data-control-title="Home" id="page1">
+  <div data-role="page" data-control-title="Home" id="home">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
+      data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Divider
+              </li>
+              <li data-theme="a">
+                  <a href="" data-transition="slide">
+                      Button
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#otherinfo" data-transition="slide">
+                      Info
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-theme="a" data-role="header">
+          <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
+          data-icon="bars" data-iconpos="left" class="ui-btn-left">
+              Menu
+          </a>
+          <h3>
+              DalNav
+          </h3>
+      </div>
       <div data-role="content">
           <div data-controltype="textblock">
               <p>
@@ -30,65 +57,126 @@
           <div data-role="tabbar" data-iconpos="top" data-theme="c">
               <ul>
                   <li>
-                      <a href="#page3" data-transition="fade" data-theme="" data-icon="search">
+                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
                           Find
                       </a>
                   </li>
                   <li>
-                      <a href="#page11" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
                   <li>
-                      <a href="#page12" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
                           Map
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#page13" data-transition="fade" data-theme="" data-icon="info">
-                          Info
                       </a>
                   </li>
               </ul>
           </div>
       </div>
   </div>
-  <div data-role="page" data-control-title="Find" id="page3">
+  <div data-role="page" data-control-title="Find" id="find">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Find
+          </h3>
+          <a data-controltype="panelbutton" data-role="button" href="#" data-icon="bars"
+          data-iconpos="left" class="ui-btn-left">
+              Menu
+          </a>
+      </div>
       <div data-role="content">
-          <ul data-role="listview" data-divider-theme="" data-inset="true">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Select a building from the list below.
+                  </b>
+              </p>
+          </div>
+          <ul id="buildingsList" data-role="listview" data-divider-theme="" data-inset="true">
+              <li data-theme="c">
+                  <a href="#arts" data-transition="slide">
+                      Arts
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#burbidge" data-transition="slide">
+                      Burbidge
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#chase" data-transition="slide">
+                      Chase
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#chem" data-transition="slide">
+                      Chemistry
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#dentistry" data-transition="slide">
+                      Dentistry
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#dunn" data-transition="slide">
+                      Dunn
+                  </a>
+              </li>
               <li data-theme="">
-                  <a href="#page4" data-transition="slide">
+                  <a href="#cs" data-transition="slide">
                       Goldberg Computer Science
                   </a>
               </li>
               <li data-theme="c">
-                  <a href="#page5" data-transition="slide">
+                  <a href="#hicks" data-transition="slide">
+                      Henry Hicks
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#rowe" data-transition="slide">
+                      Kennith Row
+                  </a>
+              </li>
+              <li data-theme="">
+                  <a href="#killam" data-transition="slide">
+                      Killam Library
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page27" data-transition="slide">
                       Life Sciences Center
                   </a>
               </li>
               <li data-theme="c">
-                  <a href="#page6" data-transition="slide">
-                      Kennith Row
-                  </a>
-              </li>
-              <li data-theme="c">
-                  <a href="#page7" data-transition="slide">
-                      Student Union Building
-                  </a>
-              </li>
-              <li data-theme="c">
-                  <a href="#page8" data-transition="slide">
+                  <a href="#mccain" data-transition="slide">
                       McCain
                   </a>
               </li>
               <li data-theme="c">
-                  <a href="#page9" data-transition="slide">
-                      Dunn
+                  <a href="#monacampbell" data-transition="slide">
+                      Mona Campbell
                   </a>
               </li>
               <li data-theme="c">
-                  <a href="#page10" data-transition="slide">
-                      Killam Library
+                  <a href="#sub" data-transition="slide">
+                      Student Union Building
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#tupper" data-transition="slide">
+                      Tupper &amp; Kellogg
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#law" data-transition="slide">
+                      Weldon Law
                   </a>
               </li>
           </ul>
@@ -96,159 +184,422 @@
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
-                  <a href="#page3" data-transition="fade" data-theme="" data-icon="search">
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
                       Find
                   </a>
               </li>
               <li>
-                  <a href="#page11" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
               <li>
-                  <a href="#page12" data-transition="fade" data-theme="" data-icon="arrow-u">
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
                       Map
-                  </a>
-              </li>
-              <li>
-                  <a href="#page13" data-transition="fade" data-theme="" data-icon="info">
-                      Info
                   </a>
               </li>
           </ul>
       </div>
   </div>
-
-
-<!-- SCHEDULE PAGE -->
-  <div data-role="page" data-control-title="Schedule" id="page11">
+  <div data-role="page" data-control-title="Course Overview" id="schedule">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Course List
+          </h3>
+          <a data-controltype="panelbutton" data-role="button" href="#" data-icon="bars"
+          data-iconpos="left" class="ui-btn-left">
+              Menu
+          </a>
+      </div>
       <div data-role="content">
-          <div data-role="fieldcontain" data-controltype="textinput">
-<!-- Class Name Input Field -->       
-	     <input name="" id="className" placeholder="None" value="Class Name"
-              type="text" data-mini="true">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Schedule List
+                  </strong>
+              </p>
+          </div>
+          <ul id="class1Button" data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a href="#edit" data-transition="slide">
+                      Class 1 Name
+                  </a>
+              </li>
+          </ul>
+          <a id="addCourse" data-role="button" href="#edit">
+              Add Course
+          </a>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Add Class" id="edit">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Add Class
+          </h3>
+          <a data-role="button" data-rel="back" href="#edit" class="ui-btn-left">
+              Back
+          </a>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Store your class list by entering the class information below.
+                  </b>
+              </p>
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
+              <input name="" id="classNameAdd" placeholder="Class Name" value="" type="text"
+              data-mini="true">
               <div data-role="tabbar" data-iconpos="top" data-theme="c">
                   <ul>
                       <li>
-                          <a href="#page3" data-transition="fade" data-theme="" data-icon="search">
+                          <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                              Home
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#find" data-transition="fade" data-theme="" data-icon="search">
                               Find
                           </a>
                       </li>
                       <li>
-                          <a href="#" data-transition="fade" data-theme="" data-icon="star">
+                          <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
                               Schedule
                           </a>
                       </li>
                       <li>
-                          <a href="#" data-transition="fade" data-theme="" data-icon="arrow-u">
+                          <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
                               Map
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#page3" data-transition="fade" data-theme="" data-icon="info">
-                              Info
                           </a>
                       </li>
                   </ul>
               </div>
-              <div data-role="fieldcontain" data-controltype="textinput">
-<!--Building Name Input Field  --> 
-                  <input name="" id="buildingName" placeholder="None" value="Building Name"
-                  type="text" data-mini="true">
+              <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
+                  <input name="" id="buildingNameAdd" placeholder="Class Building Name"
+                  value="" type="text" data-mini="true">
                   <div data-role="tabbar" data-iconpos="top" data-theme="c">
                       <ul>
                           <li>
-                              <a href="#page3" data-transition="fade" data-theme="" data-icon="search">
+                              <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                                  Home
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#find" data-transition="fade" data-theme="" data-icon="search">
                                   Find
                               </a>
                           </li>
                           <li>
-                              <a href="#" data-transition="fade" data-theme="" data-icon="star">
+                              <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
                                   Schedule
                               </a>
                           </li>
                           <li>
-                              <a href="#" data-transition="fade" data-theme="" data-icon="arrow-u">
+                              <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
                                   Map
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#page3" data-transition="fade" data-theme="" data-icon="info">
-                                  Info
                               </a>
                           </li>
                       </ul>
                   </div>
               </div>
           </div>
-          <div data-role="fieldcontain" data-controltype="radiobuttons">
-              <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-<!-- Radio Buttons -->
-                  <legend>
-                      Class:
-                  </legend>
-                  <input id="radio1" name="radioButton" onClick=classChosen() value="C1" data-theme="c" type="radio">
-                  <label for="radio1">
-                      1
+          <div id="dayAdd" data-role="fieldcontain" data-controltype="checkboxes">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <input id="checkbox22" name="mon" type="checkbox">
+                  <label for="checkbox22">
+                      Monday
                   </label>
-                  <input id="radio2" name="radioButton" onClick=classChosen() value="C2" type="radio">
-                  <label for="radio2">
-                      2
+                  <input id="checkbox2" name="tues" type="checkbox">
+                  <label for="checkbox2">
+                      Tuesday
                   </label>
-                  <input id="radio3" name="radioButton" onClick=classChosen() value="C3" type="radio">
-                  <label for="radio3">
-                      3
+                  <input id="checkbox3" name="wed" type="checkbox">
+                  <label for="checkbox3">
+                      Wednesday
                   </label>
-                  <input id="radio4" name="radioButton" onClick=classChosen() value="C4" type="radio">
-                  <label for="radio4">
-                      4
+                  <input id="checkbox4" name="thurs" type="checkbox">
+                  <label for="checkbox4">
+                      Thursday
                   </label>
-                  <input id="radio5" name="radioButton" onClick=classChosen() value="C5" type="radio">
-                  <label for="radio5">
-                      5
+                  <input id="checkbox5" name="fri" type="checkbox">
+                  <label for="checkbox5">
+                      Friday
                   </label>
-                  <input id="radio6" name="radioButton" onClick=classChosen() value="C6" type="radio">
-                  <label for="radio6">
-                      6
+                  <input id="checkbox6" name="sat" type="checkbox">
+                  <label for="checkbox6">
+                      Saturday
+                  </label>
+                  <input id="checkbox7" name="sun" type="checkbox">
+                  <label for="checkbox7">
+                      Sunday
                   </label>
               </fieldset>
           </div>
+          <div data-role="fieldcontain" data-controltype="dateinput" class="timeInput">
+              <label for="timeAdd">
+                  Class Start Time
+              </label>
+              <input name="" id="timeAdd" placeholder="" value="" type="time">
+          </div>
+          <div data-role="fieldcontain" data-controltype="toggleswitch" class="alertButton">
+              <label for="alertAdd">
+                  Alerts
+              </label>
+              <select name="toggleswitch2" id="alertAdd" data-theme="" data-role="slider">
+                  <option value="off">
+                      Off
+                  </option>
+                  <option value="on">
+                      On
+                  </option>
+              </select>
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput" class="alertTimeInput">
+              <label for="alertTimeAdd">
+                  Alert how soon before class?
+              </label>
+              <input name="" id="alertTimeAdd" placeholder="minutes" value="" type="number">
+          </div>
           <div data-controltype="textblock">
               <p>
-<!-- Instructions -->
                   <b>
-                      Choose class number, enter info, then submit
+                      Save this course data.
                   </b>
               </p>
           </div>
-          <input type="submit" id="submit1" onClick=submitted() data-theme="b" value="Submit">
+          <input id="saveClassAdd" type="submit" data-theme="b" value="Save" class="button">
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
-                  <a href="#page3" data-transition="fade" data-theme="" data-icon="search">
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
                       Find
                   </a>
               </li>
               <li>
-                  <a href="#page11" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
               <li>
-                  <a href="#page12" data-transition="fade" data-theme="" data-icon="arrow-u">
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
                       Map
-                  </a>
-              </li>
-              <li>
-                  <a href="#page13" data-transition="fade" data-theme="" data-icon="info">
-                      Info
                   </a>
               </li>
           </ul>
       </div>
   </div>
-  <div data-role="page" data-control-title="Map" id="page12">
+  <div data-role="page" data-control-title="Edit Class" id="page25">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Edit Class
+          </h3>
+          <a data-role="button" data-rel="back" href="#edit" class="ui-btn-left">
+              Back
+          </a>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Update your class list by making class changes below.
+                  </b>
+              </p>
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
+              <input name="" id="classNameEdit" placeholder="Class Name" value="Class Name"
+              type="text" data-mini="true">
+              <div data-role="tabbar" data-iconpos="top" data-theme="c">
+                  <ul>
+                      <li>
+                          <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                              Home
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                              Find
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                              Schedule
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                              Map
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+              <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
+                  <input name="" id="buildingNameEdit" placeholder="Class Building Name"
+                  value="Class Building Name" type="text" data-mini="true">
+                  <div data-role="tabbar" data-iconpos="top" data-theme="c">
+                      <ul>
+                          <li>
+                              <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                                  Home
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                                  Find
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                                  Schedule
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                                  Map
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div id="dayEdit" data-role="fieldcontain" data-controltype="checkboxes">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <input id="checkbox15" name="mon" type="checkbox">
+                  <label for="checkbox15">
+                      Monday
+                  </label>
+                  <input id="checkbox16" name="tues" type="checkbox">
+                  <label for="checkbox16">
+                      Tuesday
+                  </label>
+                  <input id="checkbox17" name="wed" type="checkbox">
+                  <label for="checkbox17">
+                      Wednesday
+                  </label>
+                  <input id="checkbox18" name="thurs" type="checkbox">
+                  <label for="checkbox18">
+                      Thursday
+                  </label>
+                  <input id="checkbox19" name="fri" type="checkbox">
+                  <label for="checkbox19">
+                      Friday
+                  </label>
+                  <input id="checkbox20" name="sat" type="checkbox">
+                  <label for="checkbox20">
+                      Saturday
+                  </label>
+                  <input id="checkbox21" name="sun" type="checkbox">
+                  <label for="checkbox21">
+                      Sunday
+                  </label>
+              </fieldset>
+          </div>
+          <div data-role="fieldcontain" data-controltype="dateinput" class="timeInput">
+              <label for="timeEdit">
+                  Class Start Time
+              </label>
+              <input name="" id="timeEdit" placeholder="" value="" type="time">
+          </div>
+          <div data-role="fieldcontain" data-controltype="toggleswitch" class="alertButton">
+              <label for="alertEdit">
+                  Alerts
+              </label>
+              <select name="toggleswitch4" id="alertEdit" data-theme="" data-role="slider">
+                  <option value="off">
+                      Off
+                  </option>
+                  <option value="on">
+                      On
+                  </option>
+              </select>
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput" class="alertTimeInput">
+              <label for="alertTimeEdit">
+                  Alert how soon before class?
+              </label>
+              <input name="" id="alertTimeEdit" placeholder="minutes" value="20 minutes"
+              type="number">
+          </div>
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Update this course data.
+                  </b>
+              </p>
+          </div>
+          <input id="saveClassEdit" type="submit" data-theme="b" value="Save" class="button">
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Map" id="map">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Map
+          </h3>
+          <a data-controltype="panelbutton" data-role="button" href="#" data-icon="bars"
+          data-iconpos="left" class="ui-btn-left">
+              Menu
+          </a>
+      </div>
       <div data-role="content">
           <div id="googlemapsjs9" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
           </div>
@@ -286,29 +637,38 @@
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
-                  <a href="#page3" data-transition="fade" data-theme="" data-icon="search">
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
                       Find
                   </a>
               </li>
               <li>
-                  <a href="#page11" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
               <li>
-                  <a href="#page12" data-transition="fade" data-theme="" data-icon="arrow-u">
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
                       Map
-                  </a>
-              </li>
-              <li>
-                  <a href="#page13" data-transition="fade" data-theme="" data-icon="info">
-                      Info
                   </a>
               </li>
           </ul>
       </div>
   </div>
-  <div data-role="page" data-control-title="Info" id="page13">
+  <div data-role="page" data-control-title="Info" id="otherinfo">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Info
+          </h3>
+          <a data-controltype="panelbutton" data-role="button" href="#" data-icon="bars"
+          data-iconpos="left" class="ui-btn-left">
+              Menu
+          </a>
+      </div>
       <div data-role="content">
           <div data-controltype="textblock">
               <p>
@@ -321,36 +681,763 @@
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
-                  <a href="#page3" data-transition="fade" data-theme="" data-icon="search">
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
                       Find
                   </a>
               </li>
               <li>
-                  <a href="#page11" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
               <li>
-                  <a href="#page12" data-transition="fade" data-theme="" data-icon="arrow-u">
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
                       Map
-                  </a>
-              </li>
-              <li>
-                  <a href="#page13" data-transition="fade" data-theme="" data-icon="info">
-                      Info
                   </a>
               </li>
           </ul>
       </div>
   </div>
-  <div data-role="page" data-control-title="Goldberg Computer Science "
-  id="page4">
-      <div data-role="content">
-          <a data-role="button" data-rel="back" href="#page4" data-icon="arrow-l"
-          data-iconpos="left">
+  <div data-role="page" data-control-title="Dalhousie Arts" id="arts">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#home" class="ui-btn-left">
               Back
           </a>
-          <div id="googlemapsjs2" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
+          <h3>
+              Dal Arts
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;6101 University Ave. B3H1W8
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs12" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs12', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.637735,-63.588473'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Burbidge" id="burbidge">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#home" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Burbidge
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;5968 College St. B3H1X7
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs10" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs10', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.639313,-63.585281'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Chase" id="chase">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#home" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Chase
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;6316 Coburg Road, B3H1Z9
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs11" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs11', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.637059,-63.593159'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Chemistry" id="chem">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#home" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Chemistry
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;6300 Coburg Rd. B3H1Z9
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs13" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs13', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.636815,-63.591917'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Dentistry" id="dentistry">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Dentistry
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;5981 University Ave. B3H4R2
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs14" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs14', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.638542,-63.585222'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Dunn" id="dunn">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Sir James Dunn
+          </h3>
+          <a data-role="button" data-rel="back" href="#schedule" class="ui-btn-left">
+              Back
+          </a>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;6310 Coburg Rd. B3H1Z9
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs7" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs7', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.637857,-63.593336'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+          <div data-role="tabbar" data-iconpos="top" data-theme="c">
+              <ul>
+                  <li>
+                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                          Find
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                          Schedule
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                          Map
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Goldberg Computer Science "
+  id="cs">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#cs" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Goldberg CS
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;6050 University Ave. B3H1W5
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs2" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
           </div>
           <script type="text/javascript">
                   window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs2', {
@@ -384,11 +1471,52 @@
           </script>
           <div data-controltype="textblock">
               <p>
+                  <br>
+              </p>
+          </div>
+          <div data-role="tabbar" data-iconpos="top" data-theme="c">
+              <ul>
+                  <li>
+                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                          Find
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                          Schedule
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                          Map
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Henry Hicks" id="hicks">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#home" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Henry Hicks
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
                   <strong>
                       Address:
                   </strong>
                   <span>
-                      &nbsp;6050 University Ave B3H 1W5
+                      &nbsp;6299 South St. B3H4H6
                   </span>
                   <br>
                   <strong>
@@ -402,7 +1530,7 @@
                       Study Space:
                   </strong>
                   <span>
-                      &nbsp;Yes
+                      &nbsp;No
                   </span>
                   <br>
                   <strong>
@@ -416,34 +1544,21 @@
                       Computer Access:
                   </strong>
                   <span>
-                      &nbsp;Yes
+                      &nbsp;No
                   </span>
                   <br>
                   <strong>
                       Food Services:
                   </strong>
                   <span>
-                      &nbsp;Yes
+                      &nbsp;No
                   </span>
               </p>
           </div>
-          <div data-controltype="textblock">
-              <p>
-                  <br>
-              </p>
-          </div>
-      </div>
-  </div>
-  <div data-role="page" data-control-title="Life Sciences Center" id="page5">
-      <div data-role="content">
-          <a data-role="button" data-rel="back" href="#page4" data-icon="arrow-l"
-          data-iconpos="left">
-              Back
-          </a>
-          <div id="googlemapsjs3" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
+          <div id="googlemapsjs15" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
           </div>
           <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs3', {
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs15', {
               ready: function(control) {
   
                   control.options = {
@@ -456,7 +1571,7 @@
   
                   var geocoder = new google.maps.Geocoder();
                   geocoder.geocode({
-                      'address': '44.636082,-63.593794'
+                      'address': '44.636208,-63.593108'
                   }, function(results, status) {
                       if (status == google.maps.GeocoderStatus.OK) {
   
@@ -472,60 +1587,76 @@
               }
           });
           </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Kenneth Rowe" id="rowe">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Kenneth Rowe
+          </h3>
+          <a data-role="button" data-rel="back" href="#schedule" class="ui-btn-left">
+              Back
+          </a>
+      </div>
+      <div data-role="content">
           <div data-controltype="textblock">
               <p>
                   <strong>
                       Address:
                   </strong>
-                  <span>
-                      &nbsp;1355 Oxford Street, B3H 4J1
-                  </span>
+                  &nbsp;6100 University Ave. B3H3J5
                   <br>
                   <strong>
                       Wireless Access:
                   </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
+                  &nbsp;Yes
                   <br>
                   <strong>
                       Study Space:
                   </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
+                  &nbsp;No
                   <br>
                   <strong>
                       Lounge Area:
                   </strong>
-                  <span>
-                      &nbsp;No
-                  </span>
+                  &nbsp;Yes
                   <br>
                   <strong>
                       Computer Access:
                   </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
+                  &nbsp;Yes
                   <br>
                   <strong>
                       Food Services:
                   </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
+                  &nbsp;Yes
               </p>
           </div>
-      </div>
-  </div>
-  <div data-role="page" data-control-title="Kenith Row" id="page6">
-      <div data-role="content">
-          <a data-role="button" data-rel="back" href="#page4" data-icon="arrow-l"
-          data-iconpos="left">
-              Back
-          </a>
-          <div id="googlemapsjs4" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
+          <div id="googlemapsjs4" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
           </div>
           <script type="text/javascript">
                   window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs4', {
@@ -557,86 +1688,49 @@
               }
           });
           </script>
-          <div data-controltype="textblock">
-              <p>
-                  <strong>
-                      Address:
-                  </strong>
-                  &nbsp;6100 University Ave. B3H 3J5
-                  <br>
-                  <strong>
-                      Wireless Access:
-                  </strong>
-                  &nbsp;Yes
-                  <br>
-                  <strong>
-                      Study Space:
-                  </strong>
-                  &nbsp;No
-                  <br>
-                  <strong>
-                      Lounge Area:
-                  </strong>
-                  &nbsp;Yes
-                  <br>
-                  <strong>
-                      Computer Access:
-                  </strong>
-                  &nbsp;Yes
-                  <br>
-                  <strong>
-                      Food Services:
-                  </strong>
-                  &nbsp;Yes
-              </p>
+          <div data-role="tabbar" data-iconpos="top" data-theme="c">
+              <ul>
+                  <li>
+                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                          Find
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                          Schedule
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                          Map
+                      </a>
+                  </li>
+              </ul>
           </div>
       </div>
   </div>
-  <div data-role="page" data-control-title="Student Union Building" id="page7">
-      <div data-role="content">
-          <a data-role="button" data-rel="back" href="#page4" data-icon="arrow-l"
-          data-iconpos="left">
+  <div data-role="page" data-control-title="Killam Library" id="killam">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Killam Library
+          </h3>
+          <a data-role="button" data-rel="back" href="#schedule" class="ui-btn-left">
               Back
           </a>
-          <div id="googlemapsjs5" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs5', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.636891,-63.589184'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+      </div>
+      <div data-role="content">
           <div data-controltype="textblock">
               <p>
                   <strong>
                       Address:
                   </strong>
                   <span>
-                      &nbsp;6136 University Ave, B3H 4J2
+                      &nbsp;6225 University Ave. B3H4H8
                   </span>
                   <br>
                   <strong>
@@ -675,185 +1769,7 @@
                   </span>
               </p>
           </div>
-      </div>
-  </div>
-  <div data-role="page" data-control-title="McCain" id="page8">
-      <div data-role="content">
-          <a data-role="button" data-rel="back" href="#page4" data-icon="arrow-l"
-          data-iconpos="left">
-              Back
-          </a>
-          <div id="googlemapsjs6" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs6', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637326,-63.589503'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
-          <div data-controltype="textblock">
-              <p>
-                  <strong>
-                      Address:
-                  </strong>
-                  <span>
-                      &nbsp;6135 University Ave. B3H 4P9
-                  </span>
-                  <br>
-                  <strong>
-                      Wireless Access:
-                  </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
-                  <br>
-                  <strong>
-                      Study Space:
-                  </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
-                  <br>
-                  <strong>
-                      Lounge Area:
-                  </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
-                  <br>
-                  <strong>
-                      Computer Access:
-                  </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
-                  <br>
-                  <strong>
-                      Food Services:
-                  </strong>
-                  <span>
-                      &nbsp;No
-                  </span>
-              </p>
-          </div>
-      </div>
-  </div>
-  <div data-role="page" data-control-title="Dunn" id="page9">
-      <div data-role="content">
-          <a data-role="button" data-rel="back" href="#page4" data-icon="arrow-l"
-          data-iconpos="left">
-              Back
-          </a>
-          <div id="googlemapsjs7" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs7', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637857,-63.593336'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
-          <div data-controltype="textblock">
-              <p>
-                  <strong>
-                      Address:
-                  </strong>
-                  <span>
-                      &nbsp;6310 Coburg Road, B3H 1Z9
-                  </span>
-                  <br>
-                  <strong>
-                      Wireless Access:
-                  </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
-                  <br>
-                  <strong>
-                      Study Space:
-                  </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
-                  <br>
-                  <strong>
-                      Lounge Area:
-                  </strong>
-                  <span>
-                      &nbsp;No
-                  </span>
-                  <br>
-                  <strong>
-                      Computer Access:
-                  </strong>
-                  <span>
-                      &nbsp;Yes
-                  </span>
-                  <br>
-                  <strong>
-                      Food Services:
-                  </strong>
-                  <span>
-                      &nbsp;No
-                  </span>
-              </p>
-          </div>
-      </div>
-  </div>
-  <div data-role="page" data-control-title="Killam Library" id="page10">
-      <div data-role="content">
-          <a data-role="button" data-rel="back" href="#page4" data-icon="arrow-l"
-          data-iconpos="left">
-              Back
-          </a>
-          <div id="googlemapsjs8" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
+          <div id="googlemapsjs8" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
           </div>
           <script type="text/javascript">
                   window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs8', {
@@ -885,13 +1801,376 @@
               }
           });
           </script>
+          <div data-role="tabbar" data-iconpos="top" data-theme="c">
+              <ul>
+                  <li>
+                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                          Find
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                          Schedule
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                          Map
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Life Sciences Center" id="page27">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Killam Library
+          </h3>
+          <a data-role="button" data-rel="back" href="#schedule" class="ui-btn-left">
+              Back
+          </a>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  &nbsp;1355 Oxford St. B3H4J1
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  &nbsp;Yes
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  &nbsp;Yes
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  &nbsp;No
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  &nbsp;Yes
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  &nbsp;Yes
+              </p>
+          </div>
+          <div id="googlemapsjs21" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs21', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.636082,-63.593795'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+          <div data-role="tabbar" data-iconpos="top" data-theme="c">
+              <ul>
+                  <li>
+                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                          Find
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                          Schedule
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                          Map
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="McCain" id="mccain">
+      <div data-theme="a" data-role="header">
+          <h3>
+              McCain
+          </h3>
+          <a data-role="button" data-rel="back" href="#schedule" class="ui-btn-left">
+              Back
+          </a>
+      </div>
+      <div data-role="content">
           <div data-controltype="textblock">
               <p>
                   <strong>
                       Address:
                   </strong>
                   <span>
-                      &nbsp;6225 University Ave, B3H 4H8
+                      &nbsp;6135 University Ave. B3H4P9
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs6" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs6', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.637326,-63.589503'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+          <div data-role="tabbar" data-iconpos="top" data-theme="c">
+              <ul>
+                  <li>
+                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                          Find
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                          Schedule
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                          Map
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Mona Campbell" id="monacampbell">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Mona Campbell
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;1459 Lemarchant St. B3H3P8
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;No
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs16" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs16', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.63905,-63.590769'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Student Union Building" id="sub">
+      <div data-theme="a" data-role="header">
+          <h3>
+              SUB
+          </h3>
+          <a data-role="button" data-rel="back" href="#schedule" class="ui-btn-left">
+              Back
+          </a>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;6136 University Ave. B3H4J2
                   </span>
                   <br>
                   <strong>
@@ -930,6 +2209,288 @@
                   </span>
               </p>
           </div>
+          <div id="googlemapsjs5" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs5', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.636891,-63.589184'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+          <div data-role="tabbar" data-iconpos="top" data-theme="c">
+              <ul>
+                  <li>
+                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                          Find
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                          Schedule
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                          Map
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Tupper &amp; Kellogg" id="tupper">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Tupper
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;5850 College St. B3H1X5
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs17" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs17', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.639206,-63.583935'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div data-role="page" data-control-title="Weldon Law" id="law">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Law
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Address:
+                  </strong>
+                  <span>
+                      &nbsp;6061 University Ave. B3H4H9
+                  </span>
+                  <br>
+                  <strong>
+                      Wireless Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Study Space:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Lounge Area:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Computer Access:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+                  <br>
+                  <strong>
+                      Food Services:
+                  </strong>
+                  <span>
+                      &nbsp;Yes
+                  </span>
+              </p>
+          </div>
+          <div id="googlemapsjs18" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
+          </div>
+          <script type="text/javascript">
+                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs18', {
+              ready: function(control) {
+  
+                  control.options = {
+                      zoom: 17,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+  
+                  control.el = document.getElementById(control._id);
+                  control.map = new google.maps.Map(control.el, control.options);
+  
+                  var geocoder = new google.maps.Geocoder();
+                  geocoder.geocode({
+                      'address': '44.638046,-63.58747'
+                  }, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+  
+                          var marker = new google.maps.Marker({
+                              map: control.map,
+                              position: results[0].geometry.location
+                          });
+                          control.center = results[0].geometry.location;
+                          control.map.setCenter(control.center);
+                      }
+                  });
+  
+              }
+          });
+          </script>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
       </div>
   </div>
 </body>
