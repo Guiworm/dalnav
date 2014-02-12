@@ -67,7 +67,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -194,7 +194,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -206,6 +206,7 @@
           </ul>
       </div>
   </div>
+<!-- Schedule Page -->  
   <div data-role="page" data-control-title="Course Overview" id="schedule">
       <div data-theme="a" data-role="header">
           <h3>
@@ -224,17 +225,54 @@
                   </strong>
               </p>
           </div>
-          <ul id="class1Button" data-role="listview" data-divider-theme="b" data-inset="true"
+          <ul id="class1Button" onClick=class1() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c" >
+                  <a id=class1Anchor href="#page25" data-transition="slide">
+                      Class 1
+                  </a>
+              </li>
+          </ul>
+          <ul id="class2Button" onClick=class2() data-role="listview" data-divider-theme="b" data-inset="true"
           class="classButton">
               <li data-theme="c">
-                  <a href="#edit" data-transition="slide">
-                      Class 1 Name
+                  <a id=class2Anchor href="#page25" data-transition="slide">
+                      Class 2
                   </a>
               </li>
           </ul>
-          <a id="addCourse" data-role="button" href="#edit">
-              Add Course
-          </a>
+          <ul id="class3Button" onClick=class3() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class3Anchor href="#page25" data-transition="slide">
+                      Class 3
+                  </a>
+              </li>
+          </ul>
+          <ul id="class4Button" onClick=class4() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class4Anchor href="#page25" data-transition="slide">
+                      Class 4
+                  </a>
+              </li>
+          </ul>
+          <ul id="class5Button" onClick=class5() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class5Anchor href="#page25" data-transition="slide">
+                      Class 5
+                  </a>
+              </li>
+          </ul>
+          <ul id="class6Button" onClick=class6() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class6Anchor href="#page25" data-transition="slide">
+                      Class 6
+                  </a>
+              </li>
+          </ul>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -249,7 +287,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -261,170 +299,7 @@
           </ul>
       </div>
   </div>
-  <div data-role="page" data-control-title="Add Class" id="edit">
-      <div data-theme="a" data-role="header">
-          <h3>
-              Add Class
-          </h3>
-          <a data-role="button" data-rel="back" href="#edit" class="ui-btn-left">
-              Back
-          </a>
-      </div>
-      <div data-role="content">
-          <div data-controltype="textblock">
-              <p>
-                  <b>
-                      Store your class list by entering the class information below.
-                  </b>
-              </p>
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
-              <input name="" id="classNameAdd" placeholder="Class Name" value="" type="text"
-              data-mini="true">
-              <div data-role="tabbar" data-iconpos="top" data-theme="c">
-                  <ul>
-                      <li>
-                          <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                              Home
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                              Find
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
-                              Schedule
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                              Map
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-              <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
-                  <input name="" id="buildingNameAdd" placeholder="Class Building Name"
-                  value="" type="text" data-mini="true">
-                  <div data-role="tabbar" data-iconpos="top" data-theme="c">
-                      <ul>
-                          <li>
-                              <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                                  Home
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                                  Find
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
-                                  Schedule
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                                  Map
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-          <div id="dayAdd" data-role="fieldcontain" data-controltype="checkboxes">
-              <fieldset data-role="controlgroup" data-type="vertical">
-                  <input id="checkbox22" name="mon" type="checkbox">
-                  <label for="checkbox22">
-                      Monday
-                  </label>
-                  <input id="checkbox2" name="tues" type="checkbox">
-                  <label for="checkbox2">
-                      Tuesday
-                  </label>
-                  <input id="checkbox3" name="wed" type="checkbox">
-                  <label for="checkbox3">
-                      Wednesday
-                  </label>
-                  <input id="checkbox4" name="thurs" type="checkbox">
-                  <label for="checkbox4">
-                      Thursday
-                  </label>
-                  <input id="checkbox5" name="fri" type="checkbox">
-                  <label for="checkbox5">
-                      Friday
-                  </label>
-                  <input id="checkbox6" name="sat" type="checkbox">
-                  <label for="checkbox6">
-                      Saturday
-                  </label>
-                  <input id="checkbox7" name="sun" type="checkbox">
-                  <label for="checkbox7">
-                      Sunday
-                  </label>
-              </fieldset>
-          </div>
-          <div data-role="fieldcontain" data-controltype="dateinput" class="timeInput">
-              <label for="timeAdd">
-                  Class Start Time
-              </label>
-              <input name="" id="timeAdd" placeholder="" value="" type="time">
-          </div>
-          <div data-role="fieldcontain" data-controltype="toggleswitch" class="alertButton">
-              <label for="alertAdd">
-                  Alerts
-              </label>
-              <select name="toggleswitch2" id="alertAdd" data-theme="" data-role="slider">
-                  <option value="off">
-                      Off
-                  </option>
-                  <option value="on">
-                      On
-                  </option>
-              </select>
-          </div>
-          <div data-role="fieldcontain" data-controltype="textinput" class="alertTimeInput">
-              <label for="alertTimeAdd">
-                  Alert how soon before class?
-              </label>
-              <input name="" id="alertTimeAdd" placeholder="minutes" value="" type="number">
-          </div>
-          <div data-controltype="textblock">
-              <p>
-                  <b>
-                      Save this course data.
-                  </b>
-              </p>
-          </div>
-          <input id="saveClassAdd" type="submit" data-theme="b" value="Save" class="button">
-      </div>
-      <div data-role="tabbar" data-iconpos="top" data-theme="c">
-          <ul>
-              <li>
-                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                      Home
-                  </a>
-              </li>
-              <li>
-                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                      Find
-                  </a>
-              </li>
-              <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
-                      Schedule
-                  </a>
-              </li>
-              <li>
-                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                      Map
-                  </a>
-              </li>
-          </ul>
-      </div>
-  </div>
+<!-- Edit Class Page -->
   <div data-role="page" data-control-title="Edit Class" id="page25">
       <div data-theme="a" data-role="header">
           <h3>
@@ -443,7 +318,7 @@
               </p>
           </div>
           <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
-              <input name="" id="classNameEdit" placeholder="Class Name" value="Class Name"
+              <input name="" id="classNameEdit" placeholder="Class Name" value=""
               type="text" data-mini="true">
               <div data-role="tabbar" data-iconpos="top" data-theme="c">
                   <ul>
@@ -458,7 +333,7 @@
                           </a>
                       </li>
                       <li>
-                          <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                          <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                               Schedule
                           </a>
                       </li>
@@ -468,10 +343,10 @@
                           </a>
                       </li>
                   </ul>
-              </div>
+              </div>        
               <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
                   <input name="" id="buildingNameEdit" placeholder="Class Building Name"
-                  value="Class Building Name" type="text" data-mini="true">
+                  value="" type="text" data-mini="true">
                   <div data-role="tabbar" data-iconpos="top" data-theme="c">
                       <ul>
                           <li>
@@ -485,7 +360,7 @@
                               </a>
                           </li>
                           <li>
-                              <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                              <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                                   Schedule
                               </a>
                           </li>
@@ -500,35 +375,35 @@
           </div>
           <div id="dayEdit" data-role="fieldcontain" data-controltype="checkboxes">
               <fieldset data-role="controlgroup" data-type="vertical">
-                  <input id="checkbox15" name="mon" type="checkbox">
-                  <label for="checkbox15">
+                  <input id="monday" name="mon" type="checkbox">
+                  <label for="monday">
                       Monday
                   </label>
-                  <input id="checkbox16" name="tues" type="checkbox">
-                  <label for="checkbox16">
+                  <input id="tuesday" name="tues" type="checkbox">
+                  <label for="tuesday">
                       Tuesday
                   </label>
-                  <input id="checkbox17" name="wed" type="checkbox">
-                  <label for="checkbox17">
+                  <input id="wednesday" name="wed" type="checkbox">
+                  <label for="wednesday">
                       Wednesday
                   </label>
-                  <input id="checkbox18" name="thurs" type="checkbox">
-                  <label for="checkbox18">
+                  <input id="thursday" name="thurs" type="checkbox">
+                  <label for="thursday">
                       Thursday
                   </label>
-                  <input id="checkbox19" name="fri" type="checkbox">
-                  <label for="checkbox19">
+                  <input id="friday" name="fri" type="checkbox">
+                  <label for="friday">
                       Friday
                   </label>
-                  <input id="checkbox20" name="sat" type="checkbox">
-                  <label for="checkbox20">
+                  <input id="saturday" name="sat" type="checkbox">
+                  <label for="saturday">
                       Saturday
                   </label>
-                  <input id="checkbox21" name="sun" type="checkbox">
-                  <label for="checkbox21">
+                  <input id="sunday" name="sun" type="checkbox">
+                  <label for="sunday">
                       Sunday
                   </label>
-              </fieldset>
+              </fieldset>  
           </div>
           <div data-role="fieldcontain" data-controltype="dateinput" class="timeInput">
               <label for="timeEdit">
@@ -563,7 +438,13 @@
                   </b>
               </p>
           </div>
-          <input id="saveClassEdit" type="submit" data-theme="b" value="Save" class="button">
+          <a id="saveClass" data-role="button" onClick=saveClass() data-theme="b" href="#schedule" class="button">
+              Save
+          </a>
+          <a id="deleteClass" data-role="button" onClick=deleteClass() data-theme="e" href="#schedule"
+          class="button">
+              Delete Class
+          </a>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -578,7 +459,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -647,7 +528,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -691,7 +572,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -804,7 +685,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -917,7 +798,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -1030,7 +911,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -1143,7 +1024,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -1256,7 +1137,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -1368,7 +1249,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -1487,7 +1368,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -1601,7 +1482,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -1701,7 +1582,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -1814,7 +1695,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -1915,7 +1796,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -2028,7 +1909,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -2142,7 +2023,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -2254,7 +2135,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -2368,7 +2249,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
@@ -2481,7 +2362,7 @@
                   </a>
               </li>
               <li>
-                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
