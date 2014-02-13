@@ -12,13 +12,13 @@
   <link href="css/jquery-mobile.css" rel="stylesheet">
   <link href="css/jquery.mobile.structure-1.3.1.css" rel="stylesheet">
 
-  <script src="js/jquery-1.9.1.js"></script>
-  <script src="js/jquery.mobile-1.3.1.js"></script>
-  <script src="js/codiqa.ext.js"></script>
-  <script src="js/dalnav.js"></script>
+  <script src="lib/jquery-1.9.1.js"></script>
+  <script src="lib/jquery.mobile-1.3.1.js"></script>
+  <script src="lib/codiqa.ext.js"></script>
+  <script src="src/dalnav.js"></script>
 </head>
 <body>
-  <div data-role="page" data-control-title="Home" id="home">
+  <div data-role="page" data-control-title="Home" id="home" style="background: url('css/images/compass.jpg') no-repeat">
       <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
       data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
@@ -47,12 +47,8 @@
           </h3>
       </div>
       <div data-role="content">
-          <div data-controltype="textblock">
-              <p>
-                  <b>
-                      Not done
-                  </b>
-              </p>
+          <div style="" data-controltype="image">
+              <img style="width: 100%; height: 100%" src="https://s3.amazonaws.com/assets.codiqa.com/9gmVws6mQwKVz0BFn51X_compass.jpg">
           </div>
           <div data-role="tabbar" data-iconpos="top" data-theme="c">
               <ul>
@@ -67,7 +63,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
                           Schedule
                       </a>
                   </li>
@@ -210,7 +206,7 @@
   <div data-role="page" data-control-title="Course Overview" id="schedule">
       <div data-theme="a" data-role="header">
           <h3>
-              Course List
+              Schedule
           </h3>
           <a data-controltype="panelbutton" data-role="button" href="#" data-icon="bars"
           data-iconpos="left" class="ui-btn-left">
@@ -221,7 +217,7 @@
           <div data-controltype="textblock">
               <p>
                   <strong>
-                      Schedule List
+                      Class List
                   </strong>
               </p>
           </div>

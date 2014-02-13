@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <title>Jasmine Spec Runner v2.0.0</title>
+  
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.0/jasmine.css">
+
+  <script src="lib/jquery-1.9.1.js"></script>
+  <script src="lib/jquery.mobile-1.3.1.js"></script>
+  <script src="lib/codiqa.ext.js"></script> 
+
+  <script type="text/javascript" src="lib/jasmine-2.0.0/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-2.0.0/jasmine-html.js"></script>
+  <script type="text/javascript" src="lib/jasmine-2.0.0/boot.js"></script> 
+  
+
+
+  <!-- include source files here... -->
+  <script type="text/javascript" src="src/dalnav.js"></script>
+
+  <!-- include spec files here... -->
+  <script type="text/javascript" src="spec/dalnavSpec.js"></script>
+
+</head>
+
+<body>
+
+<h1> Scroll down for the Jasmine Test Results.. </h1>
+<br>
+
+      <div data-theme="a" data-role="header">
+          <h3>
+              Schedule
+          </h3>
+          <a data-controltype="panelbutton" data-role="button" href="#" data-icon="bars"
+          data-iconpos="left" class="ui-btn-left">
+              Menu
+          </a>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <strong>
+                      Class List
+                  </strong>
+              </p>
+          </div>
+          <ul id="class1Button" onClick=class1() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c" >
+                  <a id=class1Anchor href="#page25" data-transition="slide">
+                      Class 1
+                  </a>
+              </li>
+          </ul>
+          <ul id="class2Button" onClick=class2() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class2Anchor href="#page25" data-transition="slide">
+                      Class 2
+                  </a>
+              </li>
+          </ul>
+          <ul id="class3Button" onClick=class3() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class3Anchor href="#page25" data-transition="slide">
+                      Class 3
+                  </a>
+              </li>
+          </ul>
+          <ul id="class4Button" onClick=class4() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class4Anchor href="#page25" data-transition="slide">
+                      Class 4
+                  </a>
+              </li>
+          </ul>
+          <ul id="class5Button" onClick=class5() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class5Anchor href="#page25" data-transition="slide">
+                      Class 5
+                  </a>
+              </li>
+          </ul>
+          <ul id="class6Button" onClick=class6() data-role="listview" data-divider-theme="b" data-inset="true"
+          class="classButton">
+              <li data-theme="c">
+                  <a id=class6Anchor href="#page25" data-transition="slide">
+                      Class 6
+                  </a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  
+  <!-- Edit Class Page -->
+  <div data-role="page" data-control-title="Edit Class" id="page25">
+      <div data-theme="a" data-role="header">
+          <h3>
+              Edit Class
+          </h3>
+          <a data-role="button" data-rel="back" href="#edit" class="ui-btn-left">
+              Back
+          </a>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Update your class list by making class changes below.
+                  </b>
+              </p>
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
+              <input name="" id="classNameEdit" placeholder="Class Name" value=""
+              type="text" data-mini="true">
+              <div data-role="tabbar" data-iconpos="top" data-theme="c">
+                  <ul>
+                      <li>
+                          <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                              Home
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                              Find
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                              Schedule
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                              Map
+                          </a>
+                      </li>
+                  </ul>
+              </div>        
+              <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
+                  <input name="" id="buildingNameEdit" placeholder="Class Building Name"
+                  value="" type="text" data-mini="true">
+                  <div data-role="tabbar" data-iconpos="top" data-theme="c">
+                      <ul>
+                          <li>
+                              <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                                  Home
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                                  Find
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                                  Schedule
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                                  Map
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div id="dayEdit" data-role="fieldcontain" data-controltype="checkboxes">
+              <fieldset data-role="controlgroup" data-type="vertical">
+                  <input id="monday" name="mon" type="checkbox">
+                  <label for="monday">
+                      Monday
+                  </label>
+                  <input id="tuesday" name="tues" type="checkbox">
+                  <label for="tuesday">
+                      Tuesday
+                  </label>
+                  <input id="wednesday" name="wed" type="checkbox">
+                  <label for="wednesday">
+                      Wednesday
+                  </label>
+                  <input id="thursday" name="thurs" type="checkbox">
+                  <label for="thursday">
+                      Thursday
+                  </label>
+                  <input id="friday" name="fri" type="checkbox">
+                  <label for="friday">
+                      Friday
+                  </label>
+                  <input id="saturday" name="sat" type="checkbox">
+                  <label for="saturday">
+                      Saturday
+                  </label>
+                  <input id="sunday" name="sun" type="checkbox">
+                  <label for="sunday">
+                      Sunday
+                  </label>
+              </fieldset>  
+          </div>
+          <div data-role="fieldcontain" data-controltype="dateinput" class="timeInput">
+              <label for="timeEdit">
+                  Class Start Time
+              </label>
+              <input name="" id="timeEdit" placeholder="" value="" type="time">
+          </div>
+          <div data-role="fieldcontain" data-controltype="toggleswitch" class="alertButton">
+              <label for="alertEdit">
+                  Alerts
+              </label>
+              <select name="toggleswitch4" id="alertEdit" data-theme="" data-role="slider">
+                  <option value="off">
+                      Off
+                  </option>
+                  <option value="on">
+                      On
+                  </option>
+              </select>
+          </div>
+          <div data-role="fieldcontain" data-controltype="textinput" class="alertTimeInput">
+              <label for="alertTimeEdit">
+                  Alert how soon before class?
+              </label>
+              <input name="" id="alertTimeEdit" placeholder="minutes" value="20 minutes"
+              type="number">
+          </div>
+          <div data-controltype="textblock">
+              <p>
+                  <b>
+                      Update this course data.
+                  </b>
+              </p>
+          </div>
+          <a id="saveClass" data-role="button" onClick=saveClass() data-theme="b" href="#schedule" class="button">
+              Save
+          </a>
+          <a id="deleteClass" data-role="button" onClick=deleteClass() data-theme="e" href="#schedule"
+          class="button">
+              Delete Class
+          </a>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+<h1> Jasmine Test </h1>
+<h1> finished </h1>
+</body>
+</html>

@@ -1,20 +1,26 @@
 
-/**************************** SCHEDULE PAGE FUNCTIONS - INPUT CLASS SCHEDULE ****************************/
 
-// Variables for Add Class Page:
+/******************** SCHEDULE FUNCTIONS - USER STORIES 2 & 3 ********************/
+/** 
+* @author: Osama Al-Arhabi
+*
+*/
+
+
+/**
+* Global Variables Required for the Schedule Functions:
+*/
 var className, buildingName, days, theAlert, startTime, alertTime;
 var mon, tues, wed, thur, fri, sat, sun;
 var currentClass;
 var class1Button, class2Button, class3Button, class4Button, class5Button, class6Button;
-var classStatus = new Array();
-
-console.log("declared variables");
 
 
-// Helper function to get the elements required for the Schedule Page functions
+/**
+* Helper function to get the HTML elements required for the Schedule Page functions
+*/
 function getScheduleElements()
 {
-console.log("getting ScheduleElements");
  	className = document.getElementById("classNameEdit");
 	buildingName = document.getElementById("buildingNameEdit");
 	days = document.getElementById("dayEdit");
@@ -33,16 +39,18 @@ console.log("getting ScheduleElements");
 	class3Button = document.getElementById("class3Anchor");
 	class4Button = document.getElementById("class4Anchor");
 	class5Button = document.getElementById("class5Anchor");
-	class6Button = document.getElementById("class6Anchor");
-
-console.log("got ScheduleElements");
-	
-	//localStorage.clear();
+	class6Button = document.getElementById("class6Anchor");	
 }
 
+
+/**
+*	Loads the Schedule Page Containing the Class List
+*	
+*	Content depends on whether a class is saved
+*	or empty; displays the list accordingly
+*/
 function loadSchedule()
 {
-console.log("loadSchedule()");
 	getScheduleElements();
 	
 	if(localStorage.class1Name != undefined)
@@ -57,12 +65,12 @@ console.log("loadSchedule()");
 		class5Button.innerHTML = localStorage.class5Name;
 	if(localStorage.class6Name != undefined)
 		class6Button.innerHTML = localStorage.class6Name;
-		
-console.log(" end of loadSchedule()");
 }
 
+
+
 /**
-* saveClass() Function
+* Saves the Class Info after Editing or Adding a new Class
 *
 */
 function saveClass()
@@ -72,7 +80,6 @@ function saveClass()
 	switch(currentClass)
 	{
 	case 1:
-console.log("case 1");
 		localStorage.class1Name = className.value;
 		localStorage.class1Building = buildingName.value;
 		
@@ -105,7 +112,7 @@ console.log("case 1");
 			localStorage.class1Sun = "true";
 		else
 			localStorage.class1Sun = "false";	
-console.log("end of saving checkboxes");			
+			
 		localStorage.class1StartTime = startTime.value;
 		
 		// get the alert switch value (on/off)
@@ -117,10 +124,9 @@ console.log("end of saving checkboxes");
 		localStorage.class1AlertTime = alertTime.value;
 		
 		class1Button.innerHTML = className.value;
-console.log("end of case 1 saving");
 		break;
+	
 	case 2:
-console.log("case 2");
 		localStorage.class2Name = className.value;
 		localStorage.class2Building = buildingName.value;
 		
@@ -152,8 +158,7 @@ console.log("case 2");
 		if(sun.checked)
 			localStorage.class2Sun = "true";
 		else
-			localStorage.class2Sun = "false";	
-console.log("end of saving checkboxes");			
+			localStorage.class2Sun = "false";			
 		
 		localStorage.class2StartTime = startTime.value;
 		
@@ -166,10 +171,9 @@ console.log("end of saving checkboxes");
 		localStorage.class2AlertTime = alertTime.value;
 		
 		class2Button.innerHTML = className.value;
-console.log("end of case 2 saving, alertTime: "+ localStorage.class2AlertTime);
 		break;
+
 	case 3:
-console.log("case 3");
 		localStorage.class3Name = className.value;
 		localStorage.class3Building = buildingName.value;
 		
@@ -201,8 +205,7 @@ console.log("case 3");
 		if(sun.checked)
 			localStorage.class3Sun = "true";
 		else
-			localStorage.class3Sun = "false";	
-console.log("end of saving checkboxes");			
+			localStorage.class3Sun = "false";				
 		
 		localStorage.class3StartTime = startTime.value;
 		
@@ -215,10 +218,9 @@ console.log("end of saving checkboxes");
 		localStorage.class3AlertTime = alertTime.value;
 		
 		class3Button.innerHTML = className.value;
-console.log("end of case 3 saving");
 		break;
+
 	case 4:
-console.log("case 4");
 		localStorage.class4Name = className.value;
 		localStorage.class4Building = buildingName.value;
 		
@@ -250,8 +252,7 @@ console.log("case 4");
 		if(sun.checked)
 			localStorage.class4Sun = "true";
 		else
-			localStorage.class4Sun = "false";	
-console.log("end of saving checkboxes");			
+			localStorage.class4Sun = "false";			
 		
 		localStorage.class4StartTime = startTime.value;
 		
@@ -264,10 +265,9 @@ console.log("end of saving checkboxes");
 		localStorage.class4AlertTime = alertTime.value;
 		
 		class4Button.innerHTML = className.value;
-console.log("end of case 4 saving");
 		break;
+	
 	case 5:
-console.log("case 5");
 		localStorage.class5Name = className.value;
 		localStorage.class5Building = buildingName.value;
 		
@@ -299,8 +299,7 @@ console.log("case 5");
 		if(sun.checked)
 			localStorage.class5Sun = "true";
 		else
-			localStorage.class5Sun = "false";	
-console.log("end of saving checkboxes");			
+			localStorage.class5Sun = "false";			
 		
 		localStorage.class5StartTime = startTime.value;
 		
@@ -313,10 +312,9 @@ console.log("end of saving checkboxes");
 		localStorage.class5AlertTime = alertTime.value;
 		
 		class5Button.innerHTML = className.value;
-console.log("end of case 5 saving");
 		break;
+	
 	case 6:
-console.log("case 6");
 		localStorage.class6Name = className.value;
 		localStorage.class6Building = buildingName.value;
 		
@@ -348,8 +346,7 @@ console.log("case 6");
 		if(sun.checked)
 			localStorage.class6Sun = "true";
 		else
-			localStorage.class6Sun = "false";	
-console.log("end of saving checkboxes");			
+			localStorage.class6Sun = "false";			
 		
 		localStorage.class6StartTime = startTime.value;
 		
@@ -362,28 +359,14 @@ console.log("end of saving checkboxes");
 		localStorage.class6AlertTime = alertTime.value;
 		
 		class6Button.innerHTML = className.value;
-console.log("end of case 6 saving");
 		break;
 	}		
-}
+} // end of saveClass()
 
-// Temp testing function
-function clickMonday()
-{
-var mon2 = document.getElementById("mon2");
-console.log("monday before: " + monday.checked);
-
-
-	if(document.getElementById("monday").checked == true)
- 		document.getElementById("monday").checked = false;
-	else if(document.getElementById("monday").checked == false)
-  		document.getElementById("monday").checked = true;
-console.log("monday after: " + monday.checked);
-}
 
 
 /**
-* deleteClass() Function
+* Deletes all the Class Details and deletes it from the Class List
 *
 */
 function deleteClass()
@@ -394,7 +377,6 @@ console.log("deleteClass()");
 	switch(currentClass)
 	{
 	case 1:
-console.log("case 1");
 		localStorage.removeItem("class1Name");
 		localStorage.removeItem("class1Building");
 		localStorage.removeItem("class1Mon");
@@ -409,10 +391,9 @@ console.log("case 1");
 		localStorage.removeItem("class1AlertTime");
 		
 		class1Button.innerHTML = "Class 1";
-console.log("end of case 1 deleteClass");
 		break;
+	
 	case 2:
-console.log("case 2");
 		localStorage.removeItem("class2Name");
 		localStorage.removeItem("class2Building");
 		localStorage.removeItem("class2Mon");
@@ -427,10 +408,9 @@ console.log("case 2");
 		localStorage.removeItem("class2AlertTime");
 		
 		class2Button.innerHTML = "Class 2";
-console.log("end of case 2 deleteClass");
 		break;
+	
 	case 3:
-console.log("case 3");
 		localStorage.removeItem("class3Name");
 		localStorage.removeItem("class3Building");
 		localStorage.removeItem("class3Mon");
@@ -445,10 +425,9 @@ console.log("case 3");
 		localStorage.removeItem("class3AlertTime");
 		
 		class3Button.innerHTML = "Class 3";
-console.log("end of case 3 deleteClass");
 		break;	
+	
 	case 4:
-console.log("case 4");
 		localStorage.removeItem("class4Name");
 		localStorage.removeItem("class4Building");
 		localStorage.removeItem("class4Mon");
@@ -463,10 +442,9 @@ console.log("case 4");
 		localStorage.removeItem("class4AlertTime");
 		
 		class4Button.innerHTML = "Class 4";
-console.log("end of case 4 deleteClass");
 		break;
+	
 	case 5:
-console.log("case 5");
 		localStorage.removeItem("class5Name");
 		localStorage.removeItem("class5Building");
 		localStorage.removeItem("class5Mon");
@@ -481,10 +459,9 @@ console.log("case 5");
 		localStorage.removeItem("class5AlertTime");
 		
 		class5Button.innerHTML = "Class 5";
-console.log("end of case 5 deleteClass");
 		break;
+	
 	case 6:
-console.log("case 6");
 		localStorage.removeItem("class6Name");
 		localStorage.removeItem("class6Building");
 		localStorage.removeItem("class6Mon");
@@ -499,22 +476,23 @@ console.log("case 6");
 		localStorage.removeItem("class6AlertTime");
 		
 		class6Button.innerHTML = "Class 6";
-console.log("end of case 6 deleteClass");
 		break;
 	}
-}
+} // end of deleteClass()
 
 
+/**
+* Displays Class 1 Details (if saved) or an empty form otherwise
+*
+*/
 function class1()
 {
-console.log("class1()");
 	currentClass = 1;
 	getScheduleElements();
 	
 	// If the class was not added yet, then display an empty form
 	if(localStorage.class1Name == undefined)
 	{
-console.log("display empty form");	
 		className.value="";
 		buildingName.value="";
 		mon.checked = false;
@@ -523,17 +501,15 @@ console.log("display empty form");
 		thur.checked=false;
 		fri.checked=false;
 		sat.checked=false;
-		sun.checked=false;
+		sun.checked=false; 
 		startTime.value="";
 		theAlert.selectedIndex = 0;
 		alertTime.value="";
-console.log("End of display empty form");
 	}
 	
 	// Otherwise display the saved class info
 	else
 	{
-console.log("display saved class info");
 		className.value = localStorage.class1Name;
 		buildingName.value = localStorage.class1Building;
 		
@@ -566,7 +542,7 @@ console.log("display saved class info");
 			sun.checked = true;
 		else
 			sun.checked = false;
-console.log("end of getting & showing checkboxes");			
+		
 		startTime.value = localStorage.class1StartTime;
 		
 		// get the saved alert switch value and show that
@@ -576,21 +552,22 @@ console.log("end of getting & showing checkboxes");
 			theAlert.selectedIndex = 0;
 			
 		alertTime.value = localStorage.class1AlertTime;	
-console.log("End of display saved class info");
 	}
-}
+} // end of class1()
 
+
+/**
+* Displays Class 2 Details (if saved) or an empty form otherwise
+*
+*/
 function class2()
-{
-console.log("class2()");	
+{	
 	currentClass = 2;
 	getScheduleElements();
-	
 	
 	// If the class was not added yet, then display an empty form
 	if(localStorage.class2Name == undefined)
 	{
-console.log("display empty form");
 		className.value="";
 		buildingName.value="";
 		
@@ -604,13 +581,11 @@ console.log("display empty form");
 		startTime.value="";
 		theAlert.selectedIndex = 0;
 		alertTime.value="";
-console.log("end of display empty form");
 	}
 	
 	// Otherwise display the saved class info
 	else
 	{
-console.log("display class2 info");
 		className.value = localStorage.class2Name;
 		buildingName.value = localStorage.class2Building;
 
@@ -642,8 +617,7 @@ console.log("display class2 info");
 		if(localStorage.class2Sun == "true")
 			sun.checked = true;
 		else
-			sun.checked = false;
-console.log("end of getting & showing checkboxes");		
+			sun.checked = false;	
 		
 		startTime.value = localStorage.class2StartTime;
 		
@@ -654,20 +628,22 @@ console.log("end of getting & showing checkboxes");
 			theAlert.selectedIndex = 0;
 			
 		alertTime.value = localStorage.class2AlertTime;	
-console.log("End of display saved class info");
 	}
-}
+} // end of class2()
 
+
+/**
+* Displays Class 3 Details (if saved) or an empty form otherwise
+*
+*/
 function class3()
 {
-console.log("class3()");
 	currentClass = 3;
 	getScheduleElements();
 	
 	// If the class was not added yet, then display an empty form
 	if(localStorage.class3Name == undefined)
 	{
-console.log("display empty form");	
 		className.value="";
 		buildingName.value="";
 		mon.checked = false;
@@ -680,13 +656,11 @@ console.log("display empty form");
 		startTime.value="";
 		theAlert.selectedIndex = 0;
 		alertTime.value="";
-console.log("End of display empty form");
 	}
 	
 	// Otherwise display the saved class info
 	else
 	{
-console.log("display saved class info");
 		className.value = localStorage.class3Name;
 		buildingName.value = localStorage.class3Building;
 		
@@ -719,7 +693,7 @@ console.log("display saved class info");
 			sun.checked = true;
 		else
 			sun.checked = false;
-console.log("end of getting & showing checkboxes");			
+		
 		startTime.value = localStorage.class3StartTime;
 		
 		// get the saved alert switch value and show that
@@ -729,20 +703,22 @@ console.log("end of getting & showing checkboxes");
 			theAlert.selectedIndex = 0;
 			
 		alertTime.value = localStorage.class3AlertTime;	
-console.log("End of display saved class info");
 	}
-}
+} // end of class3()
 
+
+/**
+* Displays Class 4 Details (if saved) or an empty form otherwise
+*
+*/
 function class4()
 {
-console.log("class4()");
 	currentClass = 4;
 	getScheduleElements();
 	
 	// If the class was not added yet, then display an empty form
 	if(localStorage.class4Name == undefined)
 	{
-console.log("display empty form");	
 		className.value="";
 		buildingName.value="";
 		mon.checked = false;
@@ -755,13 +731,11 @@ console.log("display empty form");
 		startTime.value="";
 		theAlert.selectedIndex = 0;
 		alertTime.value="";
-console.log("End of display empty form");
 	}
 	
 	// Otherwise display the saved class info
 	else
 	{
-console.log("display saved class info");
 		className.value = localStorage.class4Name;
 		buildingName.value = localStorage.class4Building;
 		
@@ -794,7 +768,7 @@ console.log("display saved class info");
 			sun.checked = true;
 		else
 			sun.checked = false;
-console.log("end of getting & showing checkboxes");			
+		
 		startTime.value = localStorage.class4StartTime;
 		
 		// get the saved alert switch value and show that
@@ -804,20 +778,22 @@ console.log("end of getting & showing checkboxes");
 			theAlert.selectedIndex = 0;
 			
 		alertTime.value = localStorage.class4AlertTime;	
-console.log("End of display saved class info");
 	}
-}
+} // end of class4()
 
+
+/**
+* Displays Class 5 Details (if saved) or an empty form otherwise
+*
+*/
 function class5()
 {
-console.log("class5()");
 	currentClass = 5;
 	getScheduleElements();
 	
 	// If the class was not added yet, then display an empty form
 	if(localStorage.class5Name == undefined)
 	{
-console.log("display empty form");	
 		className.value="";
 		buildingName.value="";
 		mon.checked = false;
@@ -830,13 +806,11 @@ console.log("display empty form");
 		startTime.value="";
 		theAlert.selectedIndex = 0;
 		alertTime.value="";
-console.log("End of display empty form");
 	}
 	
 	// Otherwise display the saved class info
 	else
 	{
-console.log("display saved class info");
 		className.value = localStorage.class5Name;
 		buildingName.value = localStorage.class5Building;
 		
@@ -869,7 +843,7 @@ console.log("display saved class info");
 			sun.checked = true;
 		else
 			sun.checked = false;
-console.log("end of getting & showing checkboxes");			
+		
 		startTime.value = localStorage.class5StartTime;
 		
 		// get the saved alert switch value and show that
@@ -879,20 +853,22 @@ console.log("end of getting & showing checkboxes");
 			theAlert.selectedIndex = 0;
 			
 		alertTime.value = localStorage.class5AlertTime;	
-console.log("End of display saved class info");
 	}
-}
+} // end of class5()
 
+
+/**
+* Displays Class 6 Details (if saved) or an empty form otherwise
+*
+*/
 function class6()
 {
-console.log("class6()");
 	currentClass = 6;
 	getScheduleElements();
 	
 	// If the class was not added yet, then display an empty form
 	if(localStorage.class6Name == undefined)
 	{
-console.log("display empty form");	
 		className.value="";
 		buildingName.value="";
 		mon.checked = false;
@@ -905,13 +881,11 @@ console.log("display empty form");
 		startTime.value="";
 		theAlert.selectedIndex = 0;
 		alertTime.value="";
-console.log("End of display empty form");
 	}
 	
 	// Otherwise display the saved class info
 	else
 	{
-console.log("display saved class info");
 		className.value = localStorage.class6Name;
 		buildingName.value = localStorage.class6Building;
 		
@@ -944,7 +918,7 @@ console.log("display saved class info");
 			sun.checked = true;
 		else
 			sun.checked = false;
-console.log("end of getting & showing checkboxes");			
+		
 		startTime.value = localStorage.class6StartTime;
 		
 		// get the saved alert switch value and show that
@@ -954,8 +928,7 @@ console.log("end of getting & showing checkboxes");
 			theAlert.selectedIndex = 0;
 			
 		alertTime.value = localStorage.class6AlertTime;	
-console.log("End of display saved class info");
 	}
-}
+} // end of class6()
 
-/**************************** END OF SCHEDULE PAGE FUNCTIONS ****************************/
+/**************************** END OF SCHEDULE FUNCTIONS ****************************/
