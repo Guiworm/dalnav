@@ -340,33 +340,84 @@
                       </li>
                   </ul>
               </div>        
-              <div data-role="fieldcontain" data-controltype="textinput" class="inputField">
-                  <input name="" id="buildingNameEdit" placeholder="Class Building Name"
-                  value="" type="text" data-mini="true">
-                  <div data-role="tabbar" data-iconpos="top" data-theme="c">
-                      <ul>
-                          <li>
-                              <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                                  Home
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                                  Find
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
-                                  Schedule
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                                  Map
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
+              <div data-role="fieldcontain" data-controltype="selectmenu" class="buildingllist">
+                  <select id="buildingNameEdit" name="">
+                      <option value="">
+                          Building Name
+                      </option>
+                      <option value="44.637735,-63.588473">
+                          Arts
+                      </option>
+                      <option value="44.639313,-63.585281">
+                          Burbidge
+                      </option>
+                      <option value="44.637059,-63.593159">
+                          Chase
+                      </option>
+                      <option value="44.636815,-63.591917">
+                          Chemistry
+                      </option>
+                      <option value="44.638542,-63.585222">
+                          Dentistry
+                      </option>
+                      <option value="44.637857,-63.593336">
+                          Dunn
+                      </option>
+                      <option value="44.637483,-63.587269">
+                          Goldberg Computer Science
+                      </option>
+                      <option value="44.636208,-63.593108">
+                          Henry Hicks
+                      </option>
+                      <option value="44.637095,-63.588556">
+                          Kennith Rowe
+                      </option>
+                      <option value="44.637366,-63.590825">
+                          Killam Library
+                      </option>
+                      <option value="44.636082,-63.593795">
+                          Life Sciences Center
+                      </option>
+                      <option value="44.637326,-63.589503">
+                          McCain
+                      </option>
+                      <option value="44.63905,-63.590769">
+                          Mona Campbell
+                      </option>
+                      <option value="44.636891,-63.589184">
+                          Student Union Building
+                      </option>
+                      <option value="44.639206,-63.583935">
+                          Tupper &amp; Kellogg
+                      </option>
+                      <option value="44.638046,-63.58747">
+                          Weldon Law
+                      </option>
+                  </select>
+              </div>
+              <div data-role="tabbar" data-iconpos="top" data-theme="c">
+                  <ul>
+                      <li>
+                          <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                              Home
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                              Find
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                              Schedule
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                              Map
+                          </a>
+                      </li>
+                  </ul>
               </div>
           </div>
           <div id="dayEdit" data-role="fieldcontain" data-controltype="checkboxes">
