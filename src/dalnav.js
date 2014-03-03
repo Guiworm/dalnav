@@ -81,6 +81,11 @@ function saveClass()
 	{
 	case 1:
 		localStorage.class1Name = className.value;
+
+//update here:
+//alert("Buiding index: "+ buildingName[buildingName.selectedIndex].innerHTML);	
+//console.log("Buiding index: "+ buildingName[buildingName.selectedIndex].innerHTML);	
+//alert("Buiding selected index: "+ document.getElementById("building1").innerHTML);
 		localStorage.class1Building = buildingName.value;
 		
 		// check which days where checked:
