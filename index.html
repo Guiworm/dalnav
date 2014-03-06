@@ -8,16 +8,18 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
   <link href="css/codiqa.ext.css" rel="stylesheet">
+  <link href="css/dalnav.css" rel="stylesheet">
   <link href="css/jquery.mobile.theme-1.3.1.css" rel="stylesheet">
   <link href="css/jquery-mobile.css" rel="stylesheet">
   <link href="css/jquery.mobile.structure-1.3.1.css" rel="stylesheet">
 
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC76s0d5LLQxlJSRakx21FimQeE3oR_32k&sensor=true"></script>
   <script src="lib/jquery-1.9.1.js"></script>
   <script src="lib/jquery.mobile-1.3.1.js"></script>
   <script src="lib/codiqa.ext.js"></script>
   <script src="src/dalnav.js"></script>
+  <script src="src/directions.js"></script>
 
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC76s0d5LLQxlJSRakx21FimQeE3oR_32k&sensor=true"></script>
 
 </head>
 <body>
@@ -29,7 +31,7 @@
                 Menu
             </li>
             <li data-theme="a">
-                <a href="#page24" data-transition="slide">
+                <a href="#directions" data-transition="slide">
                     Directions
                 </a>
             </li>
@@ -50,52 +52,52 @@
         </h3>
     </div>
     <div data-role="content">
-        <div style="" data-controltype="image">
-            <img style="width: 100%; height: 100%" src="https://s3.amazonaws.com/assets.codiqa.com/9gmVws6mQwKVz0BFn51X_compass.jpg">
-        </div>
-        <div data-role="tabbar" data-iconpos="top" data-theme="c">
-            <ul>
-                <li>
-                    <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                        Find
-                    </a>
-                </li>
-                <li>
-                    <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
-                        Schedule
-                    </a>
-                </li>
-                <li>
-                    <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                        Map
-                    </a>
-                </li>
-            </ul>
-        </div>
+            <div id="placemap"></div>
+
     </div>
-</div>
+
+        <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+        </div>
+  </div>
   <div data-role="page" data-control-title="Find" id="find">
      <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
       data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-              <li data-role="list-divider" role="heading">
-                  Divider
-              </li>
-              <li data-theme="a">
-                  <a href="" data-transition="slide">
-                      Button
-                  </a>
-              </li>
-              <li data-theme="a">
-                  <a href="#otherinfo" data-transition="slide">
-                      Info
-                  </a>
-              </li>
+            <li data-role="list-divider" role="heading">
+                Menu
+            </li>
+            <li data-theme="a">
+                <a href="#directions" data-transition="slide">
+                    Directions
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#otherinfo" data-transition="slide">
+                    Info
+                </a>
+            </li>
           </ul>
       </div>
       <div data-theme="a" data-role="header">
@@ -167,7 +169,7 @@
                   </a>
               </li>
               <li data-theme="c">
-                  <a href="#page27" data-transition="slide">
+                  <a href="#lsc" data-transition="slide">
                       Life Sciences Center
                   </a>
               </li>
@@ -229,19 +231,19 @@
      <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
       data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-              <li data-role="list-divider" role="heading">
-                  Divider
-              </li>
-              <li data-theme="a">
-                  <a href="" data-transition="slide">
-                      Button
-                  </a>
-              </li>
-              <li data-theme="a">
-                  <a href="#otherinfo" data-transition="slide">
-                      Info
-                  </a>
-              </li>
+            <li data-role="list-divider" role="heading">
+                Menu
+            </li>
+            <li data-theme="a">
+                <a href="#directions" data-transition="slide">
+                    Directions
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#otherinfo" data-transition="slide">
+                    Info
+                </a>
+            </li>
           </ul>
       </div>
       <div data-theme="a" data-role="header">
@@ -264,7 +266,7 @@
           <ul id="class1Button" onClick=class1() data-role="listview" data-divider-theme="b" data-inset="true"
           class="classButton">
               <li data-theme="c" >
-                  <a id=class1Anchor href="#page25" data-transition="slide">
+                  <a id=class1Anchor href="#editclass" data-transition="slide">
                       Class 1
                   </a>
               </li>
@@ -272,7 +274,7 @@
           <ul id="class2Button" onClick=class2() data-role="listview" data-divider-theme="b" data-inset="true"
           class="classButton">
               <li data-theme="c">
-                  <a id=class2Anchor href="#page25" data-transition="slide">
+                  <a id=class2Anchor href="#editclass" data-transition="slide">
                       Class 2
                   </a>
               </li>
@@ -280,7 +282,7 @@
           <ul id="class3Button" onClick=class3() data-role="listview" data-divider-theme="b" data-inset="true"
           class="classButton">
               <li data-theme="c">
-                  <a id=class3Anchor href="#page25" data-transition="slide">
+                  <a id=class3Anchor href="#editclass" data-transition="slide">
                       Class 3
                   </a>
               </li>
@@ -288,7 +290,7 @@
           <ul id="class4Button" onClick=class4() data-role="listview" data-divider-theme="b" data-inset="true"
           class="classButton">
               <li data-theme="c">
-                  <a id=class4Anchor href="#page25" data-transition="slide">
+                  <a id=class4Anchor href="#editclass" data-transition="slide">
                       Class 4
                   </a>
               </li>
@@ -296,7 +298,7 @@
           <ul id="class5Button" onClick=class5() data-role="listview" data-divider-theme="b" data-inset="true"
           class="classButton">
               <li data-theme="c">
-                  <a id=class5Anchor href="#page25" data-transition="slide">
+                  <a id=class5Anchor href="#editclass" data-transition="slide">
                       Class 5
                   </a>
               </li>
@@ -304,7 +306,7 @@
           <ul id="class6Button" onClick=class6() data-role="listview" data-divider-theme="b" data-inset="true"
           class="classButton">
               <li data-theme="c">
-                  <a id=class6Anchor href="#page25" data-transition="slide">
+                  <a id=class6Anchor href="#editclass" data-transition="slide">
                       Class 6
                   </a>
               </li>
@@ -337,7 +339,7 @@
   </div>
   
 <!-- Edit Class Page -->
-  <div data-role="page" data-control-title="Edit Class" id="page25">
+  <div data-role="page" data-control-title="Edit Class" id="editclass">
       <div data-theme="a" data-role="header">
           <h3>
               Edit Class
@@ -495,8 +497,7 @@
           <a id="saveClass" data-role="button" onClick=saveClass() data-theme="b" href="#schedule" class="button">
               Save
           </a>
-          <a id="deleteClass" data-role="button" onClick=deleteClass() data-theme="e" href="#schedule"
-          class="button">
+          <a id="deleteClass" data-role="button" onClick=deleteClass() data-theme="e" href="#schedule" class="button">
               Delete Class
           </a>
       </div>
@@ -527,15 +528,32 @@
   </div>
   
 <!-- Directions Page -->  
-<div data-role="page" data-control-title="Directions" id="page24">
-    <div data-theme="a" data-role="header">
+<div data-role="page" data-control-title="Directions" id="directions">
+     <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+        <ul data-role="listview" data-divider-theme="h" data-inset="false">
+          <li data-role="list-divider" role="heading">
+              Menu
+          </li>
+          <li data-theme="a">
+              <a href="#directions" data-transition="slide">
+                  Directions
+              </a>
+          </li>
+          <li data-theme="a">
+              <a href="#otherinfo" data-transition="slide">
+                  Info
+              </a>
+          </li>
+        </ul>
+      </div>
+      <div data-theme="a" data-role="header">
+          <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
+          data-icon="bars" data-iconpos="left" class="ui-btn-left">
+              Menu
+          </a>
         <h3>
             Directions
         </h3>
-        <a data-controltype="panelbutton" data-role="button" href="#" data-icon="bars"
-        data-iconpos="left" class="ui-btn-left">
-            Menu
-        </a>
     </div>
     <div data-role="content">
         <div id="directionsInstruction" data-controltype="textblock">
@@ -548,7 +566,7 @@
         <ul id="class1Directions" data-role="listview" data-divider-theme="b"
         data-inset="true" class="classButton">
             <li data-theme="c">
-                <a href="#page26" data-transition="slide">
+                <a href="#directionsMap" data-transition="slide">
                     Class 1
                 </a>
             </li>
@@ -556,7 +574,7 @@
         <ul id="class2Directions" data-role="listview" data-divider-theme="b"
         data-inset="true" class="classButton">
             <li data-theme="c">
-                <a href="#page26" data-transition="slide">
+                <a href="#directionsMap" data-transition="slide">
                     Class 2
                 </a>
             </li>
@@ -564,7 +582,7 @@
         <ul id="class3Directions" data-role="listview" data-divider-theme="b"
         data-inset="true" class="classButton">
             <li data-theme="c">
-                <a href="#page26" data-transition="slide">
+                <a href="#directionsMap" data-transition="slide">
                     Class 3
                 </a>
             </li>
@@ -572,7 +590,7 @@
         <ul id="class4Directions" data-role="listview" data-divider-theme="b"
         data-inset="true" class="classButton">
             <li data-theme="c">
-                <a href="#page26" data-transition="slide">
+                <a href="#directionsMap" data-transition="slide">
                     Class 4
                 </a>
             </li>
@@ -580,7 +598,7 @@
         <ul id="class5Directions" data-role="listview" data-divider-theme="b"
         data-inset="true" class="classButton">
             <li data-theme="c">
-                <a href="#page26" data-transition="slide">
+                <a href="#directionsMap" data-transition="slide">
                     Class 5
                 </a>
             </li>
@@ -588,7 +606,7 @@
         <ul id="class6Directions" data-role="listview" data-divider-theme="b"
         data-inset="true" class="classButton">
             <li data-theme="c">
-                <a href="#page26" data-transition="slide">
+                <a href="#directionsMap" data-transition="slide">
                     Class 6
                 </a>
             </li>
@@ -622,9 +640,9 @@
 <!-- End of Directions Page -->
 
 <!-- Directions Map Page -->
-  <div data-role="page" data-control-title="Directions Map" id="page26">
+  <div data-role="page" data-control-title="Directions Map" id="directionsMap">
       <div data-theme="a" data-role="header">
-          <a data-role="button" href="#page24" class="ui-btn-left">
+          <a data-role="button" href="#directions" class="ui-btn-left">
               Back
           </a>
           <h3 id="directionsMapTitle">
@@ -633,7 +651,7 @@
       </div>
       <div data-role="content">
           <div id="directionsMap" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
-          </div>
+          </div><!-- 
           <script type="text/javascript">
                   window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'directionsMap', {
               ready: function(control) {
@@ -664,7 +682,7 @@
               }
           });
           </script>
-      </div>
+       --></div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
@@ -696,19 +714,19 @@
      <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
       data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-              <li data-role="list-divider" role="heading">
-                  Divider
-              </li>
-              <li data-theme="a">
-                  <a href="" data-transition="slide">
-                      Button
-                  </a>
-              </li>
-              <li data-theme="a">
-                  <a href="#otherinfo" data-transition="slide">
-                      Info
-                  </a>
-              </li>
+            <li data-role="list-divider" role="heading">
+                Menu
+            </li>
+            <li data-theme="a">
+                <a href="#directions" data-transition="slide">
+                    Directions
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#otherinfo" data-transition="slide">
+                    Info
+                </a>
+            </li>
           </ul>
       </div>
       <div data-theme="a" data-role="header">
@@ -994,19 +1012,19 @@
      <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
       data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-              <li data-role="list-divider" role="heading">
-                  Divider
-              </li>
-              <li data-theme="a">
-                  <a href="" data-transition="slide">
-                      Button
-                  </a>
-              </li>
-              <li data-theme="a">
-                  <a href="#otherinfo" data-transition="slide">
-                      Info
-                  </a>
-              </li>
+            <li data-role="list-divider" role="heading">
+                Menu
+            </li>
+            <li data-theme="a">
+                <a href="#directions" data-transition="slide">
+                    Directions
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#otherinfo" data-transition="slide">
+                    Info
+                </a>
+            </li>
           </ul>
       </div>
       <div data-theme="a" data-role="header">
@@ -2176,10 +2194,10 @@
           </div>
       </div>
   </div>
-  <div data-role="page" data-control-title="Life Sciences Center" id="page27">
+  <div data-role="page" data-control-title="Life Sciences Center" id="lsc">
       <div data-theme="a" data-role="header">
           <h3>
-              Killam Library
+              Life Sciences Center
           </h3>
           <a data-role="button" data-rel="back" href="#schedule" class="ui-btn-left">
               Back
@@ -2222,6 +2240,7 @@
           <div id="googlemapsjs21" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
           </div>
           <script type="text/javascript">
+
                   window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs21', {
               ready: function(control) {
   
