@@ -985,5 +985,3 @@ console.log("retrieved building index: " + localStorage.class6Building);
 } // end of class6()
 
 /**************************** END OF SCHEDULE FUNCTIONS ****************************/
-
-
