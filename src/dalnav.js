@@ -82,11 +82,10 @@ function saveClass()
 	case 1:
 		localStorage.class1Name = className.value;
 
-//update here:
-//alert("Buiding index: "+ buildingName[buildingName.selectedIndex].innerHTML);	
 //console.log("Buiding index: "+ buildingName[buildingName.selectedIndex].innerHTML);	
-//alert("Buiding selected index: "+ document.getElementById("building1").innerHTML);
-		localStorage.class1Building = buildingName.value;
+		
+		localStorage.class1Building = buildingName.selectedIndex;
+console.log("saved building index: "+localStorage.class1Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -133,7 +132,8 @@ function saveClass()
 	
 	case 2:
 		localStorage.class2Name = className.value;
-		localStorage.class2Building = buildingName.value;
+		localStorage.class2Building = buildingName.selectedIndex;
+console.log("saved building index: "+localStorage.class2Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -180,7 +180,8 @@ function saveClass()
 
 	case 3:
 		localStorage.class3Name = className.value;
-		localStorage.class3Building = buildingName.value;
+		localStorage.class3Building = buildingName.selectedIndex;
+console.log("saved building index: "+localStorage.class3Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -227,7 +228,8 @@ function saveClass()
 
 	case 4:
 		localStorage.class4Name = className.value;
-		localStorage.class4Building = buildingName.value;
+		localStorage.class4Building = buildingName.selectedIndex;
+console.log("saved building index: "+localStorage.class4Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -274,7 +276,8 @@ function saveClass()
 	
 	case 5:
 		localStorage.class5Name = className.value;
-		localStorage.class5Building = buildingName.value;
+		localStorage.class5Building = buildingName.selectedIndex;
+console.log("saved building index: "+localStorage.class5Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -321,7 +324,8 @@ function saveClass()
 	
 	case 6:
 		localStorage.class6Name = className.value;
-		localStorage.class6Building = buildingName.value;
+		localStorage.class6Building = buildingName.selectedIndex;
+console.log("saved building index: "+localStorage.class6Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -499,7 +503,9 @@ function class1()
 	if(localStorage.class1Name == undefined)
 	{
 		className.value="";
-		buildingName.value="";
+		buildingName.selectedIndex = 0;
+console.log("empty class, selected index is: "+ buildingName.selectedIndex);
+//	buildingName.value="";
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -516,7 +522,12 @@ function class1()
 	else
 	{
 		className.value = localStorage.class1Name;
-		buildingName.value = localStorage.class1Building;
+	
+//buildingName[buildingName.selectedIndex].innerHTML	
+		
+		buildingName.selectedIndex = localStorage.class1Building;
+console.log("retrieved building index: " + localStorage.class1Building);
+//	buildingName.value = localStorage.class1Building;
 		
 		// Get which days were checked and show that
 		if(localStorage.class1Mon == "true")
@@ -574,8 +585,8 @@ function class2()
 	if(localStorage.class2Name == undefined)
 	{
 		className.value="";
-		buildingName.value="";
-		
+		buildingName.selectedIndex = 0;
+console.log("empty class, selected index is: "+ buildingName.selectedIndex);		
 		mon.checked = false;
 		tues.checked = false;
 		wed.checked = false;
@@ -592,7 +603,8 @@ function class2()
 	else
 	{
 		className.value = localStorage.class2Name;
-		buildingName.value = localStorage.class2Building;
+		buildingName.selectedIndex = localStorage.class2Building;
+console.log("retrieved building index: " + localStorage.class2Building);
 
 		// Get which days were checked and show that
 		if(localStorage.class2Mon == "true")
@@ -650,7 +662,8 @@ function class3()
 	if(localStorage.class3Name == undefined)
 	{
 		className.value="";
-		buildingName.value="";
+		buildingName.selectedIndex = 0;
+console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -667,7 +680,8 @@ function class3()
 	else
 	{
 		className.value = localStorage.class3Name;
-		buildingName.value = localStorage.class3Building;
+		buildingName.selectedIndex = localStorage.class3Building;
+console.log("retrieved building index: " + localStorage.class3Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class3Mon == "true")
@@ -725,7 +739,8 @@ function class4()
 	if(localStorage.class4Name == undefined)
 	{
 		className.value="";
-		buildingName.value="";
+		buildingName.selectedIndex=0;
+console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -742,7 +757,8 @@ function class4()
 	else
 	{
 		className.value = localStorage.class4Name;
-		buildingName.value = localStorage.class4Building;
+		buildingName.selectedIndex = localStorage.class4Building;
+console.log("retrieved building index: " + localStorage.class4Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class4Mon == "true")
@@ -800,7 +816,8 @@ function class5()
 	if(localStorage.class5Name == undefined)
 	{
 		className.value="";
-		buildingName.value="";
+		buildingName.selectedIndex=0;
+console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -817,7 +834,8 @@ function class5()
 	else
 	{
 		className.value = localStorage.class5Name;
-		buildingName.value = localStorage.class5Building;
+		buildingName.selectedIndex = localStorage.class5Building;
+console.log("retrieved building index: " + localStorage.class5Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class5Mon == "true")
@@ -875,7 +893,8 @@ function class6()
 	if(localStorage.class6Name == undefined)
 	{
 		className.value="";
-		buildingName.value="";
+		buildingName.selectedIndex=0;
+console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -892,7 +911,8 @@ function class6()
 	else
 	{
 		className.value = localStorage.class6Name;
-		buildingName.value = localStorage.class6Building;
+		buildingName.selectedIndex = localStorage.class6Building;
+console.log("retrieved building index: " + localStorage.class6Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class6Mon == "true")
