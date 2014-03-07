@@ -1,34 +1,11 @@
 
-/******************** Directions Page Functions ********************/
-/** 
-* @author: Osama Al-Arhabi
-*
-*/
-
-/**
-* Global Variables Required for the Directions Page Functions:
-*/
-
-/*var className, buildingName, days, theAlert, startTime, alertTime;
-var mon, tues, wed, thur, fri, sat, sun;
-var currentClass;
-var class1Button, class2Button, class3Button, class4Button, class5Button, class6Button;
-*/
-
-
-
-
-
-//loadDirections()
-//{
-//}
-
 
 /******************** SCHEDULE FUNCTIONS - USER STORIES 2 & 3 ********************/
 /** 
 * @author: Osama Al-Arhabi
 *
 */
+
 
 /**
 * Global Variables Required for the Schedule Functions:
@@ -89,6 +66,8 @@ function loadSchedule()
 	if(localStorage.class6Name != undefined)
 		class6Button.innerHTML = localStorage.class6Name;
 }
+
+
 
 /**
 * Saves the Class Info after Editing or Adding a new Class
@@ -552,14 +531,7 @@ console.log("retrieved building index: " + localStorage.class1Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class1Mon == "true")
-		{
 			mon.checked = true;
-//			mon.setAttr("checked", "checked");
-//	$(mon).attr("checked", "checked");
-//alert($("input#monday").attr("checked"));
-console.log("monday attribute: "+localStorage.class1Mon);
-
-		}
 		else
 			mon.checked = false;
 		if(localStorage.class1Tues == "true")
