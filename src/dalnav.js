@@ -1,4 +1,55 @@
 
+/******************** Directions Page Functions ********************/
+/** 
+* @author: Osama Al-Arhabi
+*
+*/
+
+/**
+* Global Variables Required for the Directions Page Functions:
+*/
+var currentClass; // this variable is also used by the Schedule Page Functions
+var class1DirectionsButton, class2DirectionsButton, class3DirectionsButton, 
+	class4DirectionsButton, class5DirectionsButton, class6DirectionsButton;
+
+/**
+* Helper function to get the HTML elements required for the Directions Page functions
+*/
+function getDirectionsElements()
+{
+	class1DirectionsButton = document.getElementById("class1DirectionsAnchor");
+	class2DirectionsButton = document.getElementById("class2DirectionsAnchor");
+	class3DirectionsButton = document.getElementById("class3DirectionsAnchor");
+	class4DirectionsButton = document.getElementById("class4DirectionsAnchor");
+	class5DirectionsButton = document.getElementById("class5DirectionsAnchor");
+	class6DirectionsButton = document.getElementById("class6DirectionsAnchor");	
+}
+
+/**
+*	Loads the Directions Page containing the saved classes names
+*
+*	Content depends on whether a class is saved
+*	or empty; displays the list accordingly
+*/
+function loadDirections()
+{
+	getDirectionsElements();
+	
+	if(localStorage.class1Name != undefined)
+		class1DirectionsButton.innerHTML = localStorage.class1Name;
+	if(localStorage.class2Name != undefined)
+		class2DirectionsButton.innerHTML = localStorage.class2Name;
+	if(localStorage.class3Name != undefined)
+		class3DirectionsButton.innerHTML = localStorage.class3Name;
+	if(localStorage.class4Name != undefined)
+		class4DirectionsButton.innerHTML = localStorage.class4Name;
+	if(localStorage.class5Name != undefined)
+		class5DirectionsButton.innerHTML = localStorage.class5Name;
+	if(localStorage.class6Name != undefined)
+		class6DirectionsButton.innerHTML = localStorage.class6Name;
+
+}
+
 
 /******************** SCHEDULE FUNCTIONS - USER STORIES 2 & 3 ********************/
 /** 
@@ -6,13 +57,12 @@
 *
 */
 
-
 /**
 * Global Variables Required for the Schedule Functions:
 */
 var className, buildingName, days, theAlert, startTime, alertTime;
 var mon, tues, wed, thur, fri, sat, sun;
-var currentClass;
+//var currentClass;
 var class1Button, class2Button, class3Button, class4Button, class5Button, class6Button;
 
 
@@ -66,8 +116,6 @@ function loadSchedule()
 	if(localStorage.class6Name != undefined)
 		class6Button.innerHTML = localStorage.class6Name;
 }
-
-
 
 /**
 * Saves the Class Info after Editing or Adding a new Class
@@ -531,7 +579,14 @@ console.log("retrieved building index: " + localStorage.class1Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class1Mon == "true")
+		{
 			mon.checked = true;
+//			mon.setAttr("checked", "checked");
+//	$(mon).attr("checked", "checked");
+//alert($("input#monday").attr("checked"));
+console.log("monday attribute: "+localStorage.class1Mon);
+
+		}
 		else
 			mon.checked = false;
 		if(localStorage.class1Tues == "true")
@@ -957,5 +1012,3 @@ console.log("retrieved building index: " + localStorage.class6Building);
 } // end of class6()
 
 /**************************** END OF SCHEDULE FUNCTIONS ****************************/
-
-
