@@ -47,8 +47,10 @@ function loadDirections()
 		class5DirectionsButton.innerHTML = localStorage.class5Name;
 	if(localStorage.class6Name != undefined)
 		class6DirectionsButton.innerHTML = localStorage.class6Name;
-
 }
+
+/******************** End of Directions Page Functions ********************/
+
 
 
 /******************** SCHEDULE FUNCTIONS - USER STORIES 2 & 3 ********************/
@@ -552,15 +554,13 @@ function class1()
 	{
 		className.value="";
 		buildingName.selectedIndex = 0;
-console.log("empty class, selected index is: "+ buildingName.selectedIndex);
-//	buildingName.value="";
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
 		thur.checked=false;
 		fri.checked=false;
 		sat.checked=false;
-		sun.checked=false; 
+		sun.checked=false;
 		startTime.value="";
 		theAlert.selectedIndex = 0;
 		alertTime.value="";
@@ -569,24 +569,12 @@ console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 	// Otherwise display the saved class info
 	else
 	{
-		className.value = localStorage.class1Name;
-	
-//buildingName[buildingName.selectedIndex].innerHTML	
-		
+		className.value = localStorage.class1Name;	
 		buildingName.selectedIndex = localStorage.class1Building;
-console.log("retrieved building index: " + localStorage.class1Building);
-//	buildingName.value = localStorage.class1Building;
 		
 		// Get which days were checked and show that
 		if(localStorage.class1Mon == "true")
-		{
 			mon.checked = true;
-//			mon.setAttr("checked", "checked");
-//	$(mon).attr("checked", "checked");
-//alert($("input#monday").attr("checked"));
-console.log("monday attribute: "+localStorage.class1Mon);
-
-		}
 		else
 			mon.checked = false;
 		if(localStorage.class1Tues == "true")
@@ -621,9 +609,20 @@ console.log("monday attribute: "+localStorage.class1Mon);
 			theAlert.selectedIndex = 1
 		else
 			theAlert.selectedIndex = 0;
-			
+	
 		alertTime.value = localStorage.class1AlertTime;	
 	}
+	
+	// Now Refresh the content of the page to reflect the changes made 
+	
+	// Refresh the building selector:
+	$('#buildingNameEdit').selectmenu('refresh');
+	
+	// Refresh the days checkboxes:			
+	$("input[type='checkbox']").checkboxradio("refresh");
+	
+	// Refresh the alert selector toggle:	
+	$('#alertEdit').slider('refresh');
 } // end of class1()
 
 
@@ -641,7 +640,6 @@ function class2()
 	{
 		className.value="";
 		buildingName.selectedIndex = 0;
-console.log("empty class, selected index is: "+ buildingName.selectedIndex);		
 		mon.checked = false;
 		tues.checked = false;
 		wed.checked = false;
@@ -659,7 +657,6 @@ console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 	{
 		className.value = localStorage.class2Name;
 		buildingName.selectedIndex = localStorage.class2Building;
-console.log("retrieved building index: " + localStorage.class2Building);
 
 		// Get which days were checked and show that
 		if(localStorage.class2Mon == "true")
@@ -701,6 +698,18 @@ console.log("retrieved building index: " + localStorage.class2Building);
 			
 		alertTime.value = localStorage.class2AlertTime;	
 	}
+	
+	// Now Refresh the content of the page to reflect the changes made 
+	
+	// Refresh the building selector:
+	$('#buildingNameEdit').selectmenu('refresh');
+	
+	// Refresh the days checkboxes:			
+	$("input[type='checkbox']").checkboxradio("refresh");
+	
+	// Refresh the alert selector toggle:	
+	$('#alertEdit').slider('refresh');
+	
 } // end of class2()
 
 
@@ -718,7 +727,6 @@ function class3()
 	{
 		className.value="";
 		buildingName.selectedIndex = 0;
-console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -736,7 +744,6 @@ console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 	{
 		className.value = localStorage.class3Name;
 		buildingName.selectedIndex = localStorage.class3Building;
-console.log("retrieved building index: " + localStorage.class3Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class3Mon == "true")
@@ -778,6 +785,18 @@ console.log("retrieved building index: " + localStorage.class3Building);
 			
 		alertTime.value = localStorage.class3AlertTime;	
 	}
+	
+	// Now Refresh the content of the page to reflect the changes made 
+	
+	// Refresh the building selector:
+	$('#buildingNameEdit').selectmenu('refresh');
+	
+	// Refresh the days checkboxes:			
+	$("input[type='checkbox']").checkboxradio("refresh");
+	
+	// Refresh the alert selector toggle:	
+	$('#alertEdit').slider('refresh');
+	
 } // end of class3()
 
 
@@ -795,7 +814,6 @@ function class4()
 	{
 		className.value="";
 		buildingName.selectedIndex=0;
-console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -813,7 +831,6 @@ console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 	{
 		className.value = localStorage.class4Name;
 		buildingName.selectedIndex = localStorage.class4Building;
-console.log("retrieved building index: " + localStorage.class4Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class4Mon == "true")
@@ -855,6 +872,18 @@ console.log("retrieved building index: " + localStorage.class4Building);
 			
 		alertTime.value = localStorage.class4AlertTime;	
 	}
+	
+	// Now Refresh the content of the page to reflect the changes made 
+	
+	// Refresh the building selector:
+	$('#buildingNameEdit').selectmenu('refresh');
+	
+	// Refresh the days checkboxes:			
+	$("input[type='checkbox']").checkboxradio("refresh");
+	
+	// Refresh the alert selector toggle:	
+	$('#alertEdit').slider('refresh');
+	
 } // end of class4()
 
 
@@ -872,7 +901,6 @@ function class5()
 	{
 		className.value="";
 		buildingName.selectedIndex=0;
-console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -890,7 +918,6 @@ console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 	{
 		className.value = localStorage.class5Name;
 		buildingName.selectedIndex = localStorage.class5Building;
-console.log("retrieved building index: " + localStorage.class5Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class5Mon == "true")
@@ -932,6 +959,18 @@ console.log("retrieved building index: " + localStorage.class5Building);
 			
 		alertTime.value = localStorage.class5AlertTime;	
 	}
+	
+	// Now Refresh the content of the page to reflect the changes made 
+	
+	// Refresh the building selector:
+	$('#buildingNameEdit').selectmenu('refresh');
+	
+	// Refresh the days checkboxes:			
+	$("input[type='checkbox']").checkboxradio("refresh");
+	
+	// Refresh the alert selector toggle:	
+	$('#alertEdit').slider('refresh');
+	
 } // end of class5()
 
 
@@ -949,7 +988,6 @@ function class6()
 	{
 		className.value="";
 		buildingName.selectedIndex=0;
-console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 		mon.checked = false;
 		tues.checked=false;
 		wed.checked=false;
@@ -967,7 +1005,6 @@ console.log("empty class, selected index is: "+ buildingName.selectedIndex);
 	{
 		className.value = localStorage.class6Name;
 		buildingName.selectedIndex = localStorage.class6Building;
-console.log("retrieved building index: " + localStorage.class6Building);
 		
 		// Get which days were checked and show that
 		if(localStorage.class6Mon == "true")
@@ -1009,6 +1046,17 @@ console.log("retrieved building index: " + localStorage.class6Building);
 			
 		alertTime.value = localStorage.class6AlertTime;	
 	}
+	
+	// Now Refresh the content of the page to reflect the changes made 
+	
+	// Refresh the building selector:
+	$('#buildingNameEdit').selectmenu('refresh');
+	
+	// Refresh the days checkboxes:			
+	$("input[type='checkbox']").checkboxradio("refresh");
+	
+	// Refresh the alert selector toggle:	
+	$('#alertEdit').slider('refresh');	
 } // end of class6()
 
 /**************************** END OF SCHEDULE FUNCTIONS ****************************/
