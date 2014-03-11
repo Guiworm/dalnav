@@ -13,6 +13,7 @@
   <link href="css/jquery-mobile.css" rel="stylesheet">
   <link href="css/jquery.mobile.structure-1.3.1.css" rel="stylesheet">
 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC76s0d5LLQxlJSRakx21FimQeE3oR_32k&sensor=true"></script>
   <script src="lib/jquery-1.9.1.js"></script>
   <script src="lib/jquery.mobile-1.3.1.js"></script>
@@ -52,8 +53,10 @@
         </h3>
     </div>
     <div data-role="content">
-            <div id="placemap"></div>
-
+<!-- +++++++++++++++++++HOME CONTENT++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     </div>
 
         <div data-role="tabbar" data-iconpos="top" data-theme="c">
@@ -578,7 +581,7 @@
         <ul id="class3Directions" data-role="listview" data-divider-theme="b"
         data-inset="true" class="classButton">
             <li data-theme="c">
-                <a href="#directionsMap" id=class3DirectionsAnchor data-transition="slide">
+                <a href="#directionsMap" onclick = "findDirections(44.638046,-63.58747)" id=class3DirectionsAnchor data-transition="slide">
                     Class 3
                 </a>
             </li>
@@ -638,7 +641,7 @@
 <!-- Directions Map Page -->
   <div data-role="page" data-control-title="Directions Map" id="directionsMap">
       <div data-theme="a" data-role="header">
-          <a data-role="button" href="#directions" onClick=loadDirections() class="ui-btn-left">
+          <a data-role="button" href="#directions" class="ui-btn-left">
               Back
           </a>
           <h3 id="directionsMapTitle">
@@ -646,39 +649,11 @@
           </h3>
       </div>
       <div data-role="content">
-          <div id="directionsMap" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
-          </div><!-- 
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'directionsMap', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 14,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.636452,-63.592418'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
+          <div class="dirMap"></div>
+          <script> 
+            // findDirections(44.638046,-63.58747);
           </script>
-       --></div>
+      </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
@@ -705,7 +680,7 @@
       </div>
   </div>
 <!-- End of Directions Map Page -->
-  
+ 
   <div data-role="page" data-control-title="Map" id="map">
      <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
       data-theme="a">
@@ -735,249 +710,7 @@
           </h3>
       </div>
       <div data-role="content">
-          <div id="googlemapsjs9" class="google-map" style="width: 288px; height: 400px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs9', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637735,-63.588473'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                  
-                  var geocoder2 = new google.maps.Geocoder();
-                  geocoder2.geocode({
-                      'address': '44.639313,-63.585281'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                         
-                      }
-                  });
-                 var geocoder3 = new google.maps.Geocoder();
-                  geocoder3.geocode({
-                      'address': '44.637059,-63.593159'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder4 = new google.maps.Geocoder();
-                  geocoder4.geocode({
-                      'address': '44.636815,-63.591917'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder5 = new google.maps.Geocoder();
-                  geocoder5.geocode({
-                      'address':  '44.638542,-63.585222'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder6 = new google.maps.Geocoder();
-                  geocoder6.geocode({
-                      'address': '44.637857,-63.593336'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder7 = new google.maps.Geocoder();
-                  geocoder7.geocode({
-                      'address': '44.637483,-63.587269'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder8 = new google.maps.Geocoder();
-                  geocoder8.geocode({
-                      'address': '44.636208,-63.593108'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder9 = new google.maps.Geocoder();
-                  geocoder9.geocode({
-                      'address': '44.637095,-63.588556'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder10 = new google.maps.Geocoder();
-                  geocoder10.geocode({
-                      'address': '44.637366,-63.590825'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder11 = new google.maps.Geocoder();
-                  geocoder11.geocode({
-                      'address': '44.636082,-63.593795'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder12 = new google.maps.Geocoder();
-                  geocoder12.geocode({
-                      'address': '44.637326,-63.589503'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder13 = new google.maps.Geocoder();
-                  geocoder13.geocode({
-                      'address': '44.63905,-63.590769'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder14 = new google.maps.Geocoder();
-                  geocoder14.geocode({
-                      'address': '44.636891,-63.589184'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder15 = new google.maps.Geocoder();
-                  geocoder15.geocode({
-                      'address': '44.639206,-63.583935'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                     var geocoder16 = new google.maps.Geocoder();
-                  geocoder16.geocode({
-                      'address': '44.638046,-63.58747'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-                  
-  
-              }
-          });
-          </script>
+          <div id="multiMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -1121,38 +854,7 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs12" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs12', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637735,-63.588473'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="artsMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -1234,38 +936,7 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs10" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs10', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.639313,-63.585281'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="burbidgeMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -1347,38 +1018,7 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs11" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs11', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637059,-63.593159'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="chaseMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -1460,38 +1100,7 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs13" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs13', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.636815,-63.591917'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="chemMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -1573,38 +1182,7 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs14" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs14', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.638542,-63.585222'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="dentistryMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -1686,62 +1264,31 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs7" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs7', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637857,-63.593336'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
-          <div data-role="tabbar" data-iconpos="top" data-theme="c">
-              <ul>
-                  <li>
-                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                          Home
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                          Find
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
-                          Schedule
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                          Map
-                      </a>
-                  </li>
-              </ul>
-          </div>
+          <div id="dunnMap"></div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
       </div>
   </div>
   <div data-role="page" data-control-title="Goldberg Computer Science "
@@ -1799,68 +1346,32 @@
                       &nbsp;Yes
                   </span>
               </p>
-          </div>
-          <div id="googlemapsjs2" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs2', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637483,-63.587269'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
-          <div data-controltype="textblock">
-              <p>
-                  <br>
-              </p>
-          </div>
-          <div data-role="tabbar" data-iconpos="top" data-theme="c">
-              <ul>
-                  <li>
-                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                          Home
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                          Find
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
-                          Schedule
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                          Map
-                      </a>
-                  </li>
-              </ul>
-          </div>
+               </div>
+          <div id="csMap"></div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
       </div>
   </div>
   <div data-role="page" data-control-title="Henry Hicks" id="hicks">
@@ -1917,39 +1428,8 @@
                       &nbsp;No
                   </span>
               </p>
-          </div>
-          <div id="googlemapsjs15" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs15', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.636208,-63.593108'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+            </div>
+          <div id="hicksMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -2019,38 +1499,8 @@
                   &nbsp;Yes
               </p>
           </div>
-          <div id="googlemapsjs4" class="google-map" style="width: 200px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs4', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637095,-63.588556'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="roweMap"></div>
+      </div>
           <div data-role="tabbar" data-iconpos="top" data-theme="c">
               <ul>
                   <li>
@@ -2131,39 +1581,9 @@
                       &nbsp;Yes
                   </span>
               </p>
-          </div>
-          <div id="googlemapsjs8" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs8', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637366,-63.590825'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+            </div>
+          <div id="killamMap"></div>
+      </div>
           <div data-role="tabbar" data-iconpos="top" data-theme="c">
               <ul>
                   <li>
@@ -2233,39 +1653,8 @@
                   &nbsp;Yes
               </p>
           </div>
-          <div id="googlemapsjs21" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs21', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.636082,-63.593795'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="lscMap"></div>
+      </div>
           <div data-role="tabbar" data-iconpos="top" data-theme="c">
               <ul>
                   <li>
@@ -2347,38 +1736,8 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs6" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs6', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.637326,-63.589503'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="mccainMap"></div>
+      </div>
           <div data-role="tabbar" data-iconpos="top" data-theme="c">
               <ul>
                   <li>
@@ -2460,38 +1819,7 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs16" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs16', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.63905,-63.590769'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="monacampbellMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -2573,63 +1901,33 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs5" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs5', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.636891,-63.589184'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
-          <div data-role="tabbar" data-iconpos="top" data-theme="c">
-              <ul>
-                  <li>
-                      <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                          Home
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                          Find
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
-                          Schedule
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                          Map
-                      </a>
-                  </li>
-              </ul>
-          </div>
+          <div id="subMap"></div>
       </div>
+        <div data-role="tabbar" data-iconpos="top" data-theme="c">
+            <ul>
+                <li>
+                    <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                        Find
+                    </a>
+                </li>
+                <li>
+                    <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                        Schedule
+                    </a>
+                </li>
+                <li>
+                    <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                        Map
+                    </a>
+                </li>
+            </ul>
+        </div>
+
   </div>
   <div data-role="page" data-control-title="Tupper &amp; Kellogg" id="tupper">
       <div data-theme="a" data-role="header">
@@ -2686,38 +1984,7 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs17" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs17', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.639206,-63.583935'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="tupperMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -2799,39 +2066,7 @@
                   </span>
               </p>
           </div>
-          <div id="googlemapsjs18" class="google-map" style="width: 250px; height: 300px; margin-left: auto; margin-right: auto">
-          </div>
-          
-          <script type="text/javascript">
-                  window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs18', {
-              ready: function(control) {
-  
-                  control.options = {
-                      zoom: 17,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  };
-  
-                  control.el = document.getElementById(control._id);
-                  control.map = new google.maps.Map(control.el, control.options);
-  
-                  var geocoder = new google.maps.Geocoder();
-                  geocoder.geocode({
-                      'address': '44.638046,-63.58747'
-                  }, function(results, status) {
-                      if (status == google.maps.GeocoderStatus.OK) {
-  
-                          var marker = new google.maps.Marker({
-                              map: control.map,
-                              position: results[0].geometry.location
-                          });
-                          control.center = results[0].geometry.location;
-                          control.map.setCenter(control.center);
-                      }
-                  });
-  
-              }
-          });
-          </script>
+          <div id="lawMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>

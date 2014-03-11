@@ -1,4 +1,101 @@
-#placemap {
+#multiMap{
+	width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#artsMap {
     width: 288px;
     height: 400px;
+    margin: auto;
+}
+
+#burbidgeMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#chaseMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#chemMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#dunnMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#csMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#hicksMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#roweMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#killamMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#lscMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#mccainMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#monacambellMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#subMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#tupperMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#lawMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+.dirMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
 }
