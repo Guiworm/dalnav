@@ -60,7 +60,7 @@ function loadDirections()
 *	directions.js
 */
 function directionsToClass1()
-{
+{	
 	// If no class is saved:
 	if(localStorage.class1Name == undefined)
 	{
@@ -950,7 +950,7 @@ function class1()
 	// Now Refresh the content of the page to reflect the changes made 
 	
 	// Refresh the building selector:
-	$('#buildingNameEdit').selectmenu('refresh');
+	$('#buildingNameEdit').selectmenu('refresh');	
 	
 	// Refresh the days checkboxes:			
 	$("input[type='checkbox']").checkboxradio("refresh");
