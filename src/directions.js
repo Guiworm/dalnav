@@ -302,18 +302,35 @@ function initialize() {
   directionsDisplay.setMap(multimap);
 
   //Marker
-  var marker = new google.maps.Marker({ position: lawCoor });
+  var coordinates = localStorage.class1BuildingCoord;
+  var splitCoordinates = coordinates.split(",");
+  var marker = new google.maps.Marker({ position: new google.maps.LatLng(splitCoordinates[0], splitCoordinates[1]) });
   marker.setMap(multimap);
-  var marker = new google.maps.Marker({ position: lscCoor });
+
+  var coordinates = localStorage.class2BuildingCoord;
+  var splitCoordinates = coordinates.split(",");
+  var marker = new google.maps.Marker({ position: new google.maps.LatLng(splitCoordinates[0], splitCoordinates[1]) });
   marker.setMap(multimap);
-  // var marker = new google.maps.Marker({ position: monacampbellCoor });
-  // marker.setMap(multimap);
-  // var marker = new google.maps.Marker({ position: killamCoor });
-  // marker.setMap(multimap);
-  // var marker = new google.maps.Marker({ position: tupperCoor });
-  // marker.setMap(multimap);
-  // var marker = new google.maps.Marker({ position: hicksCoor });
-  // marker.setMap(multimap);
+
+  var coordinates = localStorage.class3BuildingCoord;
+  var splitCoordinates = coordinates.split(",");
+  var marker = new google.maps.Marker({ position: new google.maps.LatLng(splitCoordinates[0], splitCoordinates[1]) });
+  marker.setMap(multimap);
+
+  var coordinates = localStorage.class4BuildingCoord;
+  var splitCoordinates = coordinates.split(",");
+  var marker = new google.maps.Marker({ position: new google.maps.LatLng(splitCoordinates[0], splitCoordinates[1]) });
+  marker.setMap(multimap);
+
+  var coordinates = localStorage.class5BuildingCoord;
+  var splitCoordinates = coordinates.split(",");
+  var marker = new google.maps.Marker({ position: new google.maps.LatLng(splitCoordinates[0], splitCoordinates[1]) });
+  marker.setMap(multimap);
+
+  var coordinates = localStorage.class6BuildingCoord;
+  var splitCoordinates = coordinates.split(",");
+  var marker = new google.maps.Marker({ position: new google.maps.LatLng(splitCoordinates[0], splitCoordinates[1]) });
+  marker.setMap(multimap);
   /* ---------- END MAIN MAPS  -----------   */
 
 }
