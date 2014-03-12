@@ -1,5 +1,5 @@
 
-/******************** Directions Page Functions ********************/
+/******************** Directions Page Functions - USER STORY 4 ********************/
 /** 
 * @author: Osama Al-Arhabi
 *
@@ -282,7 +282,92 @@ function directionsToClass6()
 
 
 
+function findDirections(lat, longt){
+(function ( $ ) {
+  $.fn.GeoLocation = function( options ) {
+    var settings = $.extend({
+      dest: { latitude: 44.637735, longitude: -63.588473 }}, options );
+    
+  //  var dest = new google.maps.LatLng(settings.dest.latitude, settings.dest.longitude);
+    var dest = new google.maps.LatLng(lat, longt);
+       
+    return this.each(function() { 
+      var element = $(this);
+      element.text('Getting your location...');
+      
+      function displayCurrentPosition(data) {
+        element.html('<div class="map-canvas"></div>');
+        
+        var current = new google.maps.LatLng(data.coords.latitude, data.coords.longitude);
+        
+        var options = {
+          center: current,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          zoom: 10
+        };
+        
+        var map = new google.maps.Map(element[0], options);
+          
+        var directions = {
+          origin: current,
+          destination: dest,
+          travelMode: google.maps.DirectionsTravelMode.WALKING
+        };
+        
+        display = new google.maps.DirectionsRenderer({ map: map });
+        
+        service = new google.maps.DirectionsService();
+        service.route(directions, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            display.setDirections(response);
+          }
+          else
+          {
+            alert("directions: "+status);
+            alert ('failed to get directions ' + status);
+          }
+        });
+      }
+      
+      function onError(error) {
+        switch(error.code) {
+          case error.PERMISSION_DENIED:
+            element.text('Access to location API denied by user');
+            break;
+          case error.POSITION_UNAVAILABLE:
+            element.text('Unable to determine location');
+            break;
+          case error.TIMEOUT:
+            element.text('Unable to determine location, the request timed out');
+            break;
+          case error.UNKNOWN_ERROR:
+            element.text('An unknown error occurred!');
+            break;
+        }
+      }
+      
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(displayCurrentPosition, onError);
+      } else {
+        element.text('Geolocation is not supported by this browser, please upgrade to a more recent version');
+      }
+    });
+ 
+  };
+ 
+}( jQuery ));
+jQuery('div.dirMap').GeoLocation();
+}
+
+
+
+
+
+
+
 /******************** End of Directions Page Functions ********************/
+
+
 
 
 
@@ -681,6 +766,7 @@ console.log("deleteClass()");
 	case 1:
 		localStorage.removeItem("class1Name");
 		localStorage.removeItem("class1Building");
+		localStorage.removeItem("class1BuildingCoord");
 		localStorage.removeItem("class1Mon");
 		localStorage.removeItem("class1Tues");
 		localStorage.removeItem("class1Wed");
@@ -698,6 +784,7 @@ console.log("deleteClass()");
 	case 2:
 		localStorage.removeItem("class2Name");
 		localStorage.removeItem("class2Building");
+		localStorage.removeItem("class2BuildingCoord");
 		localStorage.removeItem("class2Mon");
 		localStorage.removeItem("class2Tues");
 		localStorage.removeItem("class2Wed");
@@ -715,6 +802,7 @@ console.log("deleteClass()");
 	case 3:
 		localStorage.removeItem("class3Name");
 		localStorage.removeItem("class3Building");
+		localStorage.removeItem("class3BuildingCoord");
 		localStorage.removeItem("class3Mon");
 		localStorage.removeItem("class3Tues");
 		localStorage.removeItem("class3Wed");
@@ -732,6 +820,7 @@ console.log("deleteClass()");
 	case 4:
 		localStorage.removeItem("class4Name");
 		localStorage.removeItem("class4Building");
+		localStorage.removeItem("class4BuildingCoord");
 		localStorage.removeItem("class4Mon");
 		localStorage.removeItem("class4Tues");
 		localStorage.removeItem("class4Wed");
@@ -749,6 +838,7 @@ console.log("deleteClass()");
 	case 5:
 		localStorage.removeItem("class5Name");
 		localStorage.removeItem("class5Building");
+		localStorage.removeItem("class5BuildingCoord");
 		localStorage.removeItem("class5Mon");
 		localStorage.removeItem("class5Tues");
 		localStorage.removeItem("class5Wed");
@@ -766,6 +856,7 @@ console.log("deleteClass()");
 	case 6:
 		localStorage.removeItem("class6Name");
 		localStorage.removeItem("class6Building");
+		localStorage.removeItem("class6BuildingCoord");
 		localStorage.removeItem("class6Mon");
 		localStorage.removeItem("class6Tues");
 		localStorage.removeItem("class6Wed");
