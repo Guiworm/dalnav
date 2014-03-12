@@ -11,6 +11,8 @@
 var currentClass; // this variable is also used by the Schedule Page Functions
 var class1DirectionsButton, class2DirectionsButton, class3DirectionsButton, 
 	class4DirectionsButton, class5DirectionsButton, class6DirectionsButton;
+var coordinates, splitCoordinates, lat, longt;
+var directionsToTitle;
 
 /**
 * Helper function to get the HTML elements required for the Directions Page functions
@@ -23,6 +25,7 @@ function getDirectionsElements()
 	class4DirectionsButton = document.getElementById("class4DirectionsAnchor");
 	class5DirectionsButton = document.getElementById("class5DirectionsAnchor");
 	class6DirectionsButton = document.getElementById("class6DirectionsAnchor");	
+	directionsToTitle = document.getElementById("directionsMapTitle");	
 }
 
 /**
@@ -48,6 +51,236 @@ function loadDirections()
 	if(localStorage.class6Name != undefined)
 		class6DirectionsButton.innerHTML = localStorage.class6Name;
 }
+
+
+
+/**
+*	The following 6 functions find the directions to the chosen class and
+*	display them on the map.  They make use of the function findDirections() in 
+*	directions.js
+*/
+function directionsToClass1()
+{
+	// If no class is saved:
+	if(localStorage.class1Name == undefined)
+	{
+		alert("No class has been saved yet! \n\nEither:\n  Add a class \n  OR\n  Go to the Registrar's Office"+
+		" and register in one \n\nHere are the directions..");
+		
+		directionsToTitle.innerHTML = "To Registrar's Office";
+		findDirections(44.636208,-63.593108); // directions to the Registrar's Office
+	}
+	
+	// If a class is saved but without a building:
+	else if(localStorage.class1Building < 1)
+	{
+		alert("You did not save a location for this class, go back to the Schedule page" +
+		" and add the location!");
+		directionsToTitle.innerHTML = "No Location Saved";
+		
+		// Take User to the Schedule Page		
+		window.location.href="#schedule";
+		loadSchedule();		
+	}
+	
+	// If class is saved, get the building's coordinates
+	else
+	{
+		coordinates = localStorage.class1BuildingCoord;
+		splitCoordinates = coordinates.split(",");
+		
+		directionsToTitle.innerHTML = localStorage.class1Name;
+		
+		findDirections(splitCoordinates[0], splitCoordinates[1]);
+	}
+}
+
+function directionsToClass2()
+{
+	// If no class is saved:
+	if(localStorage.class2Name == undefined)
+	{
+		alert("No class has been saved yet! \n\nEither:\n  Add a class \n      OR\n  Go to the Registrar's Office"+
+		" and register in one \n\nHere are the directions..");
+		
+		directionsToTitle.innerHTML = "To Registrar's Office";
+		findDirections(44.636208,-63.593108); // directions to the Registrar's Office
+	}
+	
+	// If a class is saved but without a building:
+	else if(localStorage.class2Building < 1)
+	{
+		alert("You did not save a location for this class, go back to the Schedule page" +
+		" and add the location!");
+		directionsToTitle.innerHTML = "No Location Saved";
+
+		// Take User to the Schedule Page		
+		window.location.href="#schedule";
+		loadSchedule();		
+	}
+	
+	// If class is saved, get the building's coordinates
+	else
+	{
+		coordinates = localStorage.class2BuildingCoord;
+		splitCoordinates = coordinates.split(",");
+		
+		directionsToTitle.innerHTML = localStorage.class2Name;
+		
+		findDirections(splitCoordinates[0], splitCoordinates[1]);
+	}
+}
+
+function directionsToClass3()
+{
+	// If no class is saved:
+	if(localStorage.class3Name == undefined)
+	{
+		alert("No class has been saved yet! \n\nEither:\n  Add a class \n      OR\n  Go to the Registrar's Office"+
+		" and register in one \n\nHere are the directions..");
+		
+		directionsToTitle.innerHTML = "To Registrar's Office";
+		findDirections(44.636208,-63.593108); // directions to the Registrar's Office
+	}
+	
+	// If a class is saved but without a building:
+	else if(localStorage.class3Building < 1)
+	{
+		alert("You did not save a location for this class, go back to the Schedule page" +
+		" and add the location!");
+		directionsToTitle.innerHTML = "No Location Saved";
+
+		// Take User to the Schedule Page		
+		window.location.href="#schedule";
+		loadSchedule();		
+	}
+	
+	// If class is saved, get the building's coordinates
+	else
+	{
+		coordinates = localStorage.class3BuildingCoord;
+		splitCoordinates = coordinates.split(",");
+		
+		directionsToTitle.innerHTML = localStorage.class3Name;
+		
+		findDirections(splitCoordinates[0], splitCoordinates[1]);
+	}
+}
+
+function directionsToClass4()
+{
+	// If no class is saved:
+	if(localStorage.class4Name == undefined)
+	{
+		alert("No class has been saved yet! \n\nEither:\n  Add a class \n      OR\n  Go to the Registrar's Office"+
+		" and register in one \n\nHere are the directions..");
+		
+		directionsToTitle.innerHTML = "To Registrar's Office";
+		findDirections(44.636208,-63.593108); // directions to the Registrar's Office
+	}
+	
+	// If a class is saved but without a building:
+	else if(localStorage.class4Building < 1)
+	{
+		alert("You did not save a location for this class, go back to the Schedule page" +
+		" and add the location!");
+		directionsToTitle.innerHTML = "No Location Saved";
+		
+		// Take User to the Schedule Page		
+		window.location.href="#schedule";
+		loadSchedule();
+	}
+	
+	// If class is saved, get the building's coordinates
+	else
+	{
+		coordinates = localStorage.class4BuildingCoord;
+		splitCoordinates = coordinates.split(",");
+		
+		directionsToTitle.innerHTML = localStorage.class4Name;
+		
+		findDirections(splitCoordinates[0], splitCoordinates[1]);
+	}
+}
+
+function directionsToClass5()
+{
+	// If no class is saved:
+	if(localStorage.class5Name == undefined)
+	{
+		alert("No class has been saved yet! \n\nEither:\n  Add a class \n      OR\n  Go to the Registrar's Office"+
+		" and register in one \n\nHere are the directions..");
+		
+		directionsToTitle.innerHTML = "To Registrar's Office";
+		findDirections(44.636208,-63.593108); // directions to the Registrar's Office
+	}
+	
+	// If a class is saved but without a building:
+	else if(localStorage.class5Building < 1)
+	{
+		alert("You did not save a location for this class, go back to the Schedule page" +
+		" and add the location!");
+		directionsToTitle.innerHTML = "No Location Saved";
+		
+		// Take User to the Schedule Page		
+		window.location.href="#schedule";
+		loadSchedule();
+	}
+	
+	// If class is saved, get the building's coordinates
+	else
+	{
+		coordinates = localStorage.class5BuildingCoord;
+		splitCoordinates = coordinates.split(",");
+		
+		directionsToTitle.innerHTML = localStorage.class5Name;
+		
+		findDirections(splitCoordinates[0], splitCoordinates[1]);
+	}
+}
+
+function directionsToClass6()
+{
+	// If no class is saved:
+	if(localStorage.class6Name == undefined)
+	{
+		alert("No class has been saved yet! \n\nEither:\n  Add a class \n      OR\n  Go to the Registrar's Office"+
+		" and register in one \n\nHere are the directions..");
+
+// Alternatively, take back to directions page instead of showing directions to Reg Office		
+//		window.location.href="#directions";
+//		loadDirections();
+		
+		directionsToTitle.innerHTML = "To Registrar's Office";
+		findDirections(44.636208,-63.593108); // directions to the Registrar's Office
+	}
+	
+	// If a class is saved but without a building:
+	else if(localStorage.class6Building < 1)
+	{
+		alert("You did not save a location for this class, go back to the Schedule page" +
+		" and add the location!");
+		directionsToTitle.innerHTML = "No Location Saved";
+		
+		// Take User to the Schedule Page		
+		window.location.href="#schedule";
+		loadSchedule();
+	}
+	
+	// If class is saved, get the building's coordinates
+	else
+	{
+		coordinates = localStorage.class6BuildingCoord;
+		splitCoordinates = coordinates.split(",");
+		
+		directionsToTitle.innerHTML = localStorage.class6Name;
+		
+		findDirections(splitCoordinates[0], splitCoordinates[1]);
+	}
+}
+
+
+
 
 /******************** End of Directions Page Functions ********************/
 
@@ -127,6 +360,7 @@ function saveClass()
 {
 	
 	// Save the user's input for all the specified class data fields
+	// (depends on which class spot we are currently in)
 	switch(currentClass)
 	{
 	case 1:
@@ -135,7 +369,11 @@ function saveClass()
 //console.log("Buiding index: "+ buildingName[buildingName.selectedIndex].innerHTML);	
 		
 		localStorage.class1Building = buildingName.selectedIndex;
+		localStorage.class1BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
+		
 console.log("saved building index: "+localStorage.class1Building);
+console.log("Coord: "+localStorage.class1BuildingCoord);
+
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -183,6 +421,7 @@ console.log("saved building index: "+localStorage.class1Building);
 	case 2:
 		localStorage.class2Name = className.value;
 		localStorage.class2Building = buildingName.selectedIndex;
+		localStorage.class2BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 console.log("saved building index: "+localStorage.class2Building);
 		
 		// check which days where checked:
@@ -231,6 +470,7 @@ console.log("saved building index: "+localStorage.class2Building);
 	case 3:
 		localStorage.class3Name = className.value;
 		localStorage.class3Building = buildingName.selectedIndex;
+		localStorage.class3BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 console.log("saved building index: "+localStorage.class3Building);
 		
 		// check which days where checked:
@@ -279,6 +519,7 @@ console.log("saved building index: "+localStorage.class3Building);
 	case 4:
 		localStorage.class4Name = className.value;
 		localStorage.class4Building = buildingName.selectedIndex;
+		localStorage.class4BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 console.log("saved building index: "+localStorage.class4Building);
 		
 		// check which days where checked:
@@ -327,6 +568,7 @@ console.log("saved building index: "+localStorage.class4Building);
 	case 5:
 		localStorage.class5Name = className.value;
 		localStorage.class5Building = buildingName.selectedIndex;
+		localStorage.class5BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 console.log("saved building index: "+localStorage.class5Building);
 		
 		// check which days where checked:
@@ -375,6 +617,7 @@ console.log("saved building index: "+localStorage.class5Building);
 	case 6:
 		localStorage.class6Name = className.value;
 		localStorage.class6Building = buildingName.selectedIndex;
+		localStorage.class6BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 console.log("saved building index: "+localStorage.class6Building);
 		
 		// check which days where checked:

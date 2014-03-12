@@ -332,7 +332,7 @@ function findDirections(lat, longt){
        
     return this.each(function() { 
       var element = $(this);
-      element.text('Attempting to find your location');
+      element.text('Getting your location...');
       
       function displayCurrentPosition(data) {
         element.html('<div class="map-canvas"></div>');
