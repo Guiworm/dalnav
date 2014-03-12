@@ -1,5 +1,5 @@
 #multiMap{
-	width: 288px;
+	width: 100%;
     height: 400px;
     margin: auto;
 }
@@ -23,6 +23,12 @@
 }
 
 #chemMap {
+    width: 288px;
+    height: 400px;
+    margin: auto;
+}
+
+#dentistryMap {
     width: 288px;
     height: 400px;
     margin: auto;
@@ -70,7 +76,7 @@
     margin: auto;
 }
 
-#monacambellMap {
+#monacampbellMap {
     width: 288px;
     height: 400px;
     margin: auto;
@@ -98,4 +104,9 @@
     width: 288px;
     height: 400px;
     margin: auto;
+}
+
+#dirTime {
+	margin: auto;
+	text-align: center;
 }

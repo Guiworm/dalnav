@@ -29,16 +29,20 @@ var tuppermap;
 var lawmap;
 var multimap;
 
-//Location and options for ALL maps
+/*
+
+Location and mapping data as well as the options for all maps used on the "FIND", "MAP" and "DIRECTIONS" pages
+
+*/
 function initialize() {
 
   /* ---------- Arts  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var artsCoor = new google.maps.LatLng(44.637735,-63.588473)
+  var artsCoor = new google.maps.LatLng(44.637735,-63.588473);
   var mapOptions = {
     zoom:17,
     center: artsCoor
-  }
+  };
   //Draw the Map
   artsmap = new google.maps.Map(document.getElementById('artsMap'), mapOptions);
   directionsDisplay.setMap(artsmap);
@@ -50,11 +54,11 @@ function initialize() {
 
   /* ---------- BURBIDGE  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var burbidgeCoor = new google.maps.LatLng(44.639313,-63.585281)
+  var burbidgeCoor = new google.maps.LatLng(44.639313,-63.585281);
   var mapOptions = {
     zoom:17,
     center: burbidgeCoor
-  }
+  };
   //Draw the Map
   burbidgemap = new google.maps.Map(document.getElementById('burbidgeMap'), mapOptions);
   directionsDisplay.setMap(burbidgemap);
@@ -66,11 +70,11 @@ function initialize() {
 
   /* ---------- CHASE  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var chaseCoor = new google.maps.LatLng(44.637059,-63.593159)
+  var chaseCoor = new google.maps.LatLng(44.637059,-63.593159);
   var mapOptions = {
     zoom:17,
     center: chaseCoor
-  }
+  };
   //Draw the Map
   chasemap = new google.maps.Map(document.getElementById('chaseMap'), mapOptions);
   directionsDisplay.setMap(chasemap);
@@ -82,11 +86,11 @@ function initialize() {
 
   /* ---------- CHEM  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var chemCoor = new google.maps.LatLng(44.636815,-63.591917)
+  var chemCoor = new google.maps.LatLng(44.636815,-63.591917);
   var mapOptions = {
     zoom:17,
     center: chemCoor
-  }
+  };
   //Draw the Map
   chemmap = new google.maps.Map(document.getElementById('chemMap'), mapOptions);
   directionsDisplay.setMap(chemmap);
@@ -98,11 +102,11 @@ function initialize() {
 
   /* ---------- DENTISTRY  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var dentistryCoor = new google.maps.LatLng(44.638542,-63.585222)
+  var dentistryCoor = new google.maps.LatLng(44.638542,-63.585222);
   var mapOptions = {
     zoom:17,
     center: dentistryCoor
-  }
+  };
   //Draw the Map
   dentistrymap = new google.maps.Map(document.getElementById('dentistryMap'), mapOptions);
   directionsDisplay.setMap(dentistrymap);
@@ -114,11 +118,11 @@ function initialize() {
 
   /* ---------- DUNN  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var dunnCoor = new google.maps.LatLng(44.637857,-63.593336)
+  var dunnCoor = new google.maps.LatLng(44.637857,-63.593336);
   var mapOptions = {
     zoom:17,
     center: dunnCoor
-  }
+  };
   //Draw the Map
   dunnmap = new google.maps.Map(document.getElementById('dunnMap'), mapOptions);
   directionsDisplay.setMap(dunnmap);
@@ -130,11 +134,11 @@ function initialize() {
 
   /* ---------- CS  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var csCoor = new google.maps.LatLng(44.637483,-63.587269)
+  var csCoor = new google.maps.LatLng(44.637483,-63.587269);
   var mapOptions = {
     zoom:17,
     center: csCoor
-  }
+  };
   //Draw the Map
   csmap = new google.maps.Map(document.getElementById('csMap'), mapOptions);
   directionsDisplay.setMap(csmap);
@@ -146,11 +150,11 @@ function initialize() {
 
   /* ---------- HICKS  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var hicksCoor = new google.maps.LatLng(44.636208,-63.593108)
+  var hicksCoor = new google.maps.LatLng(44.636208,-63.593108);
   var mapOptions = {
     zoom:17,
     center: hicksCoor
-  }
+  };
   //Draw the Map
   hicksmap = new google.maps.Map(document.getElementById('hicksMap'), mapOptions);
   directionsDisplay.setMap(hicksmap);
@@ -162,11 +166,11 @@ function initialize() {
 
   /* ---------- ROWE  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var roweCoor = new google.maps.LatLng(44.637095,-63.588556)
+  var roweCoor = new google.maps.LatLng(44.637095,-63.588556);
   var mapOptions = {
     zoom:17,
     center: roweCoor
-  }
+  };
   //Draw the Map
   rowemap = new google.maps.Map(document.getElementById('roweMap'), mapOptions);
   directionsDisplay.setMap(rowemap);
@@ -178,11 +182,11 @@ function initialize() {
 
   /* ---------- KILLAM  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var killamCoor = new google.maps.LatLng(44.637366,-63.590825)
+  var killamCoor = new google.maps.LatLng(44.637366,-63.590825);
   var mapOptions = {
     zoom:17,
     center: killamCoor
-  }
+  };
   //Draw the Map
   killammap = new google.maps.Map(document.getElementById('killamMap'), mapOptions);
   directionsDisplay.setMap(killammap);
@@ -194,11 +198,11 @@ function initialize() {
 
   /* ---------- LSC  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var lscCoor = new google.maps.LatLng(44.636082,-63.593795)
+  var lscCoor = new google.maps.LatLng(44.636082,-63.593795);
   var mapOptions = {
     zoom:17,
     center: lscCoor
-  }
+  };
   //Draw the Map
   lscmap = new google.maps.Map(document.getElementById('lscMap'), mapOptions);
   directionsDisplay.setMap(lscmap);
@@ -210,11 +214,11 @@ function initialize() {
 
   /* ---------- MCCAIN  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var mccainCoor = new google.maps.LatLng(44.637326,-63.589503)
+  var mccainCoor = new google.maps.LatLng(44.637326,-63.589503);
   var mapOptions = {
     zoom:17,
     center: mccainCoor
-  }
+  };
   //Draw the Map
   mccainmap = new google.maps.Map(document.getElementById('mccainMap'), mapOptions);
   directionsDisplay.setMap(mccainmap);
@@ -226,11 +230,11 @@ function initialize() {
 
   /* ---------- MONACAMPBELL  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var monacampbellCoor = new google.maps.LatLng(44.63905,-63.590769)
+  var monacampbellCoor = new google.maps.LatLng(44.63905,-63.590769);
   var mapOptions = {
     zoom:17,
     center: monacampbellCoor
-  }
+  };
   //Draw the Map
   monacampbellmap = new google.maps.Map(document.getElementById('monacampbellMap'), mapOptions);
   directionsDisplay.setMap(monacampbellmap);
@@ -242,11 +246,11 @@ function initialize() {
 
   /* ---------- SUB  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var subCoor = new google.maps.LatLng(44.636891,-63.589184)
+  var subCoor = new google.maps.LatLng(44.636891,-63.589184);
   var mapOptions = {
     zoom:17,
     center: subCoor
-  }
+  };
   //Draw the Map
   submap = new google.maps.Map(document.getElementById('subMap'), mapOptions);
   directionsDisplay.setMap(submap);
@@ -258,11 +262,11 @@ function initialize() {
 
   /* ---------- TUPPER  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var tupperCoor = new google.maps.LatLng(44.639206,-63.583935)
+  var tupperCoor = new google.maps.LatLng(44.639206,-63.583935);
   var mapOptions = {
     zoom:17,
     center: tupperCoor
-  }
+  };
   //Draw the Map
   tuppermap = new google.maps.Map(document.getElementById('tupperMap'), mapOptions);
   directionsDisplay.setMap(tuppermap);
@@ -274,11 +278,11 @@ function initialize() {
 
   /* ---------- LAW  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var lawCoor = new google.maps.LatLng(44.638046,-63.58747)
+  var lawCoor = new google.maps.LatLng(44.638046,-63.58747);
   var mapOptions = {
     zoom:17,
     center: lawCoor
-  }
+  };
   //Draw the Map
   lawmap = new google.maps.Map(document.getElementById('lawMap'), mapOptions);
   directionsDisplay.setMap(lawmap);
@@ -290,18 +294,21 @@ function initialize() {
 
 
 
-    /* ---------- MAIN MAPS  -----------   */
+  /* ---------- MAIN MAPS  -----------   
+  Used to find all user defined building locations that have been added through the schedule and to show up in the "MAP" page
+  */
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var dal = new google.maps.LatLng(44.638046,-63.58747)
+  var dal = new google.maps.LatLng(44.638046,-63.58747);
   var mapOptions = {
-    zoom:16,
+    zoom:14,
     center: dal
-  }
+  };
   //Draw the Map
   multimap = new google.maps.Map(document.getElementById('multiMap'), mapOptions);
   directionsDisplay.setMap(multimap);
 
-  //Marker
+  //Markers for all classes on the MAP page
+  //Shows all markers at the same time on the new page
   var coordinates = localStorage.class1BuildingCoord;
   var splitCoordinates = coordinates.split(",");
   var marker = new google.maps.Marker({ position: new google.maps.LatLng(splitCoordinates[0], splitCoordinates[1]) });
@@ -332,7 +339,6 @@ function initialize() {
   var marker = new google.maps.Marker({ position: new google.maps.LatLng(splitCoordinates[0], splitCoordinates[1]) });
   marker.setMap(multimap);
   /* ---------- END MAIN MAPS  -----------   */
-
 }
 
 
@@ -344,7 +350,7 @@ function findDirections(lat, longt){
    //   dest: { latitude: lat, longitude: longt },
     }, options );
     
-  //  var dest = new google.maps.LatLng(settings.dest.latitude, settings.dest.longitude);
+   // var dest = new google.maps.LatLng(settings.dest.latitude, settings.dest.longitude);
     var dest = new google.maps.LatLng(lat, longt);
        
     return this.each(function() { 
@@ -370,6 +376,15 @@ function findDirections(lat, longt){
           travelMode: google.maps.DirectionsTravelMode.WALKING
         };
         
+        //Time to get to class
+        directionsService.route(directions, function(response, status){
+           if (status == google.maps.DirectionsStatus.OK){
+              directionsDisplay.setDirections(response);
+              distance = "Approximate walking time: "+response.routes[0].legs[0].duration.text;
+              document.getElementById("dirTime").innerHTML = distance;
+           }
+        });
+
         display = new google.maps.DirectionsRenderer({ map: map });
         
         service = new google.maps.DirectionsService();
@@ -419,31 +434,13 @@ jQuery('div.dirMap').GeoLocation();
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
+/********************************* END OF DIRECTIONS **********************************/
+=======
+  
+  
+}google.maps.event.addDomListener(window, 'load', initialize);
+
+
 // /********************************* END OF DIRECTIONS **********************************/
 
-// $(document).ready(function () {
-//     var map;
-//     var elevator;
-//     var myOptions = {
-//         zoom: 1,
-//         center: new google.maps.LatLng(0, 0),
-//         mapTypeId: 'terrain'
-//     };
-//     map = new google.maps.Map($('#placemap')[0], myOptions);
-
-//     var addresses = ['Norway', 'Africa', 'Asia','North America','South America'];
-
-//     for (var x = 0; x < addresses.length; x++) {
-//         $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
-//             var p = data.results[0].geometry.location
-//             var latlng = new google.maps.LatLng(p.lat, p.lng);
-//             new google.maps.Marker({
-//                 position: latlng,
-//                 map: map
-//             });
-
-//         });
-//     }
-
-// });
 
