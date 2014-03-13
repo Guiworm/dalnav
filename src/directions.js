@@ -234,7 +234,7 @@ function initialize() {
   var mapOptions = {
     zoom:17,
     center: monacampbellCoor
-  };
+  }
   //Draw the Map
   monacampbellmap = new google.maps.Map(document.getElementById('monacampbellMap'), mapOptions);
   directionsDisplay.setMap(monacampbellmap);
@@ -435,12 +435,4 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 /********************************* END OF DIRECTIONS **********************************/
-=======
-  
-  
-}google.maps.event.addDomListener(window, 'load', initialize);
-
-
-// /********************************* END OF DIRECTIONS **********************************/
-
 
