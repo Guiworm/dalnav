@@ -1,5 +1,5 @@
 
-/******************** Directions Page Functions - USER STORY 4 ********************/
+/******************** Directions Page & Directions Map Functions - USER STORY 4 ********************/
 /** 
 * @author: Osama Al-Arhabi
 *
@@ -280,91 +280,6 @@ function directionsToClass6()
 }
 
 
-
-
-function findDirections(lat, longt){
-(function ( $ ) {
-  $.fn.GeoLocation = function( options ) {
-    var settings = $.extend({
-      dest: { latitude: 44.637735, longitude: -63.588473 }}, options );
-    
-  //  var dest = new google.maps.LatLng(settings.dest.latitude, settings.dest.longitude);
-    var dest = new google.maps.LatLng(lat, longt);
-       
-    return this.each(function() { 
-      var element = $(this);
-      element.text('Getting your location...');
-      
-      function displayCurrentPosition(data) {
-        element.html('<div class="map-canvas"></div>');
-        
-        var current = new google.maps.LatLng(data.coords.latitude, data.coords.longitude);
-        
-        var options = {
-          center: current,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          zoom: 10
-        };
-        
-        var map = new google.maps.Map(element[0], options);
-          
-        var directions = {
-          origin: current,
-          destination: dest,
-          travelMode: google.maps.DirectionsTravelMode.WALKING
-        };
-        
-        display = new google.maps.DirectionsRenderer({ map: map });
-        
-        service = new google.maps.DirectionsService();
-        service.route(directions, function(response, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            display.setDirections(response);
-          }
-          else
-          {
-            alert("directions: "+status);
-            alert ('failed to get directions ' + status);
-          }
-        });
-      }
-      
-      function onError(error) {
-        switch(error.code) {
-          case error.PERMISSION_DENIED:
-            element.text('Access to location API denied by user');
-            break;
-          case error.POSITION_UNAVAILABLE:
-            element.text('Unable to determine location');
-            break;
-          case error.TIMEOUT:
-            element.text('Unable to determine location, the request timed out');
-            break;
-          case error.UNKNOWN_ERROR:
-            element.text('An unknown error occurred!');
-            break;
-        }
-      }
-      
-      if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(displayCurrentPosition, onError);
-      } else {
-        element.text('Geolocation is not supported by this browser, please upgrade to a more recent version');
-      }
-    });
- 
-  };
- 
-}( jQuery ));
-jQuery('div.dirMap').GeoLocation();
-}
-
-
-
-
-
-
-
 /******************** End of Directions Page Functions ********************/
 
 
@@ -450,15 +365,9 @@ function saveClass()
 	{
 	case 1:
 		localStorage.class1Name = className.value;
-
-//console.log("Buiding index: "+ buildingName[buildingName.selectedIndex].innerHTML);	
 		
 		localStorage.class1Building = buildingName.selectedIndex;
 		localStorage.class1BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
-		
-console.log("saved building index: "+localStorage.class1Building);
-console.log("Coord: "+localStorage.class1BuildingCoord);
-
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -507,7 +416,6 @@ console.log("Coord: "+localStorage.class1BuildingCoord);
 		localStorage.class2Name = className.value;
 		localStorage.class2Building = buildingName.selectedIndex;
 		localStorage.class2BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
-console.log("saved building index: "+localStorage.class2Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -556,7 +464,6 @@ console.log("saved building index: "+localStorage.class2Building);
 		localStorage.class3Name = className.value;
 		localStorage.class3Building = buildingName.selectedIndex;
 		localStorage.class3BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
-console.log("saved building index: "+localStorage.class3Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -605,7 +512,6 @@ console.log("saved building index: "+localStorage.class3Building);
 		localStorage.class4Name = className.value;
 		localStorage.class4Building = buildingName.selectedIndex;
 		localStorage.class4BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
-console.log("saved building index: "+localStorage.class4Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -654,7 +560,6 @@ console.log("saved building index: "+localStorage.class4Building);
 		localStorage.class5Name = className.value;
 		localStorage.class5Building = buildingName.selectedIndex;
 		localStorage.class5BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
-console.log("saved building index: "+localStorage.class5Building);
 		
 		// check which days where checked:
 		if(mon.checked)
@@ -703,7 +608,6 @@ console.log("saved building index: "+localStorage.class5Building);
 		localStorage.class6Name = className.value;
 		localStorage.class6Building = buildingName.selectedIndex;
 		localStorage.class6BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
-console.log("saved building index: "+localStorage.class6Building);
 		
 		// check which days where checked:
 		if(mon.checked)

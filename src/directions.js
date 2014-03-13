@@ -1,6 +1,6 @@
 
 
-/****************************** Directions - USER STORY 4 ******************************/
+/****************************** Directions, Maps, & Time - USER STORY 4, 5, 6 ******************************/
 /** 
 * @author: Dylan McCrindle
 *
@@ -29,10 +29,11 @@ var tuppermap;
 var lawmap;
 var multimap;
 
+
 /*
-
-Location and mapping data as well as the options for all maps used on the "FIND", "MAP" and "DIRECTIONS" pages
-
+*	Location and mapping data as well as the options for all maps used on
+*	the "FIND", "MAP" and "DIRECTIONS" pages
+*
 */
 function initialize() {
 
@@ -342,6 +343,12 @@ function initialize() {
 }
 
 
+/**
+*	Takes the destination's latitude and longitude, finds the directions, and
+*	plots on the map. (Parts of this function were adapted from code by Jonny Schnittger)
+*
+*	@author: Dylan & Osama
+*/
 function findDirections(lat, longt){
 (function ( $ ) {
   $.fn.GeoLocation = function( options ) {
