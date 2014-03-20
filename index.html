@@ -41,6 +41,16 @@
                     Info
                 </a>
             </li>
+            <li data-theme="a">
+                <a href="#residency" data-transition="slide">
+                    Residences
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#parkpage" data-transition="slide">
+                    Parking
+                </a>
+            </li>
         </ul>
     </div>
     <div data-theme="a" data-role="header">
@@ -680,6 +690,113 @@
   </div>
 <!-- End of Directions Map Page -->
  
+
+
+
+
+
+
+
+<!-- Residences Map Page -->
+<div data-role="page" data-control-title="Residences" id="residency">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Residences
+          </h3>
+      </div>
+      <div data-role="content">
+        <div id="resMap"></div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+<!-- End of Residences Map Page -->
+
+
+
+
+<!-- Parking Map Page -->
+<div data-role="page" data-control-title="Parking" id="parkpage">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Parking
+          </h3>
+      </div>
+      <div data-role="content">
+        <div id="parkingMap"></div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+<!-- End of Parking Map Page -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div data-role="page" data-control-title="Map" id="map">
      <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
       data-theme="a">

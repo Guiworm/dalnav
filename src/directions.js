@@ -37,6 +37,95 @@ var multimap;
 */
 function initialize() {
 
+
+
+ /* ---------- RESIDENCES  -----------   */
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var dal = new google.maps.LatLng(44.638046,-63.58747);
+  var Risley = new google.maps.LatLng(44.636149, -63.589357);
+  var Howe = new google.maps.LatLng(44.638340,-63.591760);
+  var Sherrif = new google.maps.LatLng(44.634679, -63.591516);
+  var Eliza = new google.maps.LatLng(44.634679, -63.591516);
+  var Gerard = new google.maps.LatLng(44.641356, -63.574079);
+
+  var mapOptions = {
+    zoom:14,
+    center: dal
+  };
+
+  //Draw the Map
+  residentmap = new google.maps.Map(document.getElementById('resMap'), mapOptions);
+  directionsDisplay.setMap(residentmap);
+
+  //Marker
+  var marker = new google.maps.Marker({ position: dal });
+  marker.setMap(residentmap);
+  //Risley
+  var marker = new google.maps.Marker({ position: Risley });
+  marker.setMap(residentmap);
+  //Howe
+  var marker = new google.maps.Marker({ position: Howe });
+  marker.setMap(residentmap);
+  //Sherrif
+  var marker = new google.maps.Marker({ position: Sherrif });
+  marker.setMap(residentmap);
+  //Eliza
+  var marker = new google.maps.Marker({ position: Eliza });
+  marker.setMap(residentmap);
+  //Gerard
+  var marker = new google.maps.Marker({ position: Gerard });
+  marker.setMap(residentmap);
+/* ---------- END RESIDENCES  -----------   */
+
+ /* ---------- PARKING  -----------   */
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var dal = new google.maps.LatLng(44.638046,-63.58747);
+  var park1 = new google.maps.LatLng(44.636149, -63.589357);
+  var park2 = new google.maps.LatLng(44.638340,-63.591760);
+  var park3 = new google.maps.LatLng(44.634679, -63.591516);
+  var park4 = new google.maps.LatLng(44.634679, -63.591516);
+  var park5 = new google.maps.LatLng(44.641356, -63.574079);
+  var park6 = new google.maps.LatLng(44.641356, -63.574079);
+  var park7 = new google.maps.LatLng(44.641356, -63.574079);
+
+
+  var mapOptions = {
+    zoom:14,
+    center: dal
+  };
+  
+  //Draw the Map
+  parkingmap = new google.maps.Map(document.getElementById('parkingMap'), mapOptions);
+  directionsDisplay.setMap(parkingmap);
+
+  //Marker
+  var marker = new google.maps.Marker({ position: dal });
+  marker.setMap(parkingmap);
+  //Risley
+  var marker = new google.maps.Marker({ position: park1 });
+  marker.setMap(parkingmap);
+  //Howe
+  var marker = new google.maps.Marker({ position: park2 });
+  marker.setMap(parkingmap);
+  //Sherrif
+  var marker = new google.maps.Marker({ position: park3 });
+  marker.setMap(parkingmap);
+  //Eliza
+  var marker = new google.maps.Marker({ position: park4 });
+  marker.setMap(parkingmap);
+  //Gerard
+  var marker = new google.maps.Marker({ position: park5 });
+  marker.setMap(parkingmap);
+  //Gerard
+  var marker = new google.maps.Marker({ position: park6 });
+  marker.setMap(parkingmap);
+  //Gerard
+  var marker = new google.maps.Marker({ position: park7 });
+  marker.setMap(parkingmap);
+/* ---------- END PARKING  -----------   */
+
+
+
   /* ---------- Arts  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
   var artsCoor = new google.maps.LatLng(44.637735,-63.588473);
