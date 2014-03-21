@@ -80,13 +80,13 @@ function initialize() {
  /* ---------- PARKING  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
   var dal = new google.maps.LatLng(44.638046,-63.58747);
-  var park1 = new google.maps.LatLng(44.636149, -63.589357);
-  var park2 = new google.maps.LatLng(44.638340,-63.591760);
-  var park3 = new google.maps.LatLng(44.634679, -63.591516);
-  var park4 = new google.maps.LatLng(44.634679, -63.591516);
-  var park5 = new google.maps.LatLng(44.641356, -63.574079);
-  var park6 = new google.maps.LatLng(44.641356, -63.574079);
-  var park7 = new google.maps.LatLng(44.641356, -63.574079);
+  var dalplex = new google.maps.LatLng(44.634063, -63.592768);
+  var wickwire = new google.maps.LatLng(44.635916, -63.592068 );
+  var howe = new google.maps.LatLng(44.638104, -63.590834);
+  var dunn= new google.maps.LatLng(44.637233, -63.593683 );
+  var coburg= new google.maps.LatLng(44.637418, -63.596172);
+  var permit = new google.maps.LatLng(44.636667, -63.588102);
+  var springGarden = new google.maps.LatLng(44.641457, -63.573860);
 
 
   var mapOptions = {
@@ -102,25 +102,25 @@ function initialize() {
   var marker = new google.maps.Marker({ position: dal });
   marker.setMap(parkingmap);
   //Risley
-  var marker = new google.maps.Marker({ position: park1 });
+  var marker = new google.maps.Marker({ position: dalplex });
   marker.setMap(parkingmap);
   //Howe
-  var marker = new google.maps.Marker({ position: park2 });
+  var marker = new google.maps.Marker({ position: wickwire });
   marker.setMap(parkingmap);
   //Sherrif
-  var marker = new google.maps.Marker({ position: park3 });
+  var marker = new google.maps.Marker({ position: howe });
   marker.setMap(parkingmap);
   //Eliza
-  var marker = new google.maps.Marker({ position: park4 });
+  var marker = new google.maps.Marker({ position: dunn });
   marker.setMap(parkingmap);
   //Gerard
-  var marker = new google.maps.Marker({ position: park5 });
+  var marker = new google.maps.Marker({ position: coburg });
   marker.setMap(parkingmap);
   //Gerard
-  var marker = new google.maps.Marker({ position: park6 });
+  var marker = new google.maps.Marker({ position: permit });
   marker.setMap(parkingmap);
   //Gerard
-  var marker = new google.maps.Marker({ position: park7 });
+  var marker = new google.maps.Marker({ position: springGarden });
   marker.setMap(parkingmap);
 /* ---------- END PARKING  -----------   */
 
