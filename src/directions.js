@@ -42,9 +42,9 @@ function initialize() {
  /* ---------- RESIDENCES  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
   var dal = new google.maps.LatLng(44.638046,-63.58747);
-  var Risley = new google.maps.LatLng(44.636149, -63.589357);
+  var Risley = new google.maps.LatLng(44.636159, -63.589281);
   var Howe = new google.maps.LatLng(44.638340,-63.591760);
-  var Sherrif = new google.maps.LatLng(44.634679, -63.591516);
+  var Sherrif = new google.maps.LatLng(44.634700, -63.594479);
   var Eliza = new google.maps.LatLng(44.634679, -63.591516);
   var Gerard = new google.maps.LatLng(44.641356, -63.574079);
 
@@ -56,14 +56,28 @@ function initialize() {
   //Draw the Map
   residentmap = new google.maps.Map(document.getElementById('resMap'), mapOptions);
   directionsDisplay.setMap(residentmap);
-
-  //Marker
-  var marker = new google.maps.Marker({ position: dal });
-  marker.setMap(residentmap);
   //Risley
-  var marker = new google.maps.Marker({ position: Risley });
-  marker.setMap(residentmap);
-  //Howe
+  var contentString='<p>This is Risley Meal Hall</p>';
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });  
+  var marker = new google.maps.Marker({ position: Risley});
+  
+   marker.setMap(residentmap);
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(residentmap,marker);
+  });
+google.maps.event.addDomListener(window, 'load', initialize);  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ //Howe
   var marker = new google.maps.Marker({ position: Howe });
   marker.setMap(residentmap);
   //Sherrif
