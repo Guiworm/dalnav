@@ -57,15 +57,14 @@ function initialize() {
   residentmap = new google.maps.Map(document.getElementById('resMap'), mapOptions);
   directionsDisplay.setMap(residentmap);
   //Risley
-  var contentString='<p>This is Risley Meal Hall</p>';
-  var infowindow = new google.maps.InfoWindow({
-      content: contentString
-  });  
-  var marker = new google.maps.Marker({ position: Risley});
-  
-   marker.setMap(residentmap);
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(residentmap,marker);
+  var contentString1='<p>This is Risley Meal Hall</p>';
+  var infowindow1 = new google.maps.InfoWindow({
+      content: contentString1
+});
+var marker1 = new google.maps.Marker({ position: Risley});
+  marker1.setMap(residentmap);
+  google.maps.event.addListener(marker1, 'click', function() {
+    infowindow1.open(residentmap,marker1);
   });
 google.maps.event.addDomListener(window, 'load', initialize);  
  //Howe
@@ -80,14 +79,38 @@ var marker2 = new google.maps.Marker({ position: Howe});
   });
 google.maps.event.addDomListener(window, 'load', initialize);  
   //Sherrif
-  var marker = new google.maps.Marker({ position: Sherrif });
-  marker.setMap(residentmap);
+  var contentString3='<p>This is Sherrif Meal Hall</p>';
+  var infowindow3 = new google.maps.InfoWindow({
+      content: contentString3
+});
+var marker3 = new google.maps.Marker({ position: Sherrif});
+  marker3.setMap(residentmap);
+  google.maps.event.addListener(marker3, 'click', function() {
+    infowindow3.open(residentmap,marker3);
+  });
+google.maps.event.addDomListener(window, 'load', initialize); 
   //Eliza
-  var marker = new google.maps.Marker({ position: Eliza });
-  marker.setMap(residentmap);
+  var contentString4='<p>This is Eliza Meal Hall</p>';
+  var infowindow4 = new google.maps.InfoWindow({
+      content: contentString4
+});
+var marker4 = new google.maps.Marker({ position: Eliza});
+  marker4.setMap(residentmap);
+  google.maps.event.addListener(marker4, 'click', function() {
+    infowindow4.open(residentmap,marker4);
+  });
+google.maps.event.addDomListener(window, 'load', initialize); 
   //Gerard
-  var marker = new google.maps.Marker({ position: Gerard });
-  marker.setMap(residentmap);
+var contentString5='<p>This is Gerard Meal Hall</p>';
+  var infowindow5 = new google.maps.InfoWindow({
+      content: contentString5
+});
+var marker5 = new google.maps.Marker({ position: Gerard});
+  marker5.setMap(residentmap);
+  google.maps.event.addListener(marker5, 'click', function() {
+    infowindow5.open(residentmap,marker5);
+  });
+google.maps.event.addDomListener(window, 'load', initialize); 
 /* ---------- END RESIDENCES  -----------   */
 
  /* ---------- PARKING  -----------   */
