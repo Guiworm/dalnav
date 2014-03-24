@@ -68,18 +68,17 @@ function initialize() {
     infowindow.open(residentmap,marker);
   });
 google.maps.event.addDomListener(window, 'load', initialize);  
-  
- 
- 
- 
- 
- 
- 
- 
- 
  //Howe
-  var marker = new google.maps.Marker({ position: Howe });
-  marker.setMap(residentmap);
+var contentString2='<p>This is Howe Meal Hall</p>';
+  var infowindow2 = new google.maps.InfoWindow({
+      content: contentString2
+});
+var marker2 = new google.maps.Marker({ position: Howe});
+  marker2.setMap(residentmap);
+  google.maps.event.addListener(marker2, 'click', function() {
+    infowindow2.open(residentmap,marker2);
+  });
+google.maps.event.addDomListener(window, 'load', initialize);  
   //Sherrif
   var marker = new google.maps.Marker({ position: Sherrif });
   marker.setMap(residentmap);
