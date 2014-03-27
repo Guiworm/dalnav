@@ -57,9 +57,9 @@ function initialize() {
   residentmap = new google.maps.Map(document.getElementById('resMap'), mapOptions);
   directionsDisplay.setMap(residentmap);
   //Risley
-  var contentString1='<p>This is Risley Meal Hall</p>';
+  var contentRisley='<p>This is Risley Hall</p>';
   var infowindow1 = new google.maps.InfoWindow({
-      content: contentString1
+      content: contentRisley
 });
 var marker1 = new google.maps.Marker({ position: Risley});
   marker1.setMap(residentmap);
@@ -68,9 +68,9 @@ var marker1 = new google.maps.Marker({ position: Risley});
   });
 google.maps.event.addDomListener(window, 'load', initialize);  
  //Howe
-var contentString2='<p>This is Howe Meal Hall</p>';
+var contentHowe='<p>This is Howe Hall</p>';
   var infowindow2 = new google.maps.InfoWindow({
-      content: contentString2
+      content: contentHowe
 });
 var marker2 = new google.maps.Marker({ position: Howe});
   marker2.setMap(residentmap);
@@ -79,9 +79,9 @@ var marker2 = new google.maps.Marker({ position: Howe});
   });
 google.maps.event.addDomListener(window, 'load', initialize);  
   //Sherrif
-  var contentString3='<p>This is Sherrif Meal Hall</p>';
+  var contentSherrif='<p>This is Sherrif Hall</p>';
   var infowindow3 = new google.maps.InfoWindow({
-      content: contentString3
+      content: contentSherrif
 });
 var marker3 = new google.maps.Marker({ position: Sherrif});
   marker3.setMap(residentmap);
@@ -90,9 +90,9 @@ var marker3 = new google.maps.Marker({ position: Sherrif});
   });
 google.maps.event.addDomListener(window, 'load', initialize); 
   //Eliza
-  var contentString4='<p>This is Eliza Meal Hall</p>';
+  var contentEliza='<p>This is Eliza Hall</p>';
   var infowindow4 = new google.maps.InfoWindow({
-      content: contentString4
+      content: contentEliza
 });
 var marker4 = new google.maps.Marker({ position: Eliza});
   marker4.setMap(residentmap);
@@ -201,6 +201,7 @@ var marker6 = new google.maps.Marker({ position: permit});
     infowindow6.open(parkingmap,marker6);
   });
 google.maps.event.addDomListener(window, 'load', initialize); 
+ 
   //Spring Garden
    var contentString7='<p>Spring Garden Road Parking</p>';
   var infowindow7 = new google.maps.InfoWindow({
@@ -216,7 +217,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
+/* ---------------Buildings--------------- */
+
   /* ---------- Arts  -----------   */
+
   directionsDisplay = new google.maps.DirectionsRenderer();
   var artsCoor = new google.maps.LatLng(44.637735,-63.588473);
   var mapOptions = {
@@ -226,10 +230,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   //Draw the Map
   artsmap = new google.maps.Map(document.getElementById('artsMap'), mapOptions);
   directionsDisplay.setMap(artsmap);
-
+	var contentStringArts='<p>Arts</p>'; 
+	var infowindowArts= new google.maps.InfoWindow({
+		content: contentStringArts
+	});
   //Marker
-  var marker = new google.maps.Marker({ position: artsCoor });
-  marker.setMap(artsmap);
+  var markerArts = new google.maps.Marker({ position: artsCoor, map: artsmap, name: arts });
+  google.maps.event.addListener(markerArts, 'click', function() {
+    infowindowArts.open(artsmap,markerArts);
+  });
+
   /* ---------- END Arts  -----------   */
 
   /* ---------- BURBIDGE  -----------   */
@@ -242,10 +252,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
   //Draw the Map
   burbidgemap = new google.maps.Map(document.getElementById('burbidgeMap'), mapOptions);
   directionsDisplay.setMap(burbidgemap);
+  	var contentStringBurbidge='<p>Burbidge</p>'; 
+	var infowindowBurbidge= new google.maps.InfoWindow({
+		content: contentStringBurbidge
+	});
 
   //Marker
-  var marker = new google.maps.Marker({ position: burbidgeCoor });
-  marker.setMap(burbidgemap);
+  var markerBurbidge = new google.maps.Marker({ position: burbidgeCoor, map: burbidgemap, name: burbidge });
+  google.maps.event.addListener(markerBurbidge, 'click', function() {
+  	infowindowBurbidge.open(burbidgemap,markerBurbidge);
+  });
+
   /* ---------- END BURBIDGE  -----------   */
 
   /* ---------- CHASE  -----------   */
@@ -258,10 +275,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
   //Draw the Map
   chasemap = new google.maps.Map(document.getElementById('chaseMap'), mapOptions);
   directionsDisplay.setMap(chasemap);
-
+	var contentStringChase='<p>Chase</p>';
+	var infowindowChase= new google.maps.InfoWindow({
+		content: contentStringChase
+	});
   //Marker
-  var marker = new google.maps.Marker({ position: chaseCoor });
-  marker.setMap(chasemap);
+  var markerChase = new google.maps.Marker({ position: chaseCoor, map: chasemap, name: chase});
+  google.maps.event.addListener(markerChase, 'click', function() {
+    infowindowChase.open(chasemap,markerChase);
+  });
   /* ---------- END CHASE  -----------   */
 
   /* ---------- CHEM  -----------   */
@@ -274,14 +296,19 @@ google.maps.event.addDomListener(window, 'load', initialize);
   //Draw the Map
   chemmap = new google.maps.Map(document.getElementById('chemMap'), mapOptions);
   directionsDisplay.setMap(chemmap);
-
+	var contentStringChem='<p>Chemistry</p>'; 
+	var infowindowChem= new google.maps.InfoWindow({
+		content: contentStringChem
+	});
   //Marker
-  var marker = new google.maps.Marker({ position: chemCoor });
-  marker.setMap(chemmap);
+  var markerChem = new google.maps.Marker({ position: chemCoor, map: chemmap, name: chem });
+  google.maps.event.addListener(markerChem, 'click', function() {
+    infowindowChem.open(chemmap,markerChem);
+  });
   /* ---------- END CHEM  -----------   */
 
   /* ---------- DENTISTRY  -----------   */
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplayDentistry = new google.maps.DirectionsRenderer();
   var dentistryCoor = new google.maps.LatLng(44.638542,-63.585222);
   var mapOptions = {
     zoom:17,
@@ -289,11 +316,20 @@ google.maps.event.addDomListener(window, 'load', initialize);
   };
   //Draw the Map
   dentistrymap = new google.maps.Map(document.getElementById('dentistryMap'), mapOptions);
-  directionsDisplay.setMap(dentistrymap);
+  directionsDisplayDentistry.setMap(dentistrymap);
 
+  //directionsDisplay = null;
+
+	var contentStringDentistry='<p>Dentistry</p>'; 
+	var infowindowDentistry= new google.maps.InfoWindow({
+		content: contentStringDentistry
+	});
   //Marker
-  var marker = new google.maps.Marker({ position: dentistryCoor });
-  marker.setMap(dentistrymap);
+  var markerDentistry = new google.maps.Marker({ position: dentistryCoor, map: dentistrymap, name: dentistry });
+  google.maps.event.addListener(markerDentistry, 'click', function() {
+    infowindowDentistry.open(dentistrymap,markerDentistry);
+  });
+  //markerDentistry.setMap(dentistrymap);
   /* ---------- END DENTISTRY  -----------   */
 
   /* ---------- DUNN  -----------   */
@@ -306,10 +342,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   //Draw the Map
   dunnmap = new google.maps.Map(document.getElementById('dunnMap'), mapOptions);
   directionsDisplay.setMap(dunnmap);
+	var contentStringDunn='<p>Dunn</p>'; 
+	var infowindowDunn= new google.maps.InfoWindow({
+		content: contentStringDunn
+	});
 
   //Marker
-  var marker = new google.maps.Marker({ position: dunnCoor });
-  marker.setMap(dunnmap);
+  var markerDunn = new google.maps.Marker({ position: dunnCoor, map: dunnmap, name: dunn });
+  google.maps.event.addListener(markerDunn, 'click', function() {
+    infowindowDunn.open(dunnmap,markerDunn);
+  });
   /* ---------- END DUNN  -----------   */
 
   /* ---------- CS  -----------   */
@@ -323,9 +365,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   csmap = new google.maps.Map(document.getElementById('csMap'), mapOptions);
   directionsDisplay.setMap(csmap);
 
+	var contentStringCS='<p>Goldberg Computer Science</p>'; 
+	var infowindowCS= new google.maps.InfoWindow({
+		content: contentStringCS
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: csCoor });
-  marker.setMap(csmap);
+  var markerCS = new google.maps.Marker({ position: csCoor, map: csmap, name: cs });
+  google.maps.event.addListener(markerCS, 'click', function() {
+    infowindowCS.open(csmap,markerCS);
+  });
   /* ---------- END CS  -----------   */
 
   /* ---------- HICKS  -----------   */
@@ -338,10 +387,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   //Draw the Map
   hicksmap = new google.maps.Map(document.getElementById('hicksMap'), mapOptions);
   directionsDisplay.setMap(hicksmap);
+	var contentStringHicks='<p>Henry Hicks</p>'; 
+	var infowindowHicks= new google.maps.InfoWindow({
+		content: contentStringHicks
+	});
 
   //Marker
-  var marker = new google.maps.Marker({ position: hicksCoor });
-  marker.setMap(hicksmap);
+  var markerHicks = new google.maps.Marker({ position: hicksCoor, map: hicksmap, name: hicks });
+  google.maps.event.addListener(markerHicks, 'click', function() {
+    infowindowHicks.open(hicksmap,markerHicks);
+  });
   /* ---------- END HICKS  -----------   */
 
   /* ---------- ROWE  -----------   */
@@ -355,9 +410,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   rowemap = new google.maps.Map(document.getElementById('roweMap'), mapOptions);
   directionsDisplay.setMap(rowemap);
 
+	var contentStringRowe='<p>Kenneth Rowe</p>'; 
+	var infowindowRowe= new google.maps.InfoWindow({
+		content: contentStringRowe
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: roweCoor });
-  marker.setMap(rowemap);
+  var markerRowe = new google.maps.Marker({ position: roweCoor, map: rowemap, name: rowe });
+  google.maps.event.addListener(markerRowe, 'click', function() {
+    infowindowRowe.open(rowemap,markerRowe);
+  });
   /* ---------- END ROWE  -----------   */
 
   /* ---------- KILLAM  -----------   */
@@ -371,9 +433,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   killammap = new google.maps.Map(document.getElementById('killamMap'), mapOptions);
   directionsDisplay.setMap(killammap);
 
+	var contentStringKillam='<p>Killam Library</p>'; 
+	var infowindowKillam= new google.maps.InfoWindow({
+		content: contentStringKillam
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: killamCoor });
-  marker.setMap(killammap);
+  var markerKillam = new google.maps.Marker({ position: killamCoor, map: killammap, name: killam });
+  google.maps.event.addListener(markerKillam, 'click', function() {
+    infowindowKillam.open(killammap,markerKillam);
+  });
   /* ---------- END KILLAM  -----------   */
 
   /* ---------- LSC  -----------   */
@@ -387,9 +456,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   lscmap = new google.maps.Map(document.getElementById('lscMap'), mapOptions);
   directionsDisplay.setMap(lscmap);
 
+	var contentStringLSC='<p>Life Sciences Centre (LSC)</p>'; 
+	var infowindowLSC= new google.maps.InfoWindow({
+		content: contentStringLSC
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: lscCoor });
-  marker.setMap(lscmap);
+  var markerLSC = new google.maps.Marker({ position: lscCoor, map: lscmap, name: lsc });
+  google.maps.event.addListener(markerLSC, 'click', function() {
+    infowindowLSC.open(lscmap,markerLSC);
+  });
   /* ---------- END LSC  -----------   */
 
   /* ---------- MCCAIN  -----------   */
@@ -403,9 +479,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   mccainmap = new google.maps.Map(document.getElementById('mccainMap'), mapOptions);
   directionsDisplay.setMap(mccainmap);
 
+	var contentStringMccain='<p>McCain</p>'; 
+	var infowindowMccain= new google.maps.InfoWindow({
+		content: contentStringMccain
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: mccainCoor });
-  marker.setMap(mccainmap);
+  var markerMccain = new google.maps.Marker({ position: mccainCoor, map: mccainmap, name: mccain });
+  google.maps.event.addListener(markerMccain, 'click', function() {
+    infowindowMccain.open(mccainmap,markerMccain);
+  });
   /* ---------- END MCCAIN  -----------   */
 
   /* ---------- MONACAMPBELL  -----------   */
@@ -419,9 +502,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   monacampbellmap = new google.maps.Map(document.getElementById('monacampbellMap'), mapOptions);
   directionsDisplay.setMap(monacampbellmap);
 
+	var contentStringMonacampbell='<p>Mona Campbell</p>'; 
+	var infowindowMonacampbell= new google.maps.InfoWindow({
+		content: contentStringMonacampbell
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: monacampbellCoor });
-  marker.setMap(monacampbellmap);
+  var markerMonacampbell = new google.maps.Marker({ position: monacampbellCoor, map: monacampbellmap, name: monacampbell });
+  google.maps.event.addListener(markerMonacampbell, 'click', function() {
+    infowindowMonacampbell.open(monacampbellmap,markerMonacampbell);
+  });
   /* ---------- END MONACAMPBELL  -----------   */
 
   /* ---------- SUB  -----------   */
@@ -435,9 +525,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   submap = new google.maps.Map(document.getElementById('subMap'), mapOptions);
   directionsDisplay.setMap(submap);
 
+	var contentStringSUB='<p>Student Union Building</p>'; 
+	var infowindowSUB= new google.maps.InfoWindow({
+		content: contentStringSUB
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: subCoor });
-  marker.setMap(submap);
+  var markerSUB = new google.maps.Marker({ position: subCoor, map: submap, name: sub });
+  google.maps.event.addListener(markerSUB, 'click', function() {
+    infowindowSUB.open(submap,markerSUB);
+  });
   /* ---------- END SUB  -----------   */
 
   /* ---------- TUPPER  -----------   */
@@ -451,9 +548,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   tuppermap = new google.maps.Map(document.getElementById('tupperMap'), mapOptions);
   directionsDisplay.setMap(tuppermap);
 
+	var contentStringTupper='<p>Tupper</p>'; 
+	var infowindowTupper= new google.maps.InfoWindow({
+		content: contentStringTupper
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: tupperCoor });
-  marker.setMap(tuppermap);
+  var markerTupper = new google.maps.Marker({ position: tupperCoor, map: tuppermap, name: tupper });
+  google.maps.event.addListener(markerTupper, 'click', function() {
+    infowindowTupper.open(tuppermap,markerTupper);
+  });
   /* ---------- END TUPPER  -----------   */
 
   /* ---------- LAW  -----------   */
@@ -467,9 +571,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
   lawmap = new google.maps.Map(document.getElementById('lawMap'), mapOptions);
   directionsDisplay.setMap(lawmap);
 
+	var contentStringLaw='<p>Schulich School of Law</p>'; 
+	var infowindowLaw= new google.maps.InfoWindow({
+		content: contentStringLaw
+	});
+
   //Marker
-  var marker = new google.maps.Marker({ position: lawCoor });
-  marker.setMap(lawmap);
+  var markerLaw = new google.maps.Marker({ position: lawCoor, map: lawmap, name: law });
+  google.maps.event.addListener(markerLaw, 'click', function() {
+    infowindowLaw.open(lawmap,markerLaw);
+  });
   /* ---------- END LAW  -----------   */
 
 
@@ -621,4 +732,3 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 /********************************* END OF DIRECTIONS **********************************/
-
