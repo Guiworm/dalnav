@@ -136,81 +136,81 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
   //Dalplex
   var contentString1='<p>Dalplex Parking</p>';
-  var infowindow6 = new google.maps.InfoWindow({
+  var infowindow1 = new google.maps.InfoWindow({
       content: contentString1
 });
 var marker1 = new google.maps.Marker({ position: dalplex});
   marker1.setMap(parkingmap);
   google.maps.event.addListener(marker1, 'click', function() {
-    infowindow6.open(parkingmap,marker1);
+    infowindow1.open(parkingmap,marker1);
   });
 google.maps.event.addDomListener(window, 'load', initialize);  
   
   //Wickwire
   var contentString2='<p>Wickwire Parking</p>';
-  var infowindow7 = new google.maps.InfoWindow({
+  var infowindow2 = new google.maps.InfoWindow({
       content: contentString2
 });
 var marker2 = new google.maps.Marker({ position: wickwire});
   marker2.setMap(parkingmap);
   google.maps.event.addListener(marker2, 'click', function() {
-    infowindow7.open(parkingmap,marker2);
+    infowindow2.open(parkingmap,marker2);
   });
 google.maps.event.addDomListener(window, 'load', initialize); 
   //Howe Hall
    var contentString3='<p>Howe Hall Parking</p>';
-  var infowindow8 = new google.maps.InfoWindow({
+  var infowindow3 = new google.maps.InfoWindow({
       content: contentString3
 });
 var marker3 = new google.maps.Marker({ position: howe});
   marker3.setMap(parkingmap);
   google.maps.event.addListener(marker3, 'click', function() {
-    infowindow8.open(parkingmap,marker3);
+    infowindow3.open(parkingmap,marker3);
   });
 google.maps.event.addDomListener(window, 'load', initialize); 
   //Dunn
    var contentString4='<p>Dunn Building Parking</p>';
-  var infowindow9 = new google.maps.InfoWindow({
+  var infowindow4 = new google.maps.InfoWindow({
       content: contentString4
 });
 var marker4 = new google.maps.Marker({ position: dunn});
   marker4.setMap(parkingmap);
   google.maps.event.addListener(marker4, 'click', function() {
-    infowindow9.open(parkingmap,marker4);
+    infowindow4.open(parkingmap,marker4);
   });
 google.maps.event.addDomListener(window, 'load', initialize); 
   //coburg
    var contentString5='<p>Parking On Coburg</p>';
-  var infowindow10 = new google.maps.InfoWindow({
+  var infowindow5 = new google.maps.InfoWindow({
       content: contentString5
 });
 var marker5 = new google.maps.Marker({ position: coburg});
   marker5.setMap(parkingmap);
   google.maps.event.addListener(marker5, 'click', function() {
-    infowindow10.open(parkingmap,marker5);
+    infowindow5.open(parkingmap,marker5);
   });
 google.maps.event.addDomListener(window, 'load', initialize); 
   //Parking permit
   var contentString6='<p>Parking Permit Only</p>';
-  var infowindow11= new google.maps.InfoWindow({
+  var infowindow6 = new google.maps.InfoWindow({
       content: contentString6
 });
 var marker6 = new google.maps.Marker({ position: permit});
   marker6.setMap(parkingmap);
   google.maps.event.addListener(marker6, 'click', function() {
-    infowindow11.open(parkingmap,marker6);
+    infowindow6.open(parkingmap,marker6);
   });
 google.maps.event.addDomListener(window, 'load', initialize); 
  
   //Spring Garden
    var contentString7='<p>Spring Garden Road Parking</p>';
-  var infowindow12 = new google.maps.InfoWindow({
+  var infowindow7 = new google.maps.InfoWindow({
       content: contentString7
 });
 var marker7 = new google.maps.Marker({ position: springGarden});
   marker7.setMap(parkingmap);
   google.maps.event.addListener(marker7, 'click', function() {
-    infowindow12.open(parkingmap,marker7);
+    infowindow7.open(parkingmap,marker7);
   });
 google.maps.event.addDomListener(window, 'load', initialize); 
 /* ---------- END PARKING  -----------   */
