@@ -25,8 +25,7 @@
 </head>
 <body>
 <div data-role="page" data-control-title="Home" id="home">
-    <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-    data-theme="a">
+    <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
         <ul data-role="listview" data-divider-theme="h" data-inset="false">
             <li data-role="list-divider" role="heading">
                 Menu
@@ -34,11 +33,6 @@
             <li data-theme="a">
                 <a href="#directions" onClick=loadDirections() data-transition="slide">
                     Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
                 </a>
             </li>
             <li data-theme="a">
@@ -68,8 +62,7 @@
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     </div>
-
-        <div data-role="tabbar" data-iconpos="top" data-theme="c">
+    <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
                   <a href="#home" data-transition="fade" data-theme="" data-icon="home">
@@ -92,25 +85,29 @@
                   </a>
               </li>
           </ul>
-        </div>
+      </div>
   </div>
   <div data-role="page" data-control-title="Find" id="find">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Menu
-            </li>
-            <li data-theme="a">
-                <a href="#directions" onClick=loadDirections() data-transition="slide">
-                    Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
-                </a>
-            </li>
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
           </ul>
       </div>
       <div data-theme="a" data-role="header">
@@ -241,22 +238,26 @@
   
 <!-- Schedule Page -->  
   <div data-role="page" data-control-title="Course Overview" id="schedule">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Menu
-            </li>
-            <li data-theme="a">
-                <a href="#directions" onClick=loadDirections()  data-transition="slide">
-                    Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
-                </a>
-            </li>
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
           </ul>
       </div>
       <div data-theme="a" data-role="header">
@@ -538,22 +539,27 @@
   
 <!-- Directions Page -->  
 <div data-role="page" data-control-title="Directions" id="directions">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
-        <ul data-role="listview" data-divider-theme="h" data-inset="false">
-          <li data-role="list-divider" role="heading">
-              Menu
-          </li>
-          <li data-theme="a">
-              <a href="#directions" onClick=loadDirections() data-transition="slide">
-                  Directions
-              </a>
-          </li>
-          <li data-theme="a">
-              <a href="#otherinfo" data-transition="slide">
-                  Info
-              </a>
-          </li>
-        </ul>
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+          </ul>
       </div>
       <div data-theme="a" data-role="header">
           <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
@@ -699,9 +705,32 @@
 
 <!-- Residences Map Page -->
 <div data-role="page" data-control-title="Residences" id="residency">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+          </ul>
+      </div>
       <div data-theme="a" data-role="header">
-          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
-              Back
+          <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
+          data-icon="bars" data-iconpos="left" class="ui-btn-left">
+              Menu
           </a>
           <h3>
               Residences
@@ -742,9 +771,32 @@
 
 <!-- Parking Map Page -->
 <div data-role="page" data-control-title="Parking" id="parkpage">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+          </ul>
+      </div>
       <div data-theme="a" data-role="header">
-          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
-              Back
+          <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
+          data-icon="bars" data-iconpos="left" class="ui-btn-left">
+              Menu
           </a>
           <h3>
               Parking
@@ -798,22 +850,26 @@
 
 
   <div data-role="page" data-control-title="Map" id="map">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Menu
-            </li>
-            <li data-theme="a">
-                <a href="#directions" onClick=loadDirections() data-transition="slide">
-                    Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
-                </a>
-            </li>
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
           </ul>
       </div>
       <div data-theme="a" data-role="header">
@@ -827,68 +883,6 @@
       </div>
       <div data-role="content">
           <div id="multiMap"></div>
-      </div>
-      <div data-role="tabbar" data-iconpos="top" data-theme="c">
-          <ul>
-              <li>
-                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
-                      Home
-                  </a>
-              </li>
-              <li>
-                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
-                      Find
-                  </a>
-              </li>
-              <li>
-                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
-                      Schedule
-                  </a>
-              </li>
-              <li>
-                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
-                      Map
-                  </a>
-              </li>
-          </ul>
-      </div>
-  </div>
-  <div data-role="page" data-control-title="Info" id="otherinfo">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
-          <ul data-role="listview" data-divider-theme="h" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Menu
-            </li>
-            <li data-theme="a">
-                <a href="#directions" onClick=loadDirections() data-transition="slide">
-                    Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
-                </a>
-            </li>
-          </ul>
-      </div>
-      <div data-theme="a" data-role="header">
-          <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
-          data-icon="bars" data-iconpos="left" class="ui-btn-left">
-              Menu
-          </a>
-          <h3>
-              Info
-          </h3>
-      </div>
-      <div data-role="content">
-          <div data-controltype="textblock">
-              <p>
-                  <b>
-                      We can fill this in when we want to later
-                  </b>
-              </p>
-          </div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>

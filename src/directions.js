@@ -66,7 +66,7 @@ var marker1 = new google.maps.Marker({ position: Risley});
   google.maps.event.addListener(marker1, 'click', function() {
     infowindow1.open(residentmap,marker1);
   });
-google.maps.event.addDomListener(window, 'load', initialize);  
+  
  //Howe
 var contentHowe='<p>This is Howe Hall</p>';
   var infowindow2 = new google.maps.InfoWindow({
@@ -77,7 +77,7 @@ var marker2 = new google.maps.Marker({ position: Howe});
   google.maps.event.addListener(marker2, 'click', function() {
     infowindow2.open(residentmap,marker2);
   });
-google.maps.event.addDomListener(window, 'load', initialize);  
+ 
   //Sherrif
   var contentSherrif='<p>This is Sherrif Hall</p>';
   var infowindow3 = new google.maps.InfoWindow({
@@ -88,7 +88,7 @@ var marker3 = new google.maps.Marker({ position: Sherrif});
   google.maps.event.addListener(marker3, 'click', function() {
     infowindow3.open(residentmap,marker3);
   });
-google.maps.event.addDomListener(window, 'load', initialize); 
+
   //Eliza
   var contentEliza='<p>This is Eliza Hall</p>';
   var infowindow4 = new google.maps.InfoWindow({
@@ -99,7 +99,7 @@ var marker4 = new google.maps.Marker({ position: Eliza});
   google.maps.event.addListener(marker4, 'click', function() {
     infowindow4.open(residentmap,marker4);
   });
-google.maps.event.addDomListener(window, 'load', initialize); 
+
   //Gerard
 var contentString5='<p>This is Gerard Meal Hall</p>';
   var infowindow5 = new google.maps.InfoWindow({
@@ -110,7 +110,6 @@ var marker5 = new google.maps.Marker({ position: Gerard});
   google.maps.event.addListener(marker5, 'click', function() {
     infowindow5.open(residentmap,marker5);
   });
-google.maps.event.addDomListener(window, 'load', initialize); 
 /* ---------- END RESIDENCES  -----------   */
 
  /* ---------- PARKING  -----------   */
@@ -143,8 +142,7 @@ var marker1 = new google.maps.Marker({ position: dalplex});
   marker1.setMap(parkingmap);
   google.maps.event.addListener(marker1, 'click', function() {
     infowindow6.open(parkingmap,marker1);
-  });
-google.maps.event.addDomListener(window, 'load', initialize);  
+  });  
   
   //Wickwire
   var contentString2='<p>Wickwire Parking</p>';
@@ -156,7 +154,6 @@ var marker2 = new google.maps.Marker({ position: wickwire});
   google.maps.event.addListener(marker2, 'click', function() {
     infowindow7.open(parkingmap,marker2);
   });
-google.maps.event.addDomListener(window, 'load', initialize); 
   //Howe Hall
    var contentString3='<p>Howe Hall Parking</p>';
   var infowindow8 = new google.maps.InfoWindow({
@@ -166,8 +163,7 @@ var marker3 = new google.maps.Marker({ position: howe});
   marker3.setMap(parkingmap);
   google.maps.event.addListener(marker3, 'click', function() {
     infowindow8.open(parkingmap,marker3);
-  });
-google.maps.event.addDomListener(window, 'load', initialize); 
+  }); 
   //Dunn
    var contentString4='<p>Dunn Building Parking</p>';
   var infowindow9 = new google.maps.InfoWindow({
@@ -178,7 +174,7 @@ var marker4 = new google.maps.Marker({ position: dunn});
   google.maps.event.addListener(marker4, 'click', function() {
     infowindow9.open(parkingmap,marker4);
   });
-google.maps.event.addDomListener(window, 'load', initialize); 
+ 
   //coburg
    var contentString5='<p>Parking On Coburg</p>';
   var infowindow10 = new google.maps.InfoWindow({
@@ -189,7 +185,7 @@ var marker5 = new google.maps.Marker({ position: coburg});
   google.maps.event.addListener(marker5, 'click', function() {
     infowindow10.open(parkingmap,marker5);
   });
-google.maps.event.addDomListener(window, 'load', initialize); 
+
   //Parking permit
   var contentString6='<p>Parking Permit Only</p>';
   var infowindow11= new google.maps.InfoWindow({
@@ -200,7 +196,6 @@ var marker6 = new google.maps.Marker({ position: permit});
   google.maps.event.addListener(marker6, 'click', function() {
     infowindow11.open(parkingmap,marker6);
   });
-google.maps.event.addDomListener(window, 'load', initialize); 
  
   //Spring Garden
    var contentString7='<p>Spring Garden Road Parking</p>';
@@ -212,7 +207,6 @@ var marker7 = new google.maps.Marker({ position: springGarden});
   google.maps.event.addListener(marker7, 'click', function() {
     infowindow12.open(parkingmap,marker7);
   });
-google.maps.event.addDomListener(window, 'load', initialize); 
 /* ---------- END PARKING  -----------   */
 
 
