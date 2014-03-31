@@ -42,7 +42,7 @@ function initialize() {
  /* ---------- RESIDENCES  -----------   */
   directionsDisplay = new google.maps.DirectionsRenderer();
   var dal = new google.maps.LatLng(44.638046,-63.58747);
-  var Risley = new google.maps.LatLng(44.636159, -63.589281);
+  var Risley = new google.maps.LatLng(44.635946, -63.589184);
   var Howe = new google.maps.LatLng(44.638340,-63.591760);
   var Sherrif = new google.maps.LatLng(44.634700, -63.594479);
   var Eliza = new google.maps.LatLng(44.634679, -63.591516);
@@ -56,15 +56,16 @@ function initialize() {
   //Draw the Map
   residentmap = new google.maps.Map(document.getElementById('resMap'), mapOptions);
   directionsDisplay.setMap(residentmap);
+
   //Risley
   var contentRisley='<p>This is Risley Hall</p>';
   var infowindow1 = new google.maps.InfoWindow({
       content: contentRisley
 });
-var marker1 = new google.maps.Marker({ position: Risley});
-  marker1.setMap(residentmap);
-  google.maps.event.addListener(marker1, 'click', function() {
-    infowindow1.open(residentmap,marker1);
+var markerRis = new google.maps.Marker({ position: Risley});
+  markerRis.setMap(residentmap);
+  google.maps.event.addListener(markerRis, 'click', function() {
+    infowindow1.open(residentmap,markerRis);
   });
   
  //Howe
@@ -72,10 +73,10 @@ var contentHowe='<p>This is Howe Hall</p>';
   var infowindow2 = new google.maps.InfoWindow({
       content: contentHowe
 });
-var marker2 = new google.maps.Marker({ position: Howe});
-  marker2.setMap(residentmap);
-  google.maps.event.addListener(marker2, 'click', function() {
-    infowindow2.open(residentmap,marker2);
+var markerHowe = new google.maps.Marker({ position: Howe});
+  markerHowe.setMap(residentmap);
+  google.maps.event.addListener(markerHowe, 'click', function() {
+    infowindow2.open(residentmap,markerHowe);
   });
  
   //Sherrif
@@ -83,10 +84,10 @@ var marker2 = new google.maps.Marker({ position: Howe});
   var infowindow3 = new google.maps.InfoWindow({
       content: contentSherrif
 });
-var marker3 = new google.maps.Marker({ position: Sherrif});
-  marker3.setMap(residentmap);
-  google.maps.event.addListener(marker3, 'click', function() {
-    infowindow3.open(residentmap,marker3);
+var markerSher = new google.maps.Marker({ position: Sherrif});
+  markerSher.setMap(residentmap);
+  google.maps.event.addListener(markerSher, 'click', function() {
+    infowindow3.open(residentmap,markerSher);
   });
 
   //Eliza
@@ -94,10 +95,10 @@ var marker3 = new google.maps.Marker({ position: Sherrif});
   var infowindow4 = new google.maps.InfoWindow({
       content: contentEliza
 });
-var marker4 = new google.maps.Marker({ position: Eliza});
-  marker4.setMap(residentmap);
-  google.maps.event.addListener(marker4, 'click', function() {
-    infowindow4.open(residentmap,marker4);
+var markerEliza = new google.maps.Marker({ position: Eliza});
+  markerEliza.setMap(residentmap);
+  google.maps.event.addListener(markerEliza, 'click', function() {
+    infowindow4.open(residentmap,markerEliza);
   });
 
   //Gerard
@@ -105,10 +106,10 @@ var contentString5='<p>This is Gerard Meal Hall</p>';
   var infowindow5 = new google.maps.InfoWindow({
       content: contentString5
 });
-var marker5 = new google.maps.Marker({ position: Gerard});
-  marker5.setMap(residentmap);
-  google.maps.event.addListener(marker5, 'click', function() {
-    infowindow5.open(residentmap,marker5);
+var markerGer = new google.maps.Marker({ position: Gerard});
+  markerGer.setMap(residentmap);
+  google.maps.event.addListener(markerGer, 'click', function() {
+    infowindow5.open(residentmap,markerGer);
   });
 /* ---------- END RESIDENCES  -----------   */
 
