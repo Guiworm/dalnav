@@ -1,3 +1,10 @@
+/****************************************************************************************
+* 		dalnav.js contains the functions for the Alerts, Directions, and Schedule		*
+* 																						*
+* @author: Osama Al-Arhabi																*
+/***************************************************************************************/
+
+
 /******************** The Alerts Functionality - USER STORY 11 ********************/
 /** 
 * @author: Osama Al-Arhabi
@@ -13,6 +20,49 @@ var seconds, minutes, hours, currentTime;
 var class1AlertTime, class2AlertTime, class3AlertTime, class4AlertTime, class5AlertTime, class6AlertTime;
 var class1StartTime, class2StartTime, class3StartTime, class4StartTime, class5StartTime, class6StartTime;
 
+
+/**
+*	Gets called the first time the application starts, checks if there are any alerts on,
+*	and if so then calls the appropriate functions to start timers for TODAY's classes,
+*   and keeps checking once every day (at 12am) to set timer alerts for all the classes on that day.
+*/
+function alertsManager()
+{	
+	loadSchedule(); loadDirections(); // loads content from localStorage upon first load of the app
+	 
+	console.log("~~~~alertsManager was called~~~~");
+
+	// Calculate the time till 12am the next day:
+	var hoursTillTomorrow = (24 - time.getHours());
+	console.log("Hours till Tomorrow: "+hoursTillTomorrow);
+
+	// Set a timer that calls this function every day to set timer alerts for the classes
+	// scheduled for today (note: 1 hour = 3600000 milliseconds)
+	dailyTimer = setTimeout(function(){alertsManager();}, hoursTillTomorrow*3600000);
+	console.log("dailyTimer set for: "+(hoursTillTomorrow*3600000));
+	
+	
+	// Now check which classes' alerts are on and call their setAlerts functions
+	if(localStorage.class1Alert == "on")
+		setClass1Alert();
+	if(localStorage.class2Alert == "on")
+		setClass2Alert();
+	if(localStorage.class3Alert == "on")
+		setClass3Alert();
+	if(localStorage.class4Alert == "on")
+		setClass4Alert();
+	if(localStorage.class5Alert == "on")
+		setClass5Alert();
+	if(localStorage.class6Alert == "on")
+		setClass6Alert();
+}//End of alertsManager()
+
+
+/**
+*	Gets called from the saveClass() Method if the Alerts toggle was switched to "on"
+*	Once called it initiates the classAlert function for the given class
+*
+*/
 function alerts(fromClass)
 {
 	// Depending on which class called the function (i.e. which class has alerts on)
@@ -79,53 +129,13 @@ console.log("class alert time: "+class1AlertTime);
 }
 
 
-
-
-/**
-*	Gets called the first time the application starts, checks if there are any alerts on,
-*	and if so then calls the appropriate functions to start timers for TODAY's classes,
-*   and keeps checking once every day to set timers for classes on the current day.
-*/
-function alertsManager()
-{	
-	alert("alertManager was called");
-
-	// Calculate the time till 12am the next day:
-	var hoursTillTomorrow = (24 - time.getHours());
-	console.log("Hours till Tomorrow: "+hoursTillTomorrow);
-
-	// Set a timer that calls this function every day to set timer alerts for the classes
-	// scheduled for today (note: 1 hour = 3600000 milliseconds)
-	dailyTimer = setTimeout(function(){alertsManager();}, hoursTillTomorrow*3600000);
-	console.log("dailyTimer set for: "+(hoursTillTomorrow*3600000));
-	
-	
-	// Now check which classes' alerts are on and call their setAlerts functions
-	if(localStorage.class1Alert == "on")
-		setClass1Alert();
-	if(localStorage.class2Alert == "on")
-		setClass2Alert();
-	if(localStorage.class3Alert == "on")
-		setClass3Alert();
-	if(localStorage.class4Alert == "on")
-		setClass4Alert();
-	if(localStorage.class5Alert == "on")
-		setClass5Alert();
-	if(localStorage.class6Alert == "on")
-		setClass6Alert();
-	else
-		console.log("None of the Classes have alerts on");
-}
-
-
-
 /**
 *	Sets the Class Alert timer if the Alert for the Class is set to "on"
 *
 */
 function setClass1Alert()
 {
-console.log("**** setClass1Alert() was called ******");
+	console.log("**** setClass1Alert() was called ******");
 	// Get current time
 	getCurrentTime();
 	
@@ -161,16 +171,20 @@ console.log("**** setClass1Alert() was called ******");
 				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
 
 				timer1 = setTimeout(function(){displayAlert(1);}, timeLeft);
-				console.log("Class1 Timer was set for: "+(timeLeft/60000)+" minutes");
+				console.log("***** Class1 Timer was set for: "+(timeLeft/60000)+" minutes *****");
 			}
 		}			
 	}
 }//End of setClass1Alert()
 
 
+/**
+*	Sets the Class Alert timer if the Alert for the Class is set to "on"
+*
+*/
 function setClass2Alert()
 {
-console.log("**** setClass2Alert() was called ******");
+	console.log("**** setClass2Alert() was called ******");
 	// Get current time
 	getCurrentTime();
 	
@@ -206,30 +220,206 @@ console.log("**** setClass2Alert() was called ******");
 				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
 
 				timer2 = setTimeout(function(){displayAlert(2);}, timeLeft);
-				console.log("Class2 Timer was set for: "+(timeLeft/60000)+" minutes");
+				console.log("***** Class2 Timer was set for: "+(timeLeft/60000)+" minutes *****");
 			}
 		}			
 	}
 }//End of setClass2Alert()
 
+
+/**
+*	Sets the Class Alert timer if the Alert for the Class is set to "on"
+*
+*/
 function setClass3Alert()
 {
-	alert("setClass3Alert() was caled");
+	console.log("**** setClass3Alert() was called ******");
+	// Get current time
+	getCurrentTime();
+	
+	// Get alert time:	
+	var splitStartTime = localStorage.class3StartTime.split(":"); // split to hours and minutes
+	
+	// Create a class3StartTime date object (initialize date to today's date)
+	class3StartTime = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);	
+
+	// Create a class3AlertTime date object
+	class3AlertTime = new Date(class3StartTime - (parseInt(localStorage.class3AlertTime) *60000));
+	
+	// Get current day
+	var currentDay = time.getDay(); // value from 0 to 6 (0 is sunday)
+
+	//  Get days the class is on
+	var splitClassDays = localStorage.class3Days.split(",");
+
+
+	// Loop through the days the class is on and compare to today's day of the week to 
+	// find if there is a class today, and if so then set an alert reminder (i.e. timer)
+	for(i = 0; i < splitClassDays.length; i++)
+	{	
+		// if class is today, start a timer to alert you before class
+		if(parseInt(splitClassDays[i]) == currentDay)
+		{
+			//check if the alert time didn't pass already
+			if((time.getHours() <= class3AlertTime.getHours()) && (time.getMinutes() <= class3AlertTime.getMinutes()))
+			{
+				// If class is today, calculate time left, then set a timer:
+				console.log("class3AlertTime: "+class3AlertTime+" , time: "+time);
+				var timeLeft = class3AlertTime.getTime() - time.getTime(); // in milliseconds			
+				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+
+				timer3 = setTimeout(function(){displayAlert(3);}, timeLeft);
+				console.log("***** Class3 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+			}
+		}			
+	}
 }//End of setClass3Alert()
 
+
+/**
+*	Sets the Class Alert timer if the Alert for the Class is set to "on"
+*
+*/
 function setClass4Alert()
 {
-	alert("setClass4Alert() was caled");
+	console.log("**** setClass4Alert() was called ******");
+	// Get current time
+	getCurrentTime();
+	
+	// Get alert time:	
+	var splitStartTime = localStorage.class4StartTime.split(":"); // split to hours and minutes
+	
+	// Create a class4StartTime date object (initialize date to today's date)
+	class4StartTime = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);	
+
+	// Create a class4AlertTime date object
+	class4AlertTime = new Date(class4StartTime - (parseInt(localStorage.class4AlertTime) *60000));
+	
+	// Get current day
+	var currentDay = time.getDay(); // value from 0 to 6 (0 is sunday)
+
+	//  Get days the class is on
+	var splitClassDays = localStorage.class4Days.split(",");
+
+
+	// Loop through the days the class is on and compare to today's day of the week to 
+	// find if there is a class today, and if so then set an alert reminder (i.e. timer)
+	for(i = 0; i < splitClassDays.length; i++)
+	{	
+		// if class is today, start a timer to alert you before class
+		if(parseInt(splitClassDays[i]) == currentDay)
+		{
+			//check if the alert time didn't pass already
+			if((time.getHours() <= class4AlertTime.getHours()) && (time.getMinutes() <= class4AlertTime.getMinutes()))
+			{
+				// If class is today, calculate time left, then set a timer:
+				console.log("class4AlertTime: "+class4AlertTime+" , time: "+time);
+				var timeLeft = class4AlertTime.getTime() - time.getTime(); // in milliseconds			
+				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+
+				timer4 = setTimeout(function(){displayAlert(4);}, timeLeft);
+				console.log("***** Class4 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+			}
+		}			
+	}
 }//End of setClass4Alert()
 
+
+/**
+*	Sets the Class Alert timer if the Alert for the Class is set to "on"
+*
+*/
 function setClass5Alert()
 {
-	alert("setClass5Alert() was caled");
+	console.log("**** setClass5Alert() was called ******");
+	// Get current time
+	getCurrentTime();
+	
+	// Get alert time:	
+	var splitStartTime = localStorage.class5StartTime.split(":"); // split to hours and minutes
+	
+	// Create a class5StartTime date object (initialize date to today's date)
+	class5StartTime = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);	
+
+	// Create a class5AlertTime date object
+	class5AlertTime = new Date(class5StartTime - (parseInt(localStorage.class5AlertTime) *60000));
+	
+	// Get current day
+	var currentDay = time.getDay(); // value from 0 to 6 (0 is sunday)
+
+	//  Get days the class is on
+	var splitClassDays = localStorage.class5Days.split(",");
+
+
+	// Loop through the days the class is on and compare to today's day of the week to 
+	// find if there is a class today, and if so then set an alert reminder (i.e. timer)
+	for(i = 0; i < splitClassDays.length; i++)
+	{	
+		// if class is today, start a timer to alert you before class
+		if(parseInt(splitClassDays[i]) == currentDay)
+		{
+			//check if the alert time didn't pass already
+			if((time.getHours() <= class5AlertTime.getHours()) && (time.getMinutes() <= class5AlertTime.getMinutes()))
+			{
+				// If class is today, calculate time left, then set a timer:
+				console.log("class5AlertTime: "+class5AlertTime+" , time: "+time);
+				var timeLeft = class5AlertTime.getTime() - time.getTime(); // in milliseconds			
+				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+
+				timer5 = setTimeout(function(){displayAlert(5);}, timeLeft);
+				console.log("***** Class5 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+			}
+		}			
+	}
 }//End of setClass5Alert()
 
+
+/**
+*	Sets the Class Alert timer if the Alert for the Class is set to "on"
+*
+*/
 function setClass6Alert()
 {
-	alert("setClass6Alert() was caled");
+console.log("**** setClass6Alert() was called ******");
+	// Get current time
+	getCurrentTime();
+	
+	// Get alert time:	
+	var splitStartTime = localStorage.class6StartTime.split(":"); // split to hours and minutes
+	
+	// Create a class6StartTime date object (initialize date to today's date)
+	class6StartTime = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);	
+
+	// Create a class6AlertTime date object
+	class6AlertTime = new Date(class6StartTime - (parseInt(localStorage.class6AlertTime) *60000));
+	
+	// Get current day
+	var currentDay = time.getDay(); // value from 0 to 6 (0 is sunday)
+
+	//  Get days the class is on
+	var splitClassDays = localStorage.class6Days.split(",");
+
+
+	// Loop through the days the class is on and compare to today's day of the week to 
+	// find if there is a class today, and if so then set an alert reminder (i.e. timer)
+	for(i = 0; i < splitClassDays.length; i++)
+	{	
+		// if class is today, start a timer to alert you before class
+		if(parseInt(splitClassDays[i]) == currentDay)
+		{
+			//check if the alert time didn't pass already
+			if((time.getHours() <= class6AlertTime.getHours()) && (time.getMinutes() <= class6AlertTime.getMinutes()))
+			{
+				// If class is today, calculate time left, then set a timer:
+				console.log("class6AlertTime: "+class6AlertTime+" , time: "+time);
+				var timeLeft = class6AlertTime.getTime() - time.getTime(); // in milliseconds			
+				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+
+				timer6 = setTimeout(function(){displayAlert(6);}, timeLeft);
+				console.log("***** Class6 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+			}
+		}			
+	}
 }//End of setClass6Alert()
 
 
@@ -243,7 +433,6 @@ function displayAlert(callingClass)
 	switch(callingClass)
 	{
 	case 1:
-console.log(localStorage.class1Name + " starts in "+localStorage.class1AlertTime+" minutes!");
 		alert(localStorage.class1Name + " starts in "+localStorage.class1AlertTime+" minutes!");
 		break;
 	case 2: 
@@ -263,7 +452,14 @@ console.log(localStorage.class1Name + " starts in "+localStorage.class1AlertTime
 		break;
 	}
 }
+/********************************* END of Alerts Functions ******************************************/
 
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
@@ -551,6 +747,11 @@ function directionsToClass6()
 /******************** End of Directions Page Functions ********************/
 
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
@@ -625,12 +826,12 @@ function loadSchedule()
 *
 */
 function saveClass()
-{
-	
+{	
 	// Save the user's input for all the specified class data fields
 	// (depends on which class spot we are currently in)
 	switch(currentClass)
 	{
+/* Save for Class 1 */	
 	case 1:
 		localStorage.class1Name = className.value;
 		
@@ -638,6 +839,7 @@ function saveClass()
 		localStorage.class1BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 		
 		localStorage.class1Days = "-1"; // initialize classDays to -1 (a string indicating days class is on)
+		
 		// check which days where checked:						(i.e. M,W,F would be 1,3,5)
 		if(mon.checked)
 		{
@@ -699,256 +901,474 @@ function saveClass()
 			localStorage.class1Alert = "on";
 			localStorage.class1AlertTime = alertTime.value; // saves the number of minutes to alert before class
 			
-			alerts(1); // initiates the alerts function for the specific class (i.e. class 1 here)
+			// Error Check to ensure that the user entered a class start time & alert time if he switched alerts on
+			if((startTime.value == "") || (alertTime.value == ""))
+			{
+				alert("Must enter a Class Start Time and an Alert Time for the Alerts to work!");
+				localStorage.class1Alert = "off";
+				localStorage.class1AlertTime = "";
+			}
+			else
+				alerts(1); // initiates the alerts function for the specific class (i.e. class 1 here)
 		}
 		else
 		{
 			localStorage.class1Alert = "off";
-			localStorage.class1AlertTime = "0"; // sets alert how long before to 0 since alert is off
+			localStorage.class1AlertTime = ""; // sets alert how long before to 0 since alert is off
 		}
 		
 		class1Button.innerHTML = className.value;
 		break;
 	
+
+/* Save for Class 2 */		
 	case 2:
 		localStorage.class2Name = className.value;
+		
 		localStorage.class2Building = buildingName.selectedIndex;
 		localStorage.class2BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 		
-		// check which days where checked:
+		localStorage.class2Days = "-1"; // initialize classDays to -1 (a string indicating days class is on)
+		
+		// check which days where checked:						(i.e. M,W,F would be 1,3,5)
 		if(mon.checked)
+		{
 			localStorage.class2Mon = "true";
+			localStorage.class2Days +=",1"; // 0 is sunday, 1 is monday and so on up to saturday is 6
+		}
 		else
 			localStorage.class2Mon = "false";
 		if(tues.checked)
+		{
 			localStorage.class2Tues = "true";
+			localStorage.class2Days +=",2";
+		}
 		else
 			localStorage.class2Tues = "false";
 		if(wed.checked)
+		{
 			localStorage.class2Wed = "true";
+			localStorage.class2Days +=",3";
+		}
 		else
 			localStorage.class2Wed = "false";
 		if(thur.checked)
+		{
 			localStorage.class2Thur = "true";
+			localStorage.class2Days +=",4";
+		}
 		else
 			localStorage.class2Thur = "false";
 		if(fri.checked)
-			localStorage.class2Fri = "true";			
+		{
+			localStorage.class2Fri = "true";	
+			localStorage.class2Days +=",5";
+		}		
 		else
 			localStorage.class2Fri = "false";
 		if(sat.checked)
+		{
 			localStorage.class2Sat = "true";
+			localStorage.class2Days +=",6";
+		}
 		else
 			localStorage.class2Sat = "false";
 		if(sun.checked)
+		{
 			localStorage.class2Sun = "true";
+			localStorage.class2Days +=",0";
+		}
 		else
-			localStorage.class2Sun = "false";			
+			localStorage.class2Sun = "false";	
 		
+		// save the class start time	
 		localStorage.class2StartTime = startTime.value;
+		console.log("Class start time: "+localStorage.class2StartTime);	
 		
-		// get the alert switch value (on/off)
+		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
+		{
 			localStorage.class2Alert = "on";
+			localStorage.class2AlertTime = alertTime.value; // saves the number of minutes to alert before class
+					
+			// Error Check to ensure that the user entered a class start time & alert time if he switched alerts on
+			if((startTime.value == "") || (alertTime.value == ""))
+			{
+				alert("Must enter a Class Start Time and an Alert Time for the Alerts to work!");
+				localStorage.class2Alert = "off";
+				localStorage.class2AlertTime = "";
+			}
+			else		
+				alerts(2); // initiates the alerts function for the specific class (i.e. class 2 here)
+		}
 		else
+		{
 			localStorage.class2Alert = "off";
-		
-		localStorage.class2AlertTime = alertTime.value;
+			localStorage.class2AlertTime = ""; // sets alert how long before to 0 since alert is off
+		}
 		
 		class2Button.innerHTML = className.value;
 		break;
+	
 
+/* Save for Class 3 */		
 	case 3:
 		localStorage.class3Name = className.value;
+		
 		localStorage.class3Building = buildingName.selectedIndex;
 		localStorage.class3BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 		
-		// check which days where checked:
+		localStorage.class3Days = "-1"; // initialize classDays to -1 (a string indicating days class is on)
+		
+		// check which days where checked:						(i.e. M,W,F would be 1,3,5)
 		if(mon.checked)
+		{
 			localStorage.class3Mon = "true";
+			localStorage.class3Days +=",1"; // 0 is sunday, 1 is monday and so on up to saturday is 6
+		}
 		else
 			localStorage.class3Mon = "false";
 		if(tues.checked)
+		{
 			localStorage.class3Tues = "true";
+			localStorage.class3Days +=",2";
+		}
 		else
 			localStorage.class3Tues = "false";
 		if(wed.checked)
+		{
 			localStorage.class3Wed = "true";
+			localStorage.class3Days +=",3";
+		}
 		else
 			localStorage.class3Wed = "false";
 		if(thur.checked)
+		{
 			localStorage.class3Thur = "true";
+			localStorage.class3Days +=",4";
+		}
 		else
 			localStorage.class3Thur = "false";
 		if(fri.checked)
-			localStorage.class3Fri = "true";			
+		{
+			localStorage.class3Fri = "true";	
+			localStorage.class3Days +=",5";
+		}		
 		else
 			localStorage.class3Fri = "false";
 		if(sat.checked)
+		{
 			localStorage.class3Sat = "true";
+			localStorage.class3Days +=",6";
+		}
 		else
 			localStorage.class3Sat = "false";
 		if(sun.checked)
+		{
 			localStorage.class3Sun = "true";
+			localStorage.class3Days +=",0";
+		}
 		else
-			localStorage.class3Sun = "false";				
+			localStorage.class3Sun = "false";	
 		
+		// save the class start time	
 		localStorage.class3StartTime = startTime.value;
+		console.log("Class start time: "+localStorage.class3StartTime);	
 		
-		// get the alert switch value (on/off)
+		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
+		{
 			localStorage.class3Alert = "on";
+			localStorage.class3AlertTime = alertTime.value; // saves the number of minutes to alert before class
+
+			// Error Check to ensure that the user entered a class start time & alert time if he switched alerts on
+			if((startTime.value == "") || (alertTime.value == ""))
+			{
+				alert("Must enter a Class Start Time and an Alert Time for the Alerts to work!");
+				localStorage.class3Alert = "off";
+				localStorage.class3AlertTime = "";
+			}
+			else		
+				alerts(3); // initiates the alerts function for the specific class (i.e. class 3 here)
+		}
 		else
+		{
 			localStorage.class3Alert = "off";
-		
-		localStorage.class3AlertTime = alertTime.value;
+			localStorage.class3AlertTime = ""; // sets alert how long before to 0 since alert is off
+		}
 		
 		class3Button.innerHTML = className.value;
 		break;
-
+		
+		
+/* Save for Class 4 */		
 	case 4:
 		localStorage.class4Name = className.value;
+		
 		localStorage.class4Building = buildingName.selectedIndex;
 		localStorage.class4BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 		
-		// check which days where checked:
+		localStorage.class4Days = "-1"; // initialize classDays to -1 (a string indicating days class is on)
+		
+		// check which days where checked:						(i.e. M,W,F would be 1,3,5)
 		if(mon.checked)
+		{
 			localStorage.class4Mon = "true";
+			localStorage.class4Days +=",1"; // 0 is sunday, 1 is monday and so on up to saturday is 6
+		}
 		else
 			localStorage.class4Mon = "false";
 		if(tues.checked)
+		{
 			localStorage.class4Tues = "true";
+			localStorage.class4Days +=",2";
+		}
 		else
 			localStorage.class4Tues = "false";
 		if(wed.checked)
+		{
 			localStorage.class4Wed = "true";
+			localStorage.class4Days +=",3";
+		}
 		else
 			localStorage.class4Wed = "false";
 		if(thur.checked)
+		{
 			localStorage.class4Thur = "true";
+			localStorage.class4Days +=",4";
+		}
 		else
 			localStorage.class4Thur = "false";
 		if(fri.checked)
-			localStorage.class4Fri = "true";			
+		{
+			localStorage.class4Fri = "true";	
+			localStorage.class4Days +=",5";
+		}		
 		else
 			localStorage.class4Fri = "false";
 		if(sat.checked)
+		{
 			localStorage.class4Sat = "true";
+			localStorage.class4Days +=",6";
+		}
 		else
 			localStorage.class4Sat = "false";
 		if(sun.checked)
+		{
 			localStorage.class4Sun = "true";
+			localStorage.class4Days +=",0";
+		}
 		else
-			localStorage.class4Sun = "false";			
+			localStorage.class4Sun = "false";	
 		
+		// save the class start time	
 		localStorage.class4StartTime = startTime.value;
+		console.log("Class start time: "+localStorage.class4StartTime);	
 		
-		// get the alert switch value (on/off)
+		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
+		{
 			localStorage.class4Alert = "on";
+			localStorage.class4AlertTime = alertTime.value; // saves the number of minutes to alert before class
+
+			// Error Check to ensure that the user entered a class start time & alert time if he switched alerts on
+			if((startTime.value == "") || (alertTime.value == ""))
+			{
+				alert("Must enter a Class Start Time and an Alert Time for the Alerts to work!");
+				localStorage.class4Alert = "off";
+				localStorage.class4AlertTime = "";
+			}
+			else			
+				alerts(4); // initiates the alerts function for the specific class (i.e. class 4 here)
+		}
 		else
+		{
 			localStorage.class4Alert = "off";
-		
-		localStorage.class4AlertTime = alertTime.value;
+			localStorage.class4AlertTime = ""; // sets alert how long before to 0 since alert is off
+		}
 		
 		class4Button.innerHTML = className.value;
 		break;
-	
+		
+			
+/* Save for Class 5 */		
 	case 5:
 		localStorage.class5Name = className.value;
+		
 		localStorage.class5Building = buildingName.selectedIndex;
 		localStorage.class5BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 		
-		// check which days where checked:
+		localStorage.class5Days = "-1"; // initialize classDays to -1 (a string indicating days class is on)
+		
+		// check which days where checked:						(i.e. M,W,F would be 1,3,5)
 		if(mon.checked)
+		{
 			localStorage.class5Mon = "true";
+			localStorage.class5Days +=",1"; // 0 is sunday, 1 is monday and so on up to saturday is 6
+		}
 		else
 			localStorage.class5Mon = "false";
 		if(tues.checked)
+		{
 			localStorage.class5Tues = "true";
+			localStorage.class5Days +=",2";
+		}
 		else
 			localStorage.class5Tues = "false";
 		if(wed.checked)
+		{
 			localStorage.class5Wed = "true";
+			localStorage.class5Days +=",3";
+		}
 		else
 			localStorage.class5Wed = "false";
 		if(thur.checked)
+		{
 			localStorage.class5Thur = "true";
+			localStorage.class5Days +=",4";
+		}
 		else
 			localStorage.class5Thur = "false";
 		if(fri.checked)
-			localStorage.class5Fri = "true";			
+		{
+			localStorage.class5Fri = "true";	
+			localStorage.class5Days +=",5";
+		}		
 		else
 			localStorage.class5Fri = "false";
 		if(sat.checked)
+		{
 			localStorage.class5Sat = "true";
+			localStorage.class5Days +=",6";
+		}
 		else
 			localStorage.class5Sat = "false";
 		if(sun.checked)
+		{
 			localStorage.class5Sun = "true";
+			localStorage.class5Days +=",0";
+		}
 		else
-			localStorage.class5Sun = "false";			
+			localStorage.class5Sun = "false";	
 		
+		// save the class start time	
 		localStorage.class5StartTime = startTime.value;
+		console.log("Class start time: "+localStorage.class5StartTime);	
 		
-		// get the alert switch value (on/off)
+		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
+		{
 			localStorage.class5Alert = "on";
+			localStorage.class5AlertTime = alertTime.value; // saves the number of minutes to alert before class
+			
+			// Error Check to ensure that the user entered a class start time & alert time if he switched alerts on
+			if((startTime.value == "") || (alertTime.value == ""))
+			{
+				alert("Must enter a Class Start Time and an Alert Time for the Alerts to work!");
+				localStorage.class5Alert = "off";
+				localStorage.class5AlertTime = "";
+			}
+			else			
+				alerts(5); // initiates the alerts function for the specific class (i.e. class 5 here)
+		}
 		else
+		{
 			localStorage.class5Alert = "off";
-		
-		localStorage.class5AlertTime = alertTime.value;
+			localStorage.class5AlertTime = ""; // sets alert how long before to 0 since alert is off
+		}
 		
 		class5Button.innerHTML = className.value;
 		break;
-	
+		
+			
+/* Save for Class 6 */		
 	case 6:
 		localStorage.class6Name = className.value;
+		
 		localStorage.class6Building = buildingName.selectedIndex;
 		localStorage.class6BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
 		
-		// check which days where checked:
+		localStorage.class6Days = "-1"; // initialize classDays to -1 (a string indicating days class is on)
+		
+		// check which days where checked:						(i.e. M,W,F would be 1,3,5)
 		if(mon.checked)
+		{
 			localStorage.class6Mon = "true";
+			localStorage.class6Days +=",1"; // 0 is sunday, 1 is monday and so on up to saturday is 6
+		}
 		else
 			localStorage.class6Mon = "false";
 		if(tues.checked)
+		{
 			localStorage.class6Tues = "true";
+			localStorage.class6Days +=",2";
+		}
 		else
 			localStorage.class6Tues = "false";
 		if(wed.checked)
+		{
 			localStorage.class6Wed = "true";
+			localStorage.class6Days +=",3";
+		}
 		else
 			localStorage.class6Wed = "false";
 		if(thur.checked)
+		{
 			localStorage.class6Thur = "true";
+			localStorage.class6Days +=",4";
+		}
 		else
 			localStorage.class6Thur = "false";
 		if(fri.checked)
-			localStorage.class6Fri = "true";			
+		{
+			localStorage.class6Fri = "true";	
+			localStorage.class6Days +=",5";
+		}		
 		else
 			localStorage.class6Fri = "false";
 		if(sat.checked)
+		{
 			localStorage.class6Sat = "true";
+			localStorage.class6Days +=",6";
+		}
 		else
 			localStorage.class6Sat = "false";
 		if(sun.checked)
+		{
 			localStorage.class6Sun = "true";
+			localStorage.class6Days +=",0";
+		}
 		else
-			localStorage.class6Sun = "false";			
+			localStorage.class6Sun = "false";	
 		
+		// save the class start time	
 		localStorage.class6StartTime = startTime.value;
+		console.log("Class start time: "+localStorage.class6StartTime);	
 		
-		// get the alert switch value (on/off)
+		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
+		{
 			localStorage.class6Alert = "on";
+			localStorage.class6AlertTime = alertTime.value; // saves the number of minutes to alert before class
+			
+			// Error Check to ensure that the user entered a class start time & alert time if he switched alerts on
+			if((startTime.value == "") || (alertTime.value == ""))
+			{
+				alert("Must enter a Class Start Time and an Alert Time for the Alerts to work!");
+				localStorage.class6Alert = "off";
+				localStorage.class6AlertTime = "";
+			}
+			else
+				alerts(6); // initiates the alerts function for the specific class (i.e. class 6 here)
+		}
 		else
+		{
 			localStorage.class6Alert = "off";
-		
-		localStorage.class6AlertTime = alertTime.value;
+			localStorage.class6AlertTime = ""; // sets alert how long before to 0 since alert is off
+		}
 		
 		class6Button.innerHTML = className.value;
-		break;
+		break;	
 	}		
 } // end of saveClass()
 
