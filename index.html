@@ -23,22 +23,21 @@
 
 
 </head>
-<body>
+<body onload=alertsManager()>
 <div data-role="page" data-control-title="Home" id="home">
-    <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-    data-theme="a">
+    <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
         <ul data-role="listview" data-divider-theme="h" data-inset="false">
             <li data-role="list-divider" role="heading">
                 Menu
             </li>
             <li data-theme="a">
-                <a href="#directions" onClick=loadDirections() data-transition="slide">
-                    Directions
-                </a>
+              <a href="#about" data-transition="slide">
+                About DalNav
+              </a>
             </li>
             <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
+                <a href="#directions" onClick=loadDirections() data-transition="slide">
+                    Directions
                 </a>
             </li>
             <li data-theme="a">
@@ -50,6 +49,11 @@
                 <a href="#parkpage" data-transition="slide">
                     Parking
                 </a>
+            </li>
+            <li data-theme="a">
+              <a href="#informationHome" data-transition="slide">
+                  Information
+              </a>
             </li>
         </ul>
     </div>
@@ -63,13 +67,17 @@
         </h3>
     </div>
     <div data-role="content">
-<!-- +++++++++++++++++++HOME CONTENT++++++++++++++++++++++++++ -->
-<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <img style="width:450px; height:500px;" src="images/DALNAV.png">
+            <div id="NextClassNotification">
+                <table border="1" style="width:300px">
+                  <tr>
+                    <th> Next Class In: </th>
+                      <td><!--Insert JavaScript Here--> </td>
+                  </tr>  
+                </table>  
+            </div>  
     </div>
-
-        <div data-role="tabbar" data-iconpos="top" data-theme="c">
+    <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
                   <a href="#home" data-transition="fade" data-theme="" data-icon="home">
@@ -92,23 +100,32 @@
                   </a>
               </li>
           </ul>
-        </div>
+      </div>
   </div>
   <div data-role="page" data-control-title="Find" id="find">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Menu
-            </li>
-            <li data-theme="a">
-                <a href="#directions" onClick=loadDirections() data-transition="slide">
-                    Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+              <li data-theme="a">
+                <a href="#informationFind" data-transition="slide">
+                    Information
                 </a>
             </li>
           </ul>
@@ -241,20 +258,29 @@
   
 <!-- Schedule Page -->  
   <div data-role="page" data-control-title="Course Overview" id="schedule">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Menu
-            </li>
-            <li data-theme="a">
-                <a href="#directions" onClick=loadDirections()  data-transition="slide">
-                    Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+              <li data-theme="a">
+                <a href="#informationSchedule" data-transition="slide">
+                    Information
                 </a>
             </li>
           </ul>
@@ -538,22 +564,32 @@
   
 <!-- Directions Page -->  
 <div data-role="page" data-control-title="Directions" id="directions">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
-        <ul data-role="listview" data-divider-theme="h" data-inset="false">
-          <li data-role="list-divider" role="heading">
-              Menu
-          </li>
-          <li data-theme="a">
-              <a href="#directions" onClick=loadDirections() data-transition="slide">
-                  Directions
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+              <li data-theme="a">
+              <a href="#informationMap" data-transition="slide">
+                  Information
               </a>
           </li>
-          <li data-theme="a">
-              <a href="#otherinfo" data-transition="slide">
-                  Info
-              </a>
-          </li>
-        </ul>
+          </ul>
       </div>
       <div data-theme="a" data-role="header">
           <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
@@ -699,9 +735,32 @@
 
 <!-- Residences Map Page -->
 <div data-role="page" data-control-title="Residences" id="residency">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+          </ul>
+      </div>
       <div data-theme="a" data-role="header">
-          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
-              Back
+          <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
+          data-icon="bars" data-iconpos="left" class="ui-btn-left">
+              Menu
           </a>
           <h3>
               Residences
@@ -742,9 +801,32 @@
 
 <!-- Parking Map Page -->
 <div data-role="page" data-control-title="Parking" id="parkpage">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+          </ul>
+      </div>
       <div data-theme="a" data-role="header">
-          <a data-role="button" data-rel="back" href="#monacampbell" class="ui-btn-left">
-              Back
+          <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
+          data-icon="bars" data-iconpos="left" class="ui-btn-left">
+              Menu
           </a>
           <h3>
               Parking
@@ -780,53 +862,32 @@
   </div>
 <!-- End of Parking Map Page -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div data-role="page" data-control-title="Map" id="map">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
-          <ul data-role="listview" data-divider-theme="h" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Menu
-            </li>
-            <li data-theme="a">
-                <a href="#directions" onClick=loadDirections() data-transition="slide">
-                    Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
-                </a>
-            </li>
-          </ul>
-      </div>
+<!-- ABOUT PAGE -->
+<div data-role="page" data-control-title="about" id="about">
       <div data-theme="a" data-role="header">
-          <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
-          data-icon="bars" data-iconpos="left" class="ui-btn-left">
-              Menu
+          <a data-role="button" data-rel="back" href="#home" class="ui-btn-left">
+              Back
           </a>
           <h3>
-              Map of All Classes
+             About DalNav
           </h3>
       </div>
       <div data-role="content">
-          <div id="multiMap"></div>
+        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+      </div>
+      <div id="aboutText">
+          <p>
+              DalNav is an application that assists users in finding and locating places on Dalhousie Studley campus, such as buildings, study areas, places to eat, residences, parking areas, bike racks, and bus stops. A user can input their class schedule, and be shown on a map which building their classes are located in, how long it will take to get to the building from their current location, and set up reminders for when to leave for class. <br>
+          </p>
+          <p>
+              DalNav was created by Amina Abawajy, Ashlyn Campbell, Dylan McCrindle, Kyle Watson, and Osama Alarhabi. <br> 
+          </p>
+          <p id="copyright">
+              © Copyright 2014.
+          </p>  
+      </div>  
+      <div data-role="content">
+        <div id="about"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -853,21 +914,236 @@
           </ul>
       </div>
   </div>
-  <div data-role="page" data-control-title="Info" id="otherinfo">
-     <div data-role="panel" id="panel1" data-position="left" data-display="reveal"
-      data-theme="a">
+
+            <!-- END OF ABOUT PAGE -->
+
+
+            <!-- INFORMATION SECTION -->
+<!--Information on Home Page -->
+<div data-role="page" data-control-title="informationHome" id="informationHome">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#home" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+             Information
+          </h3>
+      </div>
+      <div data-role="content">
+        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+      </div>
+      <div id="informationHomeText">
+          <p>
+              The homepage displays the time to the next class. The next class displays the time until your next class.    
+          </p>  
+      </div>  
+      <div data-role="content">
+        <div id="informationHome"></div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+<!-- End of Information on Home Page -->
+
+
+<!-- Information on Find Page -->
+<div data-role="page" data-control-title="informationFind" id="informationFind">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#find" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+             Information
+          </h3>
+      </div>
+      <div data-role="content">
+        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+      </div>
+      <div id="informationFindText">
+          <p>
+              The find page displays a list of all buildings on the Dalhousie Studley campus.
+              When you click on a building, it will be displayed on a map. 
+              You will also find additional information such as wireless access and study space. 
+          </p>  
+      </div>  
+      <div data-role="content">
+        <div id="informationFind"></div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+<!-- End of Information on Find Page -->
+
+
+<!-- Information on Schedule Page -->
+<div data-role="page" data-control-title="informationSchedule" id="informationSchedule">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#schedule" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+             Information
+          </h3>
+      </div>
+      <div data-role="content">
+        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+      </div>
+      <div id="informationScheduleText">
+          <p>
+              The Schedule page displays the class list. If the class list is enumerated the class name is displayed. If not you can click on a class slot and fill out the name, select the building, time and dates and whether you would like to recieve alerts.
+          </p>  
+      </div>  
+      <div data-role="content">
+        <div id="informationSchedule"></div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+<!-- End of Information on Schedule Page -->
+
+
+<!--Information on Map Page -->
+<div data-role="page" data-control-title="informationMap" id="informationMap">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" data-rel="back" href="#map" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+             Information
+          </h3>
+      </div>
+      <div data-role="content">
+        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+      </div>
+      <div id="informationMapText">
+          <p>
+              The Map page displays the location of all the classes on a map.
+          </p>  
+      </div>  
+      <div data-role="content">
+        <div id="informationMap"></div>
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+<!-- End of Information on Map Page -->
+
+
+          <!-- END OF INFORMATION SECTION -->
+
+  <div data-role="page" data-control-title="Map" id="map">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
           <ul data-role="listview" data-divider-theme="h" data-inset="false">
-            <li data-role="list-divider" role="heading">
-                Menu
-            </li>
-            <li data-theme="a">
-                <a href="#directions" onClick=loadDirections() data-transition="slide">
-                    Directions
-                </a>
-            </li>
-            <li data-theme="a">
-                <a href="#otherinfo" data-transition="slide">
-                    Info
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+              <li data-theme="a">
+                <a href="#informationMap" data-transition="slide">
+                    Information
                 </a>
             </li>
           </ul>
@@ -878,17 +1154,11 @@
               Menu
           </a>
           <h3>
-              Info
+              Map of All Classes
           </h3>
       </div>
       <div data-role="content">
-          <div data-controltype="textblock">
-              <p>
-                  <b>
-                      We can fill this in when we want to later
-                  </b>
-              </p>
-          </div>
+          <div id="multiMap"></div>
       </div>
       <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>

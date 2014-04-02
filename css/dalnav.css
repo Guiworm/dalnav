@@ -122,3 +122,15 @@
 	margin: auto;
 	text-align: center;
 }
+#NextClassNotification {
+        margin: 0cm 4cm 3cm 4cm;
+}
+
+#informationHomeText, #informationFindText, #informationScheduleText, #informationMapText, #aboutText{
+    width:450px;
+    padding: 10px;
+}
+
+#copyright{
+    text-align: center;
+}
