@@ -27,7 +27,7 @@ function checkTodaysClasses()
 	
 	getCurrentTime();
 	var currentDay = time.getDay(); // value from 0 to 6 (0 is sunday)
-	
+
 	// Check Class 1
 	if(localStorage.class1Name != undefined)
 	{	
@@ -37,7 +37,6 @@ function checkTodaysClasses()
 			alert("Enter a start time for Class 1!!");
 		else
 		{
-
 			splitClassDays = localStorage.class1Days.split(","); // Get days the class is on
 			
 			// Loop through the days that the class is on to check if there is class today
@@ -232,6 +231,16 @@ function displayNextClass(classTimes, classIndexes)
 	
 	if(foundSoonest) // if we found an upcoming class today, display it on the homepage
 	{
+//alert("\n\nsoonest: "+soonest+" classIndexes[soonest]: "+classIndexes[soonest]+"\n\n");
+
+		// Ensure its time didn't pass already:
+		if(classTimes[soonest] > time)
+		{
+//alert("Second pass time check!");
+			upcomingClass = 0;
+			nextClass.innerHTML = "No Classes";
+		}
+
 		switch(classIndexes[soonest])
 		{
 			case 1:
