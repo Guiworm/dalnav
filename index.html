@@ -31,11 +31,6 @@
                 Menu
             </li>
             <li data-theme="a">
-              <a href="#about" data-transition="slide">
-                About DalNav
-              </a>
-            </li>
-            <li data-theme="a">
                 <a href="#directions" onClick=loadDirections() data-transition="slide">
                     Directions
                 </a>
@@ -55,6 +50,11 @@
                   Information
               </a>
             </li>
+            <li data-theme="a">
+              <a href="#about" data-transition="slide">
+                About DalNav
+              </a>
+            </li>
         </ul>
     </div>
     <div data-theme="a" data-role="header">
@@ -67,15 +67,22 @@
         </h3>
     </div>
     <div data-role="content">
-      <img style="width:450px; height:500px;" src="images/DALNAV.png">
+
+<!-- Content of Homepage -->
+
+    <center><img style="width:80%; height:20%;" src="images/DALNAV.png"></center>
+
+            
             <div id="NextClassNotification">
-                <table border="1" style="width:300px">
+                <table onClick=getDirections() border="0" style="width:100%">
                   <tr>
-                    <th> Next Class In: </th>
-                      <td><!--Insert JavaScript Here--> </td>
+                    <th>Next Class: </th>
+                      <td id="nextClass">Software Engineering at 4:00pm</td>
+
                   </tr>  
                 </table>  
             </div>  
+    	
     </div>
     <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
@@ -862,6 +869,9 @@
   </div>
 <!-- End of Parking Map Page -->
 
+
+
+
 <!-- ABOUT PAGE -->
 <div data-role="page" data-control-title="about" id="about">
       <div data-theme="a" data-role="header">
@@ -873,7 +883,7 @@
           </h3>
       </div>
       <div data-role="content">
-        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+        <center><img style="width:80%; height:20%;" src="images/DALNAV.png"></center>
       </div>
       <div id="aboutText">
           <p>
@@ -930,11 +940,11 @@
           </h3>
       </div>
       <div data-role="content">
-        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+        <center><img style="width:80%; height:20%;" src="images/DALNAV.png"></center>
       </div>
-      <div id="informationHomeText">
+      <div style="width:90%;" id="informationHomeText">
           <p>
-              The homepage displays the time to the next class. The next class displays the time until your next class.    
+            The homepage displays your next class, the time, and if clicked gives you the directions to the class.   
           </p>  
       </div>  
       <div data-role="content">
@@ -948,17 +958,17 @@
                   </a>
               </li>
               <li>
-                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                  <a href="#informationFind" data-transition="fade" data-theme="" data-icon="search">
                       Find
                   </a>
               </li>
               <li>
-                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#informationSchedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
               <li>
-                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                  <a href="#informationMap" data-transition="fade" data-theme="" data-icon="arrow-u">
                       Map
                   </a>
               </li>
@@ -979,9 +989,9 @@
           </h3>
       </div>
       <div data-role="content">
-        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+     	<center><img style="width:80%; height:20%;" src="images/DALNAV.png"></center>
       </div>
-      <div id="informationFindText">
+      <div style="width:90%;" id="informationFindText">
           <p>
               The find page displays a list of all buildings on the Dalhousie Studley campus.
               When you click on a building, it will be displayed on a map. 
@@ -999,17 +1009,17 @@
                   </a>
               </li>
               <li>
-                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                  <a href="#informationFind" data-transition="fade" data-theme="" data-icon="search">
                       Find
                   </a>
               </li>
               <li>
-                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#informationSchedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
               <li>
-                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                  <a href="#informationMap" data-transition="fade" data-theme="" data-icon="arrow-u">
                       Map
                   </a>
               </li>
@@ -1030,9 +1040,9 @@
           </h3>
       </div>
       <div data-role="content">
-        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+      	<center><img style="width:80%; height:20%;" src="images/DALNAV.png"></center>
       </div>
-      <div id="informationScheduleText">
+      <div style="width:90%;" id="informationScheduleText">
           <p>
               The Schedule page displays the class list. If the class list is enumerated the class name is displayed. If not you can click on a class slot and fill out the name, select the building, time and dates and whether you would like to recieve alerts.
           </p>  
@@ -1048,17 +1058,17 @@
                   </a>
               </li>
               <li>
-                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                  <a href="#informationFind" data-transition="fade" data-theme="" data-icon="search">
                       Find
                   </a>
               </li>
               <li>
-                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#informationSchedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
               <li>
-                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                  <a href="#informationMap" data-transition="fade" data-theme="" data-icon="arrow-u">
                       Map
                   </a>
               </li>
@@ -1080,9 +1090,9 @@
           </h3>
       </div>
       <div data-role="content">
-        <img style="width:450px; height:500px;" src="images/DALNAV.png">
+       	<center><img style="width:80%; height:20%;" src="images/DALNAV.png"></center>
       </div>
-      <div id="informationMapText">
+      <div style="width:90%;" id="informationMapText">
           <p>
               The Map page displays the location of all the classes on a map.
           </p>  
@@ -1098,17 +1108,17 @@
                   </a>
               </li>
               <li>
-                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                  <a href="#informationFind" data-transition="fade" data-theme="" data-icon="search">
                       Find
                   </a>
               </li>
               <li>
-                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                  <a href="#informationSchedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
                       Schedule
                   </a>
               </li>
               <li>
-                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                  <a href="#informationMap" data-transition="fade" data-theme="" data-icon="arrow-u">
                       Map
                   </a>
               </li>
@@ -1119,6 +1129,8 @@
 
 
           <!-- END OF INFORMATION SECTION -->
+
+
 
   <div data-role="page" data-control-title="Map" id="map">
       <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">

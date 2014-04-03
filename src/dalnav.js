@@ -5,11 +5,122 @@
 /***************************************************************************************/
 
 
-/******************** The Alerts Functionality - USER STORY 11 ********************/
+/******************** The Alerts & Homepage Functions - USER STORY 11 & 24 ********************/
 /** 
 * @author: Osama Al-Arhabi
 *
 */
+
+/**
+*	Global Variable Required for the Home Page Functions
+*/
+var nextClass;    //  document.getElementById("nextClass");
+
+
+function checkTodaysClasses()
+{
+	var class1Time, class2Time, class3Time, class4Time, class5Time, class6Time;
+	var classTimes = new Array();
+	var classNum = 0;
+	var splitClassDays = "", splitStartTime = "";
+	
+	getCurrentTime();
+	var currentDay = time.getDay(); // value from 0 to 6 (0 is sunday)
+	
+	// Check Class 1
+	if(localStorage.class1Name != undefined)
+	{	
+		classNum = 1;
+		// Make sure there is a class start time saved:
+		if(localStorage.class1StartTime == undefined)
+			alert("Enter a start time for Class 1!!");
+		else
+		{
+
+			splitClassDays = localStorage.class1Days.split(","); // Get days the class is on
+			
+			// Loop through the days that the class is on to check if there is class today
+			for(i = 0; i < splitClassDays.length; i++)
+			{	
+				// if there is class today, save the time
+				if(parseInt(splitClassDays[i]) == currentDay)
+				{
+					splitStartTime = localStorage.class1StartTime.split(":"); // split to hours and minutes
+					// Create a class1Time date object (initialize date to today's date)
+					classTimes[classNum] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+				}	
+			}
+		}
+	}//End of Class1 Check
+	
+	
+	// Check Class 2
+	if(localStorage.class2Name != undefined)
+	{	
+		classNum = 2;
+		// Make sure there is a class start time saved:
+		if(localStorage.class2StartTime == undefined)
+			alert("Enter a start time for Class 2!!");
+		else
+		{
+			splitClassDays = localStorage.class2Days.split(","); // Get days the class is on
+			
+			// Loop through the days that the class is on to check if there is class today
+			for(i = 0; i < splitClassDays.length; i++)
+			{	
+				// if there is class today, save the time
+				if(parseInt(splitClassDays[i]) == currentDay)
+				{
+					splitStartTime = localStorage.class2StartTime.split(":"); // split to hours and minutes
+					// Create a class2Time date object (initialize date to today's date)
+					classTimes[classNum] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+				}	
+			}
+		}
+	}//End of Class2 Check	
+	
+	// Check Class 3
+	if(localStorage.class3Name != undefined)
+	{	
+		classNum = 3;
+		// Make sure there is a class start time saved:
+		if(localStorage.class3StartTime == undefined)
+			alert("Enter a start time for Class 3!!");
+		else
+		{
+			splitClassDays = localStorage.class3Days.split(","); // Get days the class is on
+			
+			// Loop through the days that the class is on to check if there is class today
+			for(i = 0; i < splitClassDays.length; i++)
+			{	
+				// if there is class today, save the time
+				if(parseInt(splitClassDays[i]) == currentDay)
+				{
+					splitStartTime = localStorage.class3StartTime.split(":"); // split to hours and minutes
+					// Create a class3Time date object (initialize date to today's date)
+					classTimes[classNum] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+				}	
+			}
+		}
+	}//End of Class3 Check
+	
+	
+// now Class 4, 5, and 6 Checks!!
+	
+	
+	
+	classTimes[2] = new Date();
+	
+	// Testing: 
+	console.log("\n\n~~~~~classTimes length: "+classTimes.length);
+	console.log("~~~~~0: "+classTimes[0]); // undefined?
+	console.log("~~~~~1: "+classTimes[1]);
+	console.log("~~~~~2: "+classTimes[2]);
+	console.log("~~~~~0 undefined?: "+(classTimes[0]==undefined));
+
+}
+
+
 
 /**
 * Global Variables Required for the Alerts Functionality:
@@ -29,6 +140,7 @@ var class1StartTime, class2StartTime, class3StartTime, class4StartTime, class5St
 function alertsManager()
 {	
 	loadSchedule(); loadDirections(); // loads content from localStorage upon first load of the app
+	checkTodaysClasses();
 	 
 	console.log("~~~~alertsManager was called~~~~");
 
@@ -518,6 +630,70 @@ function loadDirections()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+*	Homepage Function
+*/
+function getDirections()
+{
+	//nextClass.innerHTML = "Testing";
+	document.getElementById("nextClass").innerHTML = "My new next class";
+	//alert("Gets you the directions");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
 *	The following 6 functions find the directions to the chosen class and
 *	display them on the map.  They make use of the function findDirections() in 
@@ -895,6 +1071,9 @@ function saveClass()
 		localStorage.class1StartTime = startTime.value;
 		console.log("Class start time: "+localStorage.class1StartTime);	
 		
+		if(startTime.value == "")
+			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");
+		
 		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
 		{
@@ -984,6 +1163,9 @@ function saveClass()
 		// save the class start time	
 		localStorage.class2StartTime = startTime.value;
 		console.log("Class start time: "+localStorage.class2StartTime);	
+		
+		if(startTime.value == "")
+			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");		
 		
 		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
@@ -1075,6 +1257,9 @@ function saveClass()
 		localStorage.class3StartTime = startTime.value;
 		console.log("Class start time: "+localStorage.class3StartTime);	
 		
+		if(startTime.value == "")
+			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");		
+		
 		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
 		{
@@ -1164,6 +1349,9 @@ function saveClass()
 		// save the class start time	
 		localStorage.class4StartTime = startTime.value;
 		console.log("Class start time: "+localStorage.class4StartTime);	
+		
+		if(startTime.value == "")
+			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");
 		
 		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
@@ -1255,6 +1443,9 @@ function saveClass()
 		localStorage.class5StartTime = startTime.value;
 		console.log("Class start time: "+localStorage.class5StartTime);	
 		
+		if(startTime.value == "")
+			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");
+		
 		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
 		{
@@ -1345,6 +1536,9 @@ function saveClass()
 		localStorage.class6StartTime = startTime.value;
 		console.log("Class start time: "+localStorage.class6StartTime);	
 		
+		if(startTime.value == "")
+			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");
+		
 		// get the alert switch value (on/off) & if "on" then call the alerts function
 		if(theAlert.selectedIndex == 1)
 		{
@@ -1399,6 +1593,7 @@ console.log("deleteClass()");
 		localStorage.removeItem("class1StartTime");
 		localStorage.removeItem("class1Alert");
 		localStorage.removeItem("class1AlertTime");
+		localStorage.removeItem("class1Days");
 		
 		class1Button.innerHTML = "Class 1";
 		break;
@@ -1417,6 +1612,7 @@ console.log("deleteClass()");
 		localStorage.removeItem("class2StartTime");
 		localStorage.removeItem("class2Alert");
 		localStorage.removeItem("class2AlertTime");
+		localStorage.removeItem("class2Days");
 		
 		class2Button.innerHTML = "Class 2";
 		break;
@@ -1435,6 +1631,7 @@ console.log("deleteClass()");
 		localStorage.removeItem("class3StartTime");
 		localStorage.removeItem("class3Alert");
 		localStorage.removeItem("class3AlertTime");
+		localStorage.removeItem("class3Days");
 		
 		class3Button.innerHTML = "Class 3";
 		break;	
@@ -1453,6 +1650,7 @@ console.log("deleteClass()");
 		localStorage.removeItem("class4StartTime");
 		localStorage.removeItem("class4Alert");
 		localStorage.removeItem("class4AlertTime");
+		localStorage.removeItem("class4Days");
 		
 		class4Button.innerHTML = "Class 4";
 		break;
@@ -1471,6 +1669,7 @@ console.log("deleteClass()");
 		localStorage.removeItem("class5StartTime");
 		localStorage.removeItem("class5Alert");
 		localStorage.removeItem("class5AlertTime");
+		localStorage.removeItem("class5Days");
 		
 		class5Button.innerHTML = "Class 5";
 		break;
@@ -1489,6 +1688,7 @@ console.log("deleteClass()");
 		localStorage.removeItem("class6StartTime");
 		localStorage.removeItem("class6Alert");
 		localStorage.removeItem("class6AlertTime");
+		localStorage.removeItem("class6Days");
 		
 		class6Button.innerHTML = "Class 6";
 		break;
