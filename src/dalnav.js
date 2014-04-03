@@ -14,14 +14,15 @@
 /**
 *	Global Variable Required for the Home Page Functions
 */
-var nextClass;    //  document.getElementById("nextClass");
+var upcomingClass;
 
 
 function checkTodaysClasses()
 {
 	var class1Time, class2Time, class3Time, class4Time, class5Time, class6Time;
-	var classTimes = new Array();
-	var classNum = 0;
+	var classTimes = new Array(); // stores today's classes times
+	var classIndexes = new Array(); // stores today's classes index (i.e. class 1,2, etc..)
+	var classNum = 0, today = 0, upcomingClass = 0;
 	var splitClassDays = "", splitStartTime = "";
 	
 	getCurrentTime();
@@ -47,7 +48,9 @@ function checkTodaysClasses()
 				{
 					splitStartTime = localStorage.class1StartTime.split(":"); // split to hours and minutes
 					// Create a class1Time date object (initialize date to today's date)
-					classTimes[classNum] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classTimes[today] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classIndexes[today] = classNum; // save the class index
+					today++;  // increment the counter of classes today
 				}	
 			}
 		}
@@ -73,11 +76,14 @@ function checkTodaysClasses()
 				{
 					splitStartTime = localStorage.class2StartTime.split(":"); // split to hours and minutes
 					// Create a class2Time date object (initialize date to today's date)
-					classTimes[classNum] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classTimes[today] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classIndexes[today] = classNum;
+					today++;
 				}	
 			}
 		}
 	}//End of Class2 Check	
+
 	
 	// Check Class 3
 	if(localStorage.class3Name != undefined)
@@ -98,30 +104,211 @@ function checkTodaysClasses()
 				{
 					splitStartTime = localStorage.class3StartTime.split(":"); // split to hours and minutes
 					// Create a class3Time date object (initialize date to today's date)
-					classTimes[classNum] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classTimes[today] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classIndexes[today] = classNum;
+					today++;
 				}	
 			}
 		}
 	}//End of Class3 Check
-	
-	
-// now Class 4, 5, and 6 Checks!!
-	
-	
-	
-	classTimes[2] = new Date();
-	
-	// Testing: 
-	console.log("\n\n~~~~~classTimes length: "+classTimes.length);
-	console.log("~~~~~0: "+classTimes[0]); // undefined?
-	console.log("~~~~~1: "+classTimes[1]);
-	console.log("~~~~~2: "+classTimes[2]);
-	console.log("~~~~~0 undefined?: "+(classTimes[0]==undefined));
 
+
+	// Check Class 4
+	if(localStorage.class4Name != undefined)
+	{	
+		classNum = 4;
+		// Make sure there is a class start time saved:
+		if(localStorage.class4StartTime == undefined)
+			alert("Enter a start time for Class 4!!");
+		else
+		{
+			splitClassDays = localStorage.class4Days.split(","); // Get days the class is on
+			
+			// Loop through the days that the class is on to check if there is class today
+			for(i = 0; i < splitClassDays.length; i++)
+			{	
+				// if there is class today, save the time
+				if(parseInt(splitClassDays[i]) == currentDay)
+				{
+					splitStartTime = localStorage.class4StartTime.split(":"); // split to hours and minutes
+					// Create a class4Time date object (initialize date to today's date)
+					classTimes[today] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classIndexes[today] = classNum;
+					today++;
+				}	
+			}
+		}
+	}//End of Class4 Check
+	
+	
+	// Check Class 5
+	if(localStorage.class5Name != undefined)
+	{	
+		classNum = 5;
+		// Make sure there is a class start time saved:
+		if(localStorage.class5StartTime == undefined)
+			alert("Enter a start time for Class 5!!");
+		else
+		{
+			splitClassDays = localStorage.class5Days.split(","); // Get days the class is on
+			
+			// Loop through the days that the class is on to check if there is class today
+			for(i = 0; i < splitClassDays.length; i++)
+			{	
+				// if there is class today, save the time
+				if(parseInt(splitClassDays[i]) == currentDay)
+				{
+					splitStartTime = localStorage.class5StartTime.split(":"); // split to hours and minutes
+					// Create a class5Time date object (initialize date to today's date)
+					classTimes[today] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classIndexes[today] = classNum;
+					today++;
+				}	
+			}
+		}
+	}//End of Class5 Check
+
+
+	// Check Class 6
+	if(localStorage.class6Name != undefined)
+	{	
+		classNum = 6;
+		// Make sure there is a class start time saved:
+		if(localStorage.class6StartTime == undefined)
+			alert("Enter a start time for Class 6!!");
+		else
+		{
+			splitClassDays = localStorage.class6Days.split(","); // Get days the class is on
+			
+			// Loop through the days that the class is on to check if there is class today
+			for(i = 0; i < splitClassDays.length; i++)
+			{	
+				// if there is class today, save the time
+				if(parseInt(splitClassDays[i]) == currentDay)
+				{
+					splitStartTime = localStorage.class6StartTime.split(":"); // split to hours and minutes
+					// Create a class6Time date object (initialize date to today's date)
+					classTimes[today] = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
+					classIndexes[today] = classNum;
+					today++;
+				}	
+			}
+		}
+	}//End of Class6 Check
+	
+	// After checking all 6 classes and saving the times of the ones today (if any), call the function that compares their times
+	// and displays the upcoming one (passing it the array containing the list times of today's classes & their indexes):
+	if(classTimes.length > 0)
+		displayNextClass(classTimes, classIndexes);
+	else
+		document.getElementById("nextClass").innerHTML = "No Classes";
+	
+}//End of checkTodaysClasses
+
+
+
+
+
+function displayNextClass(classTimes, classIndexes)
+{
+	console.log("\nInside displayNextClass. classTimes.length: "+classTimes.length+" indexes.length: "+classIndexes.length);
+	var nextClass = document.getElementById("nextClass"); 
+	
+	getCurrentTime();
+	var soonest = 0;
+	var foundSoonest = false;
+	
+	// Loop through today's classes to see which one is the soonest:
+	for(i = 0; i < classTimes.length; i++)
+	{									
+		if(classTimes[i] > time) // make sure class time didn't pass already
+		{
+			foundSoonest = true;
+			
+			if(classTimes[i] < classTimes[soonest])
+				soonest = i;
+		}
+	}
+	
+	if(foundSoonest) // if we found an upcoming class today, display it on the homepage
+	{
+		switch(classIndexes[soonest])
+		{
+			case 1:
+				upcomingClass = 1;
+				nextClass.innerHTML = localStorage.class1Name +" at "+localStorage.class1StartTime;
+				break;
+			case 2:
+				upcomingClass = 2;
+				nextClass.innerHTML = localStorage.class2Name +" at "+localStorage.class2StartTime;
+				break;
+			case 3:
+				upcomingClass = 3;
+				nextClass.innerHTML = localStorage.class3Name +" at "+localStorage.class3StartTime;
+				break;
+			case 4:
+				upcomingClass = 4;
+				nextClass.innerHTML = localStorage.class4Name +" at "+localStorage.class4StartTime;
+				break;
+			case 5:
+				upcomingClass = 5;
+				nextClass.innerHTML = localStorage.class5Name +" at "+localStorage.class5StartTime;
+				break;
+			case 6:
+				upcomingClass = 6;
+				nextClass.innerHTML = localStorage.class6Name +" at "+localStorage.class6StartTime;
+				break;
+		}
+	}
+	
+	else // if there is no soonest class
+	{
+		upcomingClass = 0;
+		nextClass.innerHTML = "No Classes";
+	}
+	
+	
+}//End of displayNextClass()
+
+
+/**
+*	Homepage Function that shows the directions to your Next Class once you click on it
+*   on the home page.
+*/
+function directionsToNextClass()
+{
+	switch(upcomingClass)
+	{
+		case 1:
+			directionsToClass1();
+			break;
+		case 2:
+			directionsToClass2();
+			break;
+		case 3:
+			directionsToClass3();
+			break;
+		case 4:
+			directionsToClass4();
+			break;
+		case 5:
+			directionsToClass5();
+			break;
+		case 6:
+			directionsToClass6();
+			break;
+	}
+	
+	// Take User to the Directions Map Page		
+	window.location.href="#directionsMap";
 }
 
+/************************** END OF HOME PAGE FUNCTIONS *********************************/
 
 
+
+
+/******************************** ALERTS FUNCTIONS **************************************/
 /**
 * Global Variables Required for the Alerts Functionality:
 */
@@ -140,33 +327,56 @@ var class1StartTime, class2StartTime, class3StartTime, class4StartTime, class5St
 function alertsManager()
 {	
 	loadSchedule(); loadDirections(); // loads content from localStorage upon first load of the app
-	checkTodaysClasses();
+	checkTodaysClasses(); //Checks which classes are on today to display the next class on home page
 	 
 	console.log("~~~~alertsManager was called~~~~");
 
-	// Calculate the time till 12am the next day:
-	var hoursTillTomorrow = (24 - time.getHours());
-	console.log("Hours till Tomorrow: "+hoursTillTomorrow);
+	var anyAlertsOn = false;
 
-	// Set a timer that calls this function every day to set timer alerts for the classes
-	// scheduled for today (note: 1 hour = 3600000 milliseconds)
-	dailyTimer = setTimeout(function(){alertsManager();}, hoursTillTomorrow*3600000);
-	console.log("dailyTimer set for: "+(hoursTillTomorrow*3600000));
-	
-	
-	// Now check which classes' alerts are on and call their setAlerts functions
+	// First check if any classes have alerts on:
 	if(localStorage.class1Alert == "on")
-		setClass1Alert();
-	if(localStorage.class2Alert == "on")
-		setClass2Alert();
-	if(localStorage.class3Alert == "on")
-		setClass3Alert();
-	if(localStorage.class4Alert == "on")
-		setClass4Alert();
-	if(localStorage.class5Alert == "on")
-		setClass5Alert();
-	if(localStorage.class6Alert == "on")
-		setClass6Alert();
+		anyAlertsOn = true;
+	else if(localStorage.class2Alert == "on")
+		anyAlertsOn = true;
+	else if(localStorage.class3Alert == "on")
+		anyAlertsOn = true;
+	else if(localStorage.class4Alert == "on")
+		anyAlertsOn = true;
+	else if(localStorage.class5Alert == "on")
+		anyAlertsOn = true;
+	else if(localStorage.class6Alert == "on")
+		anyAlertsOn = true;
+	
+	// Only if a class has alerts on do we need to start the alerts timer process
+	if(anyAlertsOn == true)
+	{
+		console.log("\n\nAlerts are ON (for at least one class)\n\n");
+		// Calculate the time till 12am the next day:
+		var hoursTillTomorrow = (24 - time.getHours());
+		console.log("Hours till Tomorrow: "+hoursTillTomorrow);
+
+		// Set a timer that calls this function every day to set timer alerts for the classes
+		// scheduled for today (note: 1 hour = 3600000 milliseconds)
+		dailyTimer = setTimeout(function(){alertsManager();}, hoursTillTomorrow*3600000);
+		console.log("dailyTimer set for: "+(hoursTillTomorrow*3600000));
+	
+	
+		// Now check which classes' alerts are on and call their setAlerts functions
+		if(localStorage.class1Alert == "on")
+			setClass1Alert();
+		if(localStorage.class2Alert == "on")
+			setClass2Alert();
+		if(localStorage.class3Alert == "on")
+			setClass3Alert();
+		if(localStorage.class4Alert == "on")
+			setClass4Alert();
+		if(localStorage.class5Alert == "on")
+			setClass5Alert();
+		if(localStorage.class6Alert == "on")
+			setClass6Alert();	
+	}
+
+		
 }//End of alertsManager()
 
 
@@ -627,71 +837,6 @@ function loadDirections()
 	if(localStorage.class6Name != undefined)
 		class6DirectionsButton.innerHTML = localStorage.class6Name;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
-*	Homepage Function
-*/
-function getDirections()
-{
-	//nextClass.innerHTML = "Testing";
-	document.getElementById("nextClass").innerHTML = "My new next class";
-	//alert("Gets you the directions");
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /**
@@ -1563,7 +1708,11 @@ function saveClass()
 		
 		class6Button.innerHTML = className.value;
 		break;	
-	}		
+	}	
+	
+	// After saving a class, checkTodaysClasses() gets called to update your next class info on the home page
+	checkTodaysClasses();
+	
 } // end of saveClass()
 
 

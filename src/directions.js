@@ -638,8 +638,7 @@ function findDirections(lat, longt){
 (function ( $ ) {
   $.fn.GeoLocation = function( options ) {
     var settings = $.extend({
-      dest: { latitude: 44.637735, longitude: -63.588473 },
-   //   dest: { latitude: lat, longitude: longt },
+      dest: { latitude: 44.637735, longitude: -63.588473 }
     }, options );
     
    // var dest = new google.maps.LatLng(settings.dest.latitude, settings.dest.longitude);
@@ -657,7 +656,7 @@ function findDirections(lat, longt){
         var options = {
           center: current,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
-          zoom: 10,
+          zoom: 10
         };
         
         var map = new google.maps.Map(element[0], options);
