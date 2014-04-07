@@ -41,21 +41,69 @@
 
 
 
-<div data-theme="a" data-role="header">
-          <a data-role="button" href="#directions" class="ui-btn-left">
-              Back
-          </a>
-          <h3 id="directionsMapTitle">
-              Directions Map
-          </h3>
-      </div>
-      <div data-role="content">
-          <div class="dirMap"></div>
-          <script> 
-            // findDirections(44.638046,-63.58747);
-          </script>
-      </div>
-      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+
+<!-- Home page -->
+<div data-role="page" data-control-title="Home" id="home">
+    <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+        <ul data-role="listview" data-divider-theme="h" data-inset="false">
+            <li data-role="list-divider" role="heading">
+                Menu
+            </li>
+            <li data-theme="a">
+                <a href="#directions" onClick=loadDirections() data-transition="slide">
+                    Directions
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#residency" data-transition="slide">
+                    Residences
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#parkpage" data-transition="slide">
+                    Parking
+                </a>
+            </li>
+            <li data-theme="a">
+              <a href="#informationHome" data-transition="slide">
+                  Information
+              </a>
+            </li>
+            <li data-theme="a">
+              <a href="#about" data-transition="slide">
+                About DalNav
+              </a>
+            </li>
+        </ul>
+    </div>
+    <div data-theme="a" data-role="header">
+        <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
+        data-icon="bars" data-iconpos="left" class="ui-btn-left">
+            Menu
+        </a>
+        <h3>
+            DalNav
+        </h3>
+    </div>
+    <div data-role="content">
+
+<!-- Content of Homepage -->
+
+    <center><img style="width:80%; height:20%;" src="images/DALNAV.png"></center>
+
+            
+            <div id="NextClassNotification">
+                <table onClick=directionsToNextClass() border="0" style="width:100%">
+                  <tr>
+                    <th>Next Class: </th>
+                      <td id="nextClass">No Classes</td>
+
+                  </tr>  
+                </table>  
+            </div>  
+    	
+    </div>
+    <div data-role="tabbar" data-iconpos="top" data-theme="c">
           <ul>
               <li>
                   <a href="#home" data-transition="fade" data-theme="" data-icon="home">
@@ -79,13 +127,42 @@
               </li>
           </ul>
       </div>
+  </div>
+<!-- End of home page -->
 
 
 
 
-
-
-<div data-theme="a" data-role="header">
+<!-- Directions Page -->  
+<div data-role="page" data-control-title="Directions" id="directions">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+              <li data-theme="a">
+              <a href="#informationMap" data-transition="slide">
+                  Information
+              </a>
+          </li>
+          </ul>
+      </div>
+      <div data-theme="a" data-role="header">
           <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
           data-icon="bars" data-iconpos="left" class="ui-btn-left">
               Menu
@@ -175,14 +252,86 @@
             </li>
         </ul>
     </div>
+</div>
+<!-- End of Directions Page -->
+
+
+
+<!-- Directions Map Page -->
+  <div data-role="page" data-control-title="Directions Map" id="directionsMap">
+      <div data-theme="a" data-role="header">
+          <a data-role="button" href="#directions" class="ui-btn-left">
+              Back
+          </a>
+          <h3 id="directionsMapTitle">
+              Directions Map
+          </h3>
+      </div>
+      <div data-role="content">
+                <div id="dirTime"></div>
+          <div class="dirMap"></div>
+
+      </div>
+      <div data-role="tabbar" data-iconpos="top" data-theme="c">
+          <ul>
+              <li>
+                  <a href="#home" data-transition="fade" data-theme="" data-icon="home">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#find" data-transition="fade" data-theme="" data-icon="search">
+                      Find
+                  </a>
+              </li>
+              <li>
+                  <a href="#schedule" onClick=loadSchedule() data-transition="fade" data-theme="" data-icon="star">
+                      Schedule
+                  </a>
+              </li>
+              <li>
+                  <a href="#map" data-transition="fade" data-theme="" data-icon="arrow-u">
+                      Map
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+<!-- End of Directions Map Page -->
 
 
 
 
-
-
-
-<div data-theme="a" data-role="header">
+<!-- Schedule Page -->  
+  <div data-role="page" data-control-title="Course Overview" id="schedule">
+      <div data-role="panel" id="panel1" data-position="left" data-display="reveal" data-theme="a">
+          <ul data-role="listview" data-divider-theme="h" data-inset="false">
+              <li data-role="list-divider" role="heading">
+                  Menu
+              </li>
+              <li data-theme="a">
+                  <a href="#directions" onClick=loadDirections() data-transition="slide">
+                      Directions
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#residency" data-transition="slide">
+                      Residences
+                  </a>
+              </li>
+              <li data-theme="a">
+                  <a href="#parkpage" data-transition="slide">
+                      Parking
+                  </a>
+              </li>
+              <li data-theme="a">
+                <a href="#informationSchedule" data-transition="slide">
+                    Information
+                </a>
+            </li>
+          </ul>
+      </div>
+      <div data-theme="a" data-role="header">
           <a id="menuButton" data-controltype="panelbutton" data-role="button" href="#panel1"
           data-icon="bars" data-iconpos="left" class="ui-btn-left">
               Menu
@@ -273,6 +422,8 @@
           </ul>
       </div>
   </div>
+
+
   
 <!-- Edit Class Page -->
   <div data-role="page" data-control-title="Edit Class" id="editclass">
@@ -399,11 +550,11 @@
           </div>
           <div data-role="fieldcontain" data-controltype="dateinput" class="timeInput">
               <label for="timeEdit">
-                  Class Start Time
+                  Class Start Time (in 24 hour format)
               </label>
               <input name="" id="timeEdit" placeholder="" value="" type="time">
           </div>
-          <div data-role="fieldcontain" data-controltype="toggleswitch" class="alertButton">
+          <div data-role="fieldcontain" data-contro1ltype="toggleswitch" class="alertButton">
               <label for="alertEdit">
                   Alerts
               </label>
@@ -457,7 +608,10 @@
               </li>
           </ul>
       </div>
-  </div>
+  </div>  
+
+
+  
 <h1> Jasmine Test </h1>
 <h1> finished </h1>
 </body>

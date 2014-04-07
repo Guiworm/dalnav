@@ -17,6 +17,10 @@
 var upcomingClass;
 
 
+/**
+*	Checks all the class slots (i.e. 6 classes) to determine which ones are on today and call
+*	the appropriate function to display the upcoming class if any
+*/
 function checkTodaysClasses()
 {
 	var class1Time, class2Time, class3Time, class4Time, class5Time, class6Time;
@@ -207,10 +211,13 @@ function checkTodaysClasses()
 
 
 
-
+/**
+*	Compares today's classes and determines which one is the upcoming one (if any) and displays it
+*	on the Home Page "Next Class: "
+*/
 function displayNextClass(classTimes, classIndexes)
 {
-	console.log("\nInside displayNextClass. classTimes.length: "+classTimes.length+" indexes.length: "+classIndexes.length);
+	//console.log("\nInside displayNextClass. classTimes.length: "+classTimes.length+" indexes.length: "+classIndexes.length);
 	var nextClass = document.getElementById("nextClass"); 
 	
 	getCurrentTime();
@@ -231,12 +238,10 @@ function displayNextClass(classTimes, classIndexes)
 	
 	if(foundSoonest) // if we found an upcoming class today, display it on the homepage
 	{
-//alert("\n\nsoonest: "+soonest+" classIndexes[soonest]: "+classIndexes[soonest]+"\n\n");
-
 		// Ensure its time didn't pass already:
 		if(classTimes[soonest] > time)
 		{
-//alert("Second pass time check!");
+
 			upcomingClass = 0;
 			nextClass.innerHTML = "No Classes";
 		}
@@ -338,7 +343,7 @@ function alertsManager()
 	loadSchedule(); loadDirections(); // loads content from localStorage upon first load of the app
 	checkTodaysClasses(); //Checks which classes are on today to display the next class on home page
 	 
-	console.log("~~~~alertsManager was called~~~~");
+	//console.log("~~~~alertsManager was called~~~~");
 
 	var anyAlertsOn = false;
 
@@ -359,15 +364,15 @@ function alertsManager()
 	// Only if a class has alerts on do we need to start the alerts timer process
 	if(anyAlertsOn == true)
 	{
-		console.log("\n\nAlerts are ON (for at least one class)\n\n");
+		//console.log("\n\nAlerts are ON (for at least one class)\n\n");
 		// Calculate the time till 12am the next day:
 		var hoursTillTomorrow = (24 - time.getHours());
-		console.log("Hours till Tomorrow: "+hoursTillTomorrow);
+		//console.log("Hours till Tomorrow: "+hoursTillTomorrow);
 
 		// Set a timer that calls this function every day to set timer alerts for the classes
 		// scheduled for today (note: 1 hour = 3600000 milliseconds)
 		dailyTimer = setTimeout(function(){alertsManager();}, hoursTillTomorrow*3600000);
-		console.log("dailyTimer set for: "+(hoursTillTomorrow*3600000));
+		//console.log("dailyTimer set for: "+(hoursTillTomorrow*3600000));
 	
 	
 		// Now check which classes' alerts are on and call their setAlerts functions
@@ -384,8 +389,6 @@ function alertsManager()
 		if(localStorage.class6Alert == "on")
 			setClass6Alert();	
 	}
-
-		
 }//End of alertsManager()
 
 
@@ -420,6 +423,7 @@ function alerts(fromClass)
 	}
 }
 
+
 /**
 *  Helper Method that gets the current time
 */
@@ -427,8 +431,6 @@ function getCurrentTime()
 {
 	time = new Date();
 	time.getTime();
-console.log("time object: "+time);
-console.log("time.getDate: "+time.getDate());
 	
 	seconds = time.getSeconds();
 	minutes = time.getMinutes();
@@ -437,26 +439,20 @@ console.log("time.getDate: "+time.getDate());
 	currentTime = hours+":"+minutes+":"+seconds;	
 }
 
+
 /*
 *  Helper method that gets & calculates class alert time 
 */
 function getAlertTime()
 {
-	//localStorage.class1StartTime 16:00
-	//localStorage.class1AlertTime 15
-	
-	
-	
 	// split class start time to hours and minutes
 	var splitStartTime = localStorage.class1StartTime.split(":");
 	
 	// create a class1StartTime date object (initialize date to today's date)
 	class1StartTime = new Date(time.getFullYear(),time.getMonth(),time.getDate(),splitStartTime[0],splitStartTime[1],0);
-console.log("class start time object: "+class1StartTime);	
 
 	// create a class1AlertTime date object
 	class1AlertTime = new Date(class1StartTime - (parseInt(localStorage.class1AlertTime) *60000));
-console.log("class alert time: "+class1AlertTime);	
 }
 
 
@@ -466,7 +462,7 @@ console.log("class alert time: "+class1AlertTime);
 */
 function setClass1Alert()
 {
-	console.log("**** setClass1Alert() was called ******");
+	//console.log("**** setClass1Alert() was called ******");
 	// Get current time
 	getCurrentTime();
 	
@@ -497,12 +493,11 @@ function setClass1Alert()
 			if((time.getHours() <= class1AlertTime.getHours()) && (time.getMinutes() <= class1AlertTime.getMinutes()))
 			{
 				// If class is today, calculate time left, then set a timer:
-				console.log("class1AlertTime: "+class1AlertTime+" , time: "+time);
+				//console.log("class1AlertTime: "+class1AlertTime+" , time: "+time);
 				var timeLeft = class1AlertTime.getTime() - time.getTime(); // in milliseconds			
-				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
 
 				timer1 = setTimeout(function(){displayAlert(1);}, timeLeft);
-				console.log("***** Class1 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+				//console.log("***** Class1 Timer was set for: "+(timeLeft/60000)+" minutes *****");
 			}
 		}			
 	}
@@ -515,7 +510,7 @@ function setClass1Alert()
 */
 function setClass2Alert()
 {
-	console.log("**** setClass2Alert() was called ******");
+	//console.log("**** setClass2Alert() was called ******");
 	// Get current time
 	getCurrentTime();
 	
@@ -546,12 +541,12 @@ function setClass2Alert()
 			if((time.getHours() <= class2AlertTime.getHours()) && (time.getMinutes() <= class2AlertTime.getMinutes()))
 			{
 				// If class is today, calculate time left, then set a timer:
-				console.log("class2AlertTime: "+class2AlertTime+" , time: "+time);
+				//console.log("class2AlertTime: "+class2AlertTime+" , time: "+time);
 				var timeLeft = class2AlertTime.getTime() - time.getTime(); // in milliseconds			
-				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+				//console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
 
 				timer2 = setTimeout(function(){displayAlert(2);}, timeLeft);
-				console.log("***** Class2 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+				//console.log("***** Class2 Timer was set for: "+(timeLeft/60000)+" minutes *****");
 			}
 		}			
 	}
@@ -564,7 +559,7 @@ function setClass2Alert()
 */
 function setClass3Alert()
 {
-	console.log("**** setClass3Alert() was called ******");
+	//console.log("**** setClass3Alert() was called ******");
 	// Get current time
 	getCurrentTime();
 	
@@ -595,12 +590,12 @@ function setClass3Alert()
 			if((time.getHours() <= class3AlertTime.getHours()) && (time.getMinutes() <= class3AlertTime.getMinutes()))
 			{
 				// If class is today, calculate time left, then set a timer:
-				console.log("class3AlertTime: "+class3AlertTime+" , time: "+time);
+				//console.log("class3AlertTime: "+class3AlertTime+" , time: "+time);
 				var timeLeft = class3AlertTime.getTime() - time.getTime(); // in milliseconds			
-				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+				//console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
 
 				timer3 = setTimeout(function(){displayAlert(3);}, timeLeft);
-				console.log("***** Class3 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+				//console.log("***** Class3 Timer was set for: "+(timeLeft/60000)+" minutes *****");
 			}
 		}			
 	}
@@ -613,7 +608,7 @@ function setClass3Alert()
 */
 function setClass4Alert()
 {
-	console.log("**** setClass4Alert() was called ******");
+	//console.log("**** setClass4Alert() was called ******");
 	// Get current time
 	getCurrentTime();
 	
@@ -644,12 +639,12 @@ function setClass4Alert()
 			if((time.getHours() <= class4AlertTime.getHours()) && (time.getMinutes() <= class4AlertTime.getMinutes()))
 			{
 				// If class is today, calculate time left, then set a timer:
-				console.log("class4AlertTime: "+class4AlertTime+" , time: "+time);
+				//console.log("class4AlertTime: "+class4AlertTime+" , time: "+time);
 				var timeLeft = class4AlertTime.getTime() - time.getTime(); // in milliseconds			
-				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+				//console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
 
 				timer4 = setTimeout(function(){displayAlert(4);}, timeLeft);
-				console.log("***** Class4 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+				//console.log("***** Class4 Timer was set for: "+(timeLeft/60000)+" minutes *****");
 			}
 		}			
 	}
@@ -662,7 +657,7 @@ function setClass4Alert()
 */
 function setClass5Alert()
 {
-	console.log("**** setClass5Alert() was called ******");
+	//console.log("**** setClass5Alert() was called ******");
 	// Get current time
 	getCurrentTime();
 	
@@ -693,12 +688,12 @@ function setClass5Alert()
 			if((time.getHours() <= class5AlertTime.getHours()) && (time.getMinutes() <= class5AlertTime.getMinutes()))
 			{
 				// If class is today, calculate time left, then set a timer:
-				console.log("class5AlertTime: "+class5AlertTime+" , time: "+time);
+				//console.log("class5AlertTime: "+class5AlertTime+" , time: "+time);
 				var timeLeft = class5AlertTime.getTime() - time.getTime(); // in milliseconds			
-				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+				//console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
 
 				timer5 = setTimeout(function(){displayAlert(5);}, timeLeft);
-				console.log("***** Class5 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+				//console.log("***** Class5 Timer was set for: "+(timeLeft/60000)+" minutes *****");
 			}
 		}			
 	}
@@ -711,7 +706,7 @@ function setClass5Alert()
 */
 function setClass6Alert()
 {
-console.log("**** setClass6Alert() was called ******");
+//console.log("**** setClass6Alert() was called ******");
 	// Get current time
 	getCurrentTime();
 	
@@ -742,12 +737,12 @@ console.log("**** setClass6Alert() was called ******");
 			if((time.getHours() <= class6AlertTime.getHours()) && (time.getMinutes() <= class6AlertTime.getMinutes()))
 			{
 				// If class is today, calculate time left, then set a timer:
-				console.log("class6AlertTime: "+class6AlertTime+" , time: "+time);
+				//console.log("class6AlertTime: "+class6AlertTime+" , time: "+time);
 				var timeLeft = class6AlertTime.getTime() - time.getTime(); // in milliseconds			
-				console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
+				//console.log("TIME LEFT (minutes): "+ (timeLeft/60000));		
 
 				timer6 = setTimeout(function(){displayAlert(6);}, timeLeft);
-				console.log("***** Class6 Timer was set for: "+(timeLeft/60000)+" minutes *****");
+				//console.log("***** Class6 Timer was set for: "+(timeLeft/60000)+" minutes *****");
 			}
 		}			
 	}
@@ -1223,7 +1218,7 @@ function saveClass()
 		
 		// save the class start time	
 		localStorage.class1StartTime = startTime.value;
-		console.log("Class start time: "+localStorage.class1StartTime);	
+		//console.log("Class start time: "+localStorage.class1StartTime);	
 		
 		if(startTime.value == "")
 			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");
@@ -1316,7 +1311,7 @@ function saveClass()
 		
 		// save the class start time	
 		localStorage.class2StartTime = startTime.value;
-		console.log("Class start time: "+localStorage.class2StartTime);	
+		//console.log("Class start time: "+localStorage.class2StartTime);	
 		
 		if(startTime.value == "")
 			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");		
@@ -1409,7 +1404,7 @@ function saveClass()
 		
 		// save the class start time	
 		localStorage.class3StartTime = startTime.value;
-		console.log("Class start time: "+localStorage.class3StartTime);	
+		//console.log("Class start time: "+localStorage.class3StartTime);	
 		
 		if(startTime.value == "")
 			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");		
@@ -1502,7 +1497,7 @@ function saveClass()
 		
 		// save the class start time	
 		localStorage.class4StartTime = startTime.value;
-		console.log("Class start time: "+localStorage.class4StartTime);	
+		//console.log("Class start time: "+localStorage.class4StartTime);	
 		
 		if(startTime.value == "")
 			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");
@@ -1595,7 +1590,7 @@ function saveClass()
 		
 		// save the class start time	
 		localStorage.class5StartTime = startTime.value;
-		console.log("Class start time: "+localStorage.class5StartTime);	
+		//console.log("Class start time: "+localStorage.class5StartTime);	
 		
 		if(startTime.value == "")
 			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");
@@ -1688,7 +1683,7 @@ function saveClass()
 		
 		// save the class start time	
 		localStorage.class6StartTime = startTime.value;
-		console.log("Class start time: "+localStorage.class6StartTime);	
+		//console.log("Class start time: "+localStorage.class6StartTime);	
 		
 		if(startTime.value == "")
 			alert("Must enter a Class Start Time for the NEXT CLASS function on the Home Page to work!!");
@@ -1732,7 +1727,7 @@ function saveClass()
 */
 function deleteClass()
 {
-console.log("deleteClass()");
+//console.log("deleteClass()");
 
 	// Check which class the user is in, and delete it
 	switch(currentClass)

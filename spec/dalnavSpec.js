@@ -5,6 +5,52 @@
 */
 
 
+
+describe("HOME PAGE: Displaying the Next (Upcoming) Class", function() {
+
+	it("Should display your next class for the current day", function() {
+	
+		var nextClassDisplayField;
+		nextClassDisplayField = document.getElementById("NextClassNotification");
+	
+		// First get current time and create a sample class time that's one hour ahead
+		var time = new Date();
+		time.getTime();
+		
+		// initiate class time to the time now
+		var classTime = new Date(time.getFullYear(),time.getMonth(),time.getDate(),time.getHours(),time.getMinutes(),0);
+		
+		// then add one hour to it
+		classTime.setHours(classTime.getHours()+1);
+			
+		// Create a class for later today:
+		localStorage.class1Name = "SampleClass1";
+		localStorage.class1Building = 1;
+		localStorage.class1BuildingCoord = "44.637735,-63.588473";
+		localStorage.class1Days = "-1,0,1,2,3,4,5,6"; // class is on all days
+		localStorage.class1StartTime = classTime.getHours()+":"+classTime.getMinutes();
+		localStorage.class1Alert = "off";
+	
+		checkTodaysClasses(); //now call the function to check today's classes
+	
+		expect(nextClassDisplayField.innerHTML).toContain("SampleClass1"); // Make sure it displays "SampleClass1"
+	});
+
+
+	it("Should display 'No Classes' if there are no upcoming classes", function() {
+
+		// if there are no classes saved or no classes upcoming for the current day
+		var nextClassDisplayField;
+		nextClassDisplayField = document.getElementById("NextClassNotification");
+	
+		localStorage.clear(); // clear all saved classes
+		checkTodaysClasses(); //now call the function to check today's classes
+	
+		expect(nextClassDisplayField.innerHTML).toContain("No Classes"); // Make sure it displays "No Classes"
+	});
+});
+
+
 describe("DIRECTIONS PAGE: Getting Directions to a Class", function() {
 
 var dirToTitle;
@@ -200,9 +246,7 @@ describe("SCHEDULE/CLASS PAGE: Saving/Editing Class Details", function() {
 		currentClass = 1;
 		className.value = "SampleClassName1";
 		buildingName.selectedIndex = 1;
-		
-	//	localStorage.class1Building = buildingName.selectedIndex;
-	//	localStorage.class1BuildingCoord = buildingName.options[buildingName.selectedIndex].value;
+		startTime.value = "14:00";
 		
 		saveClass();
 		
@@ -216,6 +260,7 @@ describe("SCHEDULE/CLASS PAGE: Saving/Editing Class Details", function() {
 		
 		tues.checked = true;
 		thur.checked = true;
+		startTime.value = "14:00";
 		
 		saveClass();
 		
@@ -241,6 +286,7 @@ describe("SCHEDULE/CLASS PAGE: Saving/Editing Class Details", function() {
 		
 		theAlert.selectedIndex = 1;
 		alertTime.value = "15"
+		startTime.value = "14:00";
 		
 		saveClass();
 		
